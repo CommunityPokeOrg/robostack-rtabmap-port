@@ -44,6 +44,10 @@ cmd = "rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml -
 depends-on = ["generate-recipes"]
 description = "Build all packages, from the ./recipes dir. This will skip already existing packages, so it can be used to build only a subset of packages by first removing the recipes of the packages you want to rebuild (see `pixi run remove-recipes`)."
 
+[tasks.build-port]
+cmd = "mkdir -p output && rattler-build build --recipe-dir ./recipes -m ./conda_build_config.yaml -c ./output -c robostack-humble -c conda-forge --output-dir ./output --skip-existing"
+description = "Build the rtabmap / rtabmap_ros recipes in ./recipes natively for the host platform (linux-64 or osx-arm64) against the released robostack-humble channel (mutex 0.8 / gtsam 4.2.0 / boost 1.88 workaround, see #2). Regenerate recipes first with `pixi run vinca -m --platform <plat>`."
+
 [tasks.remove-recipes]
 cmd = "rm -rf recipes_only_patch; rm -rf recipes; mkdir recipes"
 description = "Remove all generated recipes, before regenerating them."

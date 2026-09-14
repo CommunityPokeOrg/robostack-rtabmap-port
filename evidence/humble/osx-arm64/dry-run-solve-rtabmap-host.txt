@@ -1,0 +1,34 @@
+# rendered host requirements for osx-arm64 (23):
+   llvm-openmp
+   pkg-config
+   ceres-solver
+   libboost-devel
+   libdc1394
+   libusb
+   numpy
+   octomap
+   pcl
+   pip
+   proj
+   python
+   ros-humble-cv-bridge
+   ros-humble-gtsam
+   ros-humble-libg2o
+   ros-humble-qt-gui-cpp
+   ros-humble-ros-environment
+   ros-humble-ros-workspace
+   ros2-distro-mutex 0.8.* humble_*
+   sqlite 3.*
+   vtk
+   vtk-base
+   zlib
++ pixi lock
+ INFO get_or_create_subdir{platform=OsxArm64 channel=https://conda.anaconda.org/robostack-humble/}: sharded repodata seems to be missing for https://conda.anaconda.org/robostack-humble/osx-arm64/, falling back to repodata.json files
+ INFO get_or_create_subdir{platform=NoArch channel=https://conda.anaconda.org/robostack-humble/}: sharded repodata seems to be missing for https://conda.anaconda.org/robostack-humble/noarch/, falling back to repodata.json files
+✔ Updated lock file
+Environment: default                                                                              
+# libboost-: ['/libboost-1.88.0-h0419b56_7.conda', '/libboost-devel-1.88.0-hf450f58_7.conda', '/libboost-headers-1.88.0-hce30654_7.conda', '/libboost-python-1.88.0-py312hdeff4eb_7.conda', '/libboost-python-devel-1.88.0-py312h652a6e0_7.conda']
+# gtsam-: ['/gtsam-4.2.0-py312h1de15dc_14.conda']
+# ros2-distro-mutex-: ['/ros2-distro-mutex-0.8.0-humble_15.conda']
+# llvm-openmp-: ['/llvm-openmp-23.1.1-hdb3d66b_0.conda']
+OK: ros-humble-rtabmap host env solves on osx-arm64

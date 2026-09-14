@@ -1,0 +1,35 @@
+# rendered host requirements for linux-64 (24):
+   libgl-devel
+   libopengl-devel
+   pkg-config
+   ceres-solver
+   libboost-devel
+   libdc1394
+   libusb
+   numpy
+   octomap
+   pcl
+   pip
+   proj
+   python
+   ros-humble-cv-bridge
+   ros-humble-gtsam
+   ros-humble-libg2o
+   ros-humble-qt-gui-cpp
+   ros-humble-ros-environment
+   ros-humble-ros-workspace
+   ros2-distro-mutex 0.8.* humble_*
+   sqlite 3.*
+   vtk
+   vtk-base
+   zlib
++ pixi lock
+ INFO get_or_create_subdir{platform=NoArch channel=https://conda.anaconda.org/robostack-humble/}: sharded repodata seems to be missing for https://conda.anaconda.org/robostack-humble/noarch/, falling back to repodata.json files
+ INFO get_or_create_subdir{platform=Linux64 channel=https://conda.anaconda.org/robostack-humble/}: sharded repodata seems to be missing for https://conda.anaconda.org/robostack-humble/linux-64/, falling back to repodata.json files
+✔ Updated lock file
+Environment: default                                                                              
+# libboost-: ['/libboost-1.88.0-hd24cca6_7.conda', '/libboost-devel-1.88.0-hfcd1e18_7.conda', '/libboost-headers-1.88.0-ha770c72_7.conda', '/libboost-python-1.88.0-py312hf890105_7.conda', '/libboost-python-devel-1.88.0-py312h26dfbe5_7.conda']
+# gtsam-: ['/gtsam-4.2.0-py312h7f00892_14.conda']
+# ros2-distro-mutex-: ['/ros2-distro-mutex-0.8.0-humble_15.conda']
+# llvm-openmp-: []
+OK: ros-humble-rtabmap host env solves on linux-64

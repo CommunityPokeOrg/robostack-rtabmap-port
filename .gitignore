@@ -2,3 +2,4 @@ output/
 recipes/
 *.conda
 .pixi/
+vinca_*.json
