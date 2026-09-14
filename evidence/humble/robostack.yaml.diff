@@ -1,0 +1,11 @@
+--- /home/ubuntu/upstream/ros-humble/robostack.yaml	2026-09-14 00:58:19.587089345 +0000
++++ ros-humble/robostack.yaml	2026-09-14 01:22:43.345571789 +0000
+@@ -400,6 +400,8 @@
+   robostack: [nlopt]
+ libnlopt0:
+   robostack: [nlopt]
++liboctomap-dev:
++  robostack: [octomap]
+ libogg:
+   robostack: [libogg]
+ libogre:

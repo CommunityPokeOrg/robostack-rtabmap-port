@@ -1,0 +1,190 @@
+ rattler-build 0.76.0
+ No configuration file loaded
+ Processing recipe at path: /home/ubuntu/work/ros-humble/recipes/ros-humble-rtabmap/recipe.yaml
+
+ ╭─ Finding outputs from recipe
+ │ Loading variant config from: conda_build_config.yaml
+ │ Found 1 variants
+ │ 
+ │ Build variant: ros-humble-rtabmap-0.22.1-np2py312h2ed9cc7_18
+ │ 
+ │ ╭──────────────────────┬────────────────────╮
+ │ │ Variant              ┆ Version            │
+ │ ╞══════════════════════╪════════════════════╡
+ │ │ build_platform       ┆ "linux-64"         │
+ │ │ c_compiler           ┆ "gcc"              │
+ │ │ c_compiler_version   ┆ "14"               │
+ │ │ c_stdlib             ┆ "sysroot"          │
+ │ │ c_stdlib_version     ┆ "2.17"             │
+ │ │ cmake                ┆ "3.*"              │
+ │ │ cxx_compiler         ┆ "gxx"              │
+ │ │ cxx_compiler_version ┆ "14"               │
+ │ │ numpy                ┆ "2"                │
+ │ │ python               ┆ "3.12.* *_cpython" │
+ │ │ target_platform      ┆ "linux-64"         │
+ │ ╰──────────────────────┴────────────────────╯
+ │
+ ╰─────────────────── (took 0 seconds)
+ Starting build of 1 outputs
+
+ ╭─ Running build for recipe: ros-humble-rtabmap-0.22.1-np2py312h2ed9cc7_18
+ │
+ │ ╭─ Fetching source code
+ │ │ Fetching source from git repo: https://github.com/ros2-gbp/rtabmap-release.git
+ │ │ Fetching git repository: https://github.com/ros2-gbp/rtabmap-release.git
+ │ │
+ │ ╰─────────────────── (took 2 seconds)
+ │
+ │ ╭─ Resolving build environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.8.0=0, __glibc=2.35=0, __archspec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - https://prefix.dev/conda-forge/
+ │ │    - robostack-staging
+ │ │   Specs:
+ │ │    - gxx_linux-64 14.*
+ │ │    - gcc_linux-64 14.*
+ │ │    - sysroot_linux-64 2.17.*
+ │ │    - ninja
+ │ │    - python 3.12.* *_cpython
+ │ │    - setuptools
+ │ │    - git
+ │ │    - git-lfs
+ │ │    - patch
+ │ │    - make
+ │ │    - coreutils
+ │ │    - cmake 3.*
+ │ │    - cython
+ │ │ 
+ │ │ ╭──────────────────────────┬──────────────┬──────────────────────┬─────────────┬────────────╮
+ │ │ │ Package                  ┆ Version      ┆ Build                ┆ Channel     ┆       Size │
+ │ │ ╞══════════════════════════╪══════════════╪══════════════════════╪═════════════╪════════════╡
+ │ │ │ _openmp_mutex            ┆ 4.5          ┆ 20_gnu               ┆ conda-forge ┆  28.27 KiB │
+ │ │ │ binutils_impl_linux-64   ┆ 2.46.1       ┆ default_hfdba357_102 ┆ conda-forge ┆   3.54 MiB │
+ │ │ │ binutils_linux-64        ┆ 2.46.1       ┆ default_h4852527_102 ┆ conda-forge ┆  35.49 KiB │
+ │ │ │ bzip2                    ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge ┆ 251.77 KiB │
+ │ │ │ c-ares                   ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge ┆ 223.34 KiB │
+ │ │ │ ca-certificates          ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge ┆ 128.69 KiB │
+ │ │ │ cmake                    ┆ 3.31.8       ┆ hc85cc9f_0           ┆ conda-forge ┆  20.02 MiB │
+ │ │ │ coreutils                ┆ 9.11         ┆ h280c20c_0           ┆ conda-forge ┆   3.27 MiB │
+ │ │ │ cython                   ┆ 3.3.0        ┆ py312h03570ca_0      ┆ conda-forge ┆   3.83 MiB │
+ │ │ │ gcc_impl_linux-64        ┆ 14.4.0       ┆ heaf7ae8_4           ┆ conda-forge ┆  73.68 MiB │
+ │ │ │ gcc_linux-64             ┆ 14.4.0       ┆ hc469d41_1           ┆ conda-forge ┆  29.09 KiB │
+ │ │ │ git                      ┆ 2.55.0       ┆ pl5321h3795e67_2     ┆ conda-forge ┆  11.23 MiB │
+ │ │ │ git-lfs                  ┆ 3.8.0        ┆ h2c09266_0           ┆ conda-forge ┆   4.83 MiB │
+ │ │ │ gxx_impl_linux-64        ┆ 14.4.0       ┆ hc436dd5_4           ┆ conda-forge ┆  15.13 MiB │
+ │ │ │ gxx_linux-64             ┆ 14.4.0       ┆ he93183a_1           ┆ conda-forge ┆  27.50 KiB │
+ │ │ │ icu                      ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge ┆  13.79 MiB │
+ │ │ │ kernel-headers_linux-64  ┆ 3.10.0       ┆ he073ed8_18          ┆ conda-forge ┆ 921.37 KiB │
+ │ │ │ keyutils                 ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge ┆ 132.12 KiB │
+ │ │ │ krb5                     ┆ 1.22.2       ┆ hbc21106_2           ┆ conda-forge ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64         ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge ┆ 727.83 KiB │
+ │ │ │ libcurl                  ┆ 8.22.0       ┆ ha042cf0_0           ┆ conda-forge ┆ 487.94 KiB │
+ │ │ │ libedit                  ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge ┆ 131.93 KiB │
+ │ │ │ libev                    ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge ┆  42.21 KiB │
+ │ │ │ libexpat                 ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge ┆  76.03 KiB │
+ │ │ │ libffi                   ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge ┆  66.41 KiB │
+ │ │ │ libgcc                   ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge ┆   1.01 MiB │
+ │ │ │ libgcc-devel_linux-64    ┆ 14.4.0       ┆ hd9a9cd0_104         ┆ conda-forge ┆   2.95 MiB │
+ │ │ │ libgomp                  ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge ┆ 624.97 KiB │
+ │ │ │ libiconv                 ┆ 1.18         ┆ h0cb94f2_3           ┆ conda-forge ┆ 770.97 KiB │
+ │ │ │ liblzma                  ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge ┆ 110.35 KiB │
+ │ │ │ libnghttp2               ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge ┆ 634.74 KiB │
+ │ │ │ libnsl                   ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge ┆  32.94 KiB │
+ │ │ │ libpsl                   ┆ 0.23.1       ┆ hd9e3e90_1           ┆ conda-forge ┆  70.82 KiB │
+ │ │ │ libpython                ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge ┆   8.36 MiB │
+ │ │ │ libsanitizer             ┆ 14.4.0       ┆ hf39dbba_4           ┆ conda-forge ┆   7.15 MiB │
+ │ │ │ libsqlite                ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge ┆ 951.51 KiB │
+ │ │ │ libssh2                  ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge ┆ 298.87 KiB │
+ │ │ │ libstdcxx                ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge ┆   6.31 MiB │
+ │ │ │ libstdcxx-devel_linux-64 ┆ 14.4.0       ┆ ha5b54cb_104         ┆ conda-forge ┆  19.47 MiB │
+ │ │ │ libuuid                  ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge ┆  39.06 KiB │
+ │ │ │ libuv                    ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge ┆ 410.20 KiB │
+ │ │ │ libxcrypt                ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge ┆  99.57 KiB │
+ │ │ │ libzlib                  ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge ┆  62.22 KiB │
+ │ │ │ make                     ┆ 4.4.1        ┆ hb03c661_3           ┆ conda-forge ┆ 498.73 KiB │
+ │ │ │ ncurses                  ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge ┆ 889.84 KiB │
+ │ │ │ ninja                    ┆ 1.13.2       ┆ h171cf75_1           ┆ conda-forge ┆ 182.39 KiB │
+ │ │ │ openssl                  ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge ┆   3.05 MiB │
+ │ │ │ patch                    ┆ 2.8          ┆ h280c20c_1003        ┆ conda-forge ┆ 107.65 KiB │
+ │ │ │ pcre2                    ┆ 10.47        ┆ h8b3dc9c_1           ┆ conda-forge ┆   1.16 MiB │
+ │ │ │ perl                     ┆ 5.32.1       ┆ 9_h7cc23a3_perl5     ┆ conda-forge ┆  12.76 MiB │
+ │ │ │ python                   ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge ┆  21.98 MiB │
+ │ │ │ python_abi               ┆ 3.12         ┆ 9_cp312              ┆ conda-forge ┆   6.59 KiB │
+ │ │ │ readline                 ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge ┆ 340.72 KiB │
+ │ │ │ rhash                    ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge ┆ 190.42 KiB │
+ │ │ │ setuptools               ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge ┆ 512.20 KiB │
+ │ │ │ sysroot_linux-64         ┆ 2.17         ┆ h0157908_18          ┆ conda-forge ┆  14.46 MiB │
+ │ │ │ tk                       ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge ┆   3.40 MiB │
+ │ │ │ tzdata                   ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge ┆ 116.06 KiB │
+ │ │ │ zstd                     ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge ┆ 587.21 KiB │
+ │ │ ╰──────────────────────────┴──────────────┴──────────────────────┴─────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving host environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.8.0=0, __glibc=2.35=0, __archspec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - https://prefix.dev/conda-forge/
+ │ │    - robostack-staging
+ │ │   Specs:
+ │ │    - pkg-config
+ │ │    - libboost-devel
+ │ │    - libgl-devel
+ │ │    - libopengl-devel
+ │ │    - numpy 2.*
+ │ │    - octomap
+ │ │    - pcl
+ │ │    - pip
+ │ │    - proj
+ │ │    - python 3.12.* *_cpython
+ │ │    - ros-humble-cv-bridge
+ │ │    - ros-humble-gtsam
+ │ │    - ros-humble-libg2o
+ │ │    - ros-humble-qt-gui-cpp
+ │ │    - ros-humble-ros-environment
+ │ │    - ros-humble-ros-workspace
+ │ │    - ros2-distro-mutex 0.9.* humble_*
+ │ │    - sqlite 3.*
+ │ │    - vtk-base
+ │ │    - zlib
+ │ │    - __glibc >=2.17,<3.0.a0
+ │ │    - libgcc >=14
+ │ │    - libstdcxx >=14
+ │ │    - libgcc >=14
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ ╰─────────────────── (took 4 seconds)
+Error:   × Failed to resolve dependencies
+  ╰─▶ Cannot solve the request because of: ros-humble-gtsam * cannot be
+      installed because there are no viable options:
+      ├─ ros-humble-gtsam 4.2.0 would require
+      │  └─ ros2-distro-mutex 0.8.* humble_*, for which no candidates were
+      found.
+      ├─ ros-humble-gtsam 4.2.0 would require
+      │  └─ ros2-distro-mutex 0.7.* humble_*, for which no candidates were
+      found.
+      ├─ ros-humble-gtsam 4.2.0 would require
+      │  └─ ros2-distro-mutex 0.6.* humble_*, for which no candidates were
+      found.
+      └─ ros-humble-gtsam 4.2.0 would require
+         └─ numpy >=1.23.5,<2.0a0, for which no candidates were found.
+      The following packages are incompatible
+      ├─ ros-humble-gtsam * can be installed with any of the following
+      options:
+      │  └─ ros-humble-gtsam 4.2.1 would require
+      │     └─ gtsam >=4.2.1,<4.3.0a0, which can be installed with any of the
+      following options:
+      │        └─ gtsam 4.2.1 | 4.2.2 would require
+      │           └─ libboost >=1.90.0,<1.91.0a0, which can be installed with
+      any of the following options:
+      │              └─ libboost 1.90.0
+      └─ ros2-distro-mutex 0.9.* humble_* cannot be installed because there
+      are no viable options:
+         └─ ros2-distro-mutex 0.9.0 would constrain
+            └─ libboost 1.88.*, which conflicts with any installable versions
+      previously reported
+      
+

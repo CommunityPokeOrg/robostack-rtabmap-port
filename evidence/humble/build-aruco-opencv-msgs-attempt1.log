@@ -1,0 +1,1442 @@
+ rattler-build 0.76.0
+ No configuration file loaded
+ Processing recipe at path: /home/ubuntu/work/ros-humble/recipes/ros-humble-aruco-opencv-msgs/recipe.yaml
+
+ ╭─ Finding outputs from recipe
+ │ Loading variant config from: conda_build_config.yaml
+ │ Found 1 variants
+ │ 
+ │ Build variant: ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18
+ │ 
+ │ ╭──────────────────────┬────────────────────╮
+ │ │ Variant              ┆ Version            │
+ │ ╞══════════════════════╪════════════════════╡
+ │ │ build_platform       ┆ "linux-64"         │
+ │ │ c_compiler           ┆ "gcc"              │
+ │ │ c_compiler_version   ┆ "14"               │
+ │ │ c_stdlib             ┆ "sysroot"          │
+ │ │ c_stdlib_version     ┆ "2.17"             │
+ │ │ cmake                ┆ "3.*"              │
+ │ │ cxx_compiler         ┆ "gxx"              │
+ │ │ cxx_compiler_version ┆ "14"               │
+ │ │ numpy                ┆ "2"                │
+ │ │ python               ┆ "3.12.* *_cpython" │
+ │ │ target_platform      ┆ "linux-64"         │
+ │ ╰──────────────────────┴────────────────────╯
+ │
+ ╰─────────────────── (took 0 seconds)
+ Starting build of 1 outputs
+
+ ╭─ Running build for recipe: ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18
+ │
+ │ ╭─ Fetching source code
+ │ │ Fetching source from git repo: https://github.com/ros2-gbp/aruco_opencv-release.git
+ │ │ Fetching git repository: https://github.com/ros2-gbp/aruco_opencv-release.git
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving build environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.8.0=0, __glibc=2.35=0, __archspec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - https://prefix.dev/conda-forge/
+ │ │    - robostack-staging
+ │ │   Specs:
+ │ │    - gxx_linux-64 14.*
+ │ │    - gcc_linux-64 14.*
+ │ │    - sysroot_linux-64 2.17.*
+ │ │    - ninja
+ │ │    - python 3.12.* *_cpython
+ │ │    - setuptools
+ │ │    - git
+ │ │    - git-lfs
+ │ │    - patch
+ │ │    - make
+ │ │    - coreutils
+ │ │    - cmake 3.*
+ │ │    - cython
+ │ │ 
+ │ │ ╭──────────────────────────┬──────────────┬──────────────────────┬─────────────┬────────────╮
+ │ │ │ Package                  ┆ Version      ┆ Build                ┆ Channel     ┆       Size │
+ │ │ ╞══════════════════════════╪══════════════╪══════════════════════╪═════════════╪════════════╡
+ │ │ │ _openmp_mutex            ┆ 4.5          ┆ 20_gnu               ┆ conda-forge ┆  28.27 KiB │
+ │ │ │ binutils_impl_linux-64   ┆ 2.46.1       ┆ default_hfdba357_102 ┆ conda-forge ┆   3.54 MiB │
+ │ │ │ binutils_linux-64        ┆ 2.46.1       ┆ default_h4852527_102 ┆ conda-forge ┆  35.49 KiB │
+ │ │ │ bzip2                    ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge ┆ 251.77 KiB │
+ │ │ │ c-ares                   ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge ┆ 223.34 KiB │
+ │ │ │ ca-certificates          ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge ┆ 128.69 KiB │
+ │ │ │ cmake                    ┆ 3.31.8       ┆ hc85cc9f_0           ┆ conda-forge ┆  20.02 MiB │
+ │ │ │ coreutils                ┆ 9.11         ┆ h280c20c_0           ┆ conda-forge ┆   3.27 MiB │
+ │ │ │ cython                   ┆ 3.3.0        ┆ py312h03570ca_0      ┆ conda-forge ┆   3.83 MiB │
+ │ │ │ gcc_impl_linux-64        ┆ 14.4.0       ┆ heaf7ae8_4           ┆ conda-forge ┆  73.68 MiB │
+ │ │ │ gcc_linux-64             ┆ 14.4.0       ┆ hc469d41_1           ┆ conda-forge ┆  29.09 KiB │
+ │ │ │ git                      ┆ 2.55.0       ┆ pl5321h3795e67_2     ┆ conda-forge ┆  11.23 MiB │
+ │ │ │ git-lfs                  ┆ 3.8.0        ┆ h2c09266_0           ┆ conda-forge ┆   4.83 MiB │
+ │ │ │ gxx_impl_linux-64        ┆ 14.4.0       ┆ hc436dd5_4           ┆ conda-forge ┆  15.13 MiB │
+ │ │ │ gxx_linux-64             ┆ 14.4.0       ┆ he93183a_1           ┆ conda-forge ┆  27.50 KiB │
+ │ │ │ icu                      ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge ┆  13.79 MiB │
+ │ │ │ kernel-headers_linux-64  ┆ 3.10.0       ┆ he073ed8_18          ┆ conda-forge ┆ 921.37 KiB │
+ │ │ │ keyutils                 ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge ┆ 132.12 KiB │
+ │ │ │ krb5                     ┆ 1.22.2       ┆ hbc21106_2           ┆ conda-forge ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64         ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge ┆ 727.83 KiB │
+ │ │ │ libcurl                  ┆ 8.22.0       ┆ ha042cf0_0           ┆ conda-forge ┆ 487.94 KiB │
+ │ │ │ libedit                  ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge ┆ 131.93 KiB │
+ │ │ │ libev                    ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge ┆  42.21 KiB │
+ │ │ │ libexpat                 ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge ┆  76.03 KiB │
+ │ │ │ libffi                   ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge ┆  66.41 KiB │
+ │ │ │ libgcc                   ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge ┆   1.01 MiB │
+ │ │ │ libgcc-devel_linux-64    ┆ 14.4.0       ┆ hd9a9cd0_104         ┆ conda-forge ┆   2.95 MiB │
+ │ │ │ libgomp                  ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge ┆ 624.97 KiB │
+ │ │ │ libiconv                 ┆ 1.18         ┆ h0cb94f2_3           ┆ conda-forge ┆ 770.97 KiB │
+ │ │ │ liblzma                  ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge ┆ 110.35 KiB │
+ │ │ │ libnghttp2               ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge ┆ 634.74 KiB │
+ │ │ │ libnsl                   ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge ┆  32.94 KiB │
+ │ │ │ libpsl                   ┆ 0.23.1       ┆ hd9e3e90_1           ┆ conda-forge ┆  70.82 KiB │
+ │ │ │ libpython                ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge ┆   8.36 MiB │
+ │ │ │ libsanitizer             ┆ 14.4.0       ┆ hf39dbba_4           ┆ conda-forge ┆   7.15 MiB │
+ │ │ │ libsqlite                ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge ┆ 951.51 KiB │
+ │ │ │ libssh2                  ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge ┆ 298.87 KiB │
+ │ │ │ libstdcxx                ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge ┆   6.31 MiB │
+ │ │ │ libstdcxx-devel_linux-64 ┆ 14.4.0       ┆ ha5b54cb_104         ┆ conda-forge ┆  19.47 MiB │
+ │ │ │ libuuid                  ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge ┆  39.06 KiB │
+ │ │ │ libuv                    ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge ┆ 410.20 KiB │
+ │ │ │ libxcrypt                ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge ┆  99.57 KiB │
+ │ │ │ libzlib                  ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge ┆  62.22 KiB │
+ │ │ │ make                     ┆ 4.4.1        ┆ hb03c661_3           ┆ conda-forge ┆ 498.73 KiB │
+ │ │ │ ncurses                  ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge ┆ 889.84 KiB │
+ │ │ │ ninja                    ┆ 1.13.2       ┆ h171cf75_1           ┆ conda-forge ┆ 182.39 KiB │
+ │ │ │ openssl                  ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge ┆   3.05 MiB │
+ │ │ │ patch                    ┆ 2.8          ┆ h280c20c_1003        ┆ conda-forge ┆ 107.65 KiB │
+ │ │ │ pcre2                    ┆ 10.47        ┆ h8b3dc9c_1           ┆ conda-forge ┆   1.16 MiB │
+ │ │ │ perl                     ┆ 5.32.1       ┆ 9_h7cc23a3_perl5     ┆ conda-forge ┆  12.76 MiB │
+ │ │ │ python                   ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge ┆  21.98 MiB │
+ │ │ │ python_abi               ┆ 3.12         ┆ 9_cp312              ┆ conda-forge ┆   6.59 KiB │
+ │ │ │ readline                 ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge ┆ 340.72 KiB │
+ │ │ │ rhash                    ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge ┆ 190.42 KiB │
+ │ │ │ setuptools               ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge ┆ 512.20 KiB │
+ │ │ │ sysroot_linux-64         ┆ 2.17         ┆ h0157908_18          ┆ conda-forge ┆  14.46 MiB │
+ │ │ │ tk                       ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge ┆   3.40 MiB │
+ │ │ │ tzdata                   ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge ┆ 116.06 KiB │
+ │ │ │ zstd                     ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge ┆ 587.21 KiB │
+ │ │ ╰──────────────────────────┴──────────────┴──────────────────────┴─────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving host environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.8.0=0, __glibc=2.35=0, __archspec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - https://prefix.dev/conda-forge/
+ │ │    - robostack-staging
+ │ │   Specs:
+ │ │    - empy <4
+ │ │    - pkg-config
+ │ │    - numpy 2.*
+ │ │    - pip
+ │ │    - python 3.12.* *_cpython
+ │ │    - ros-humble-ament-cmake
+ │ │    - ros-humble-ament-cmake-lint-cmake
+ │ │    - ros-humble-ament-lint-auto
+ │ │    - ros-humble-geometry-msgs
+ │ │    - ros-humble-ros-environment
+ │ │    - ros-humble-ros-workspace
+ │ │    - ros-humble-rosidl-default-generators
+ │ │    - ros-humble-std-msgs
+ │ │    - ros2-distro-mutex 0.8.* humble_*
+ │ │    - __glibc >=2.17,<3.0.a0
+ │ │    - libgcc >=14
+ │ │    - libstdcxx >=14
+ │ │    - libgcc >=14
+ │ │ 
+ │ │ ╭───────────────────────────────────────────────────┬──────────────┬──────────────────────┬───────────────────┬────────────╮
+ │ │ │ Package                                           ┆ Version      ┆ Build                ┆ Channel           ┆       Size │
+ │ │ ╞═══════════════════════════════════════════════════╪══════════════╪══════════════════════╪═══════════════════╪════════════╡
+ │ │ │ _openmp_mutex                                     ┆ 4.5          ┆ 20_gnu               ┆ conda-forge       ┆  28.27 KiB │
+ │ │ │ argcomplete                                       ┆ 3.7.2        ┆ pyhcf101f3_0         ┆ conda-forge       ┆  46.04 KiB │
+ │ │ │ bzip2                                             ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge       ┆ 251.77 KiB │
+ │ │ │ c-ares                                            ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge       ┆ 223.34 KiB │
+ │ │ │ ca-certificates                                   ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge       ┆ 128.69 KiB │
+ │ │ │ catkin_pkg                                        ┆ 1.1.1        ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  53.61 KiB │
+ │ │ │ cmake                                             ┆ 4.2.3        ┆ hc85cc9f_1           ┆ conda-forge       ┆  21.30 MiB │
+ │ │ │ colorama                                          ┆ 0.4.6        ┆ pyhd8ed1ab_1         ┆ conda-forge       ┆  26.38 KiB │
+ │ │ │ docutils                                          ┆ 0.23         ┆ pyhcf101f3_0         ┆ conda-forge       ┆ 448.77 KiB │
+ │ │ │ empy                                              ┆ 3.3.4        ┆ pyh9f0ad1d_1         ┆ conda-forge       ┆  39.27 KiB │
+ │ │ │ exceptiongroup                                    ┆ 1.3.1        ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  20.83 KiB │
+ │ │ │ gmock                                             ┆ 1.17.0       ┆ h8e2ec6c_2           ┆ conda-forge       ┆   4.83 KiB │
+ │ │ │ gtest                                             ┆ 1.17.0       ┆ h171cf75_2           ┆ conda-forge       ┆ 441.28 KiB │
+ │ │ │ icu                                               ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge       ┆  13.79 MiB │
+ │ │ │ importlib-metadata                                ┆ 9.0.1        ┆ pyhcf101f3_0         ┆ conda-forge       ┆  34.10 KiB │
+ │ │ │ importlib_resources                               ┆ 7.1.0        ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  33.99 KiB │
+ │ │ │ iniconfig                                         ┆ 2.3.0        ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  13.07 KiB │
+ │ │ │ keyutils                                          ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge       ┆ 132.12 KiB │
+ │ │ │ krb5                                              ┆ 1.21.3       ┆ h659f571_0           ┆ conda-forge       ┆   1.31 MiB │
+ │ │ │ lark-parser                                       ┆ 0.12.0       ┆ pyhd8ed1ab_1         ┆ conda-forge       ┆  84.12 KiB │
+ │ │ │ ld_impl_linux-64                                  ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge       ┆ 727.83 KiB │
+ │ │ │ libblas                                           ┆ 3.11.0       ┆ 11_h4a7cf45_openblas ┆ conda-forge       ┆  17.82 KiB │
+ │ │ │ libcblas                                          ┆ 3.11.0       ┆ 11_h0358290_openblas ┆ conda-forge       ┆  17.77 KiB │
+ │ │ │ libcurl                                           ┆ 8.18.0       ┆ h4e3cde8_0           ┆ conda-forge       ┆ 452.09 KiB │
+ │ │ │ libedit                                           ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge       ┆ 131.93 KiB │
+ │ │ │ libev                                             ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge       ┆  42.21 KiB │
+ │ │ │ libexpat                                          ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge       ┆  76.03 KiB │
+ │ │ │ libffi                                            ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge       ┆  66.41 KiB │
+ │ │ │ libgcc                                            ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge       ┆   1.01 MiB │
+ │ │ │ libgcc-ng                                         ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge       ┆  27.74 KiB │
+ │ │ │ libgfortran                                       ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge       ┆  27.71 KiB │
+ │ │ │ libgfortran5                                      ┆ 16.2.0       ┆ h6b99dfc_4           ┆ conda-forge       ┆   2.41 MiB │
+ │ │ │ libgomp                                           ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge       ┆ 624.97 KiB │
+ │ │ │ liblapack                                         ┆ 3.11.0       ┆ 11_h47877c9_openblas ┆ conda-forge       ┆  17.80 KiB │
+ │ │ │ liblzma                                           ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge       ┆ 110.35 KiB │
+ │ │ │ libnghttp2                                        ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge       ┆ 634.74 KiB │
+ │ │ │ libnsl                                            ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge       ┆  32.94 KiB │
+ │ │ │ libopenblas                                       ┆ 0.3.34       ┆ pthreads_hf13c14d_2  ┆ conda-forge       ┆   6.53 MiB │
+ │ │ │ libpython                                         ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge       ┆   8.36 MiB │
+ │ │ │ libsqlite                                         ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge       ┆ 951.51 KiB │
+ │ │ │ libssh2                                           ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge       ┆ 298.87 KiB │
+ │ │ │ libstdcxx                                         ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge       ┆   6.31 MiB │
+ │ │ │ libstdcxx-ng                                      ┆ 16.2.0       ┆ hdf11a46_4           ┆ conda-forge       ┆  27.79 KiB │
+ │ │ │ libuuid                                           ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge       ┆  39.06 KiB │
+ │ │ │ libuv                                             ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge       ┆ 410.20 KiB │
+ │ │ │ libxcrypt                                         ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge       ┆  99.57 KiB │
+ │ │ │ libzlib                                           ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge       ┆  62.22 KiB │
+ │ │ │ ncurses                                           ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge       ┆ 889.84 KiB │
+ │ │ │ numpy                                             ┆ 2.5.3        ┆ py312he827f4e_0      ┆ conda-forge       ┆   8.80 MiB │
+ │ │ │ openssl                                           ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge       ┆   3.05 MiB │
+ │ │ │ packaging                                         ┆ 26.3         ┆ pyhc364b38_0         ┆ conda-forge       ┆ 113.64 KiB │
+ │ │ │ pip                                               ┆ 26.2.1       ┆ pyh8b19718_0         ┆ conda-forge       ┆   1.14 MiB │
+ │ │ │ pkg-config                                        ┆ 0.29.2       ┆ h1114479_1013        ┆ conda-forge       ┆ 138.06 KiB │
+ │ │ │ pluggy                                            ┆ 1.6.0        ┆ pyhf9edf01_1         ┆ conda-forge       ┆  25.27 KiB │
+ │ │ │ pygments                                          ┆ 2.21.0       ┆ pyhcf101f3_0         ┆ conda-forge       ┆ 936.89 KiB │
+ │ │ │ pyparsing                                         ┆ 3.3.2        ┆ pyhcf101f3_0         ┆ conda-forge       ┆ 108.29 KiB │
+ │ │ │ pytest                                            ┆ 9.1.1        ┆ pyhc364b38_2         ┆ conda-forge       ┆ 299.54 KiB │
+ │ │ │ python                                            ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge       ┆  21.98 MiB │
+ │ │ │ python-dateutil                                   ┆ 2.9.0.post0  ┆ pyhe01879c_2         ┆ conda-forge       ┆ 227.84 KiB │
+ │ │ │ python_abi                                        ┆ 3.12         ┆ 9_cp312              ┆ conda-forge       ┆   6.59 KiB │
+ │ │ │ readline                                          ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge       ┆ 340.72 KiB │
+ │ │ │ rhash                                             ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge       ┆ 190.42 KiB │
+ │ │ │ ros-humble-ament-cmake                            ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.07 KiB │
+ │ │ │ ros-humble-ament-cmake-core                       ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  43.48 KiB │
+ │ │ │ ros-humble-ament-cmake-export-definitions         ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.83 KiB │
+ │ │ │ ros-humble-ament-cmake-export-dependencies        ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.00 KiB │
+ │ │ │ ros-humble-ament-cmake-export-include-directories ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.26 KiB │
+ │ │ │ ros-humble-ament-cmake-export-interfaces          ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.44 KiB │
+ │ │ │ ros-humble-ament-cmake-export-libraries           ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.73 KiB │
+ │ │ │ ros-humble-ament-cmake-export-link-flags          ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.77 KiB │
+ │ │ │ ros-humble-ament-cmake-export-targets             ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.59 KiB │
+ │ │ │ ros-humble-ament-cmake-gen-version-h              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  24.53 KiB │
+ │ │ │ ros-humble-ament-cmake-gmock                      ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  24.13 KiB │
+ │ │ │ ros-humble-ament-cmake-gtest                      ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  24.34 KiB │
+ │ │ │ ros-humble-ament-cmake-include-directories        ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.71 KiB │
+ │ │ │ ros-humble-ament-cmake-libraries                  ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.44 KiB │
+ │ │ │ ros-humble-ament-cmake-lint-cmake                 ┆ 0.12.15      ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.12 KiB │
+ │ │ │ ros-humble-ament-cmake-pytest                     ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  24.55 KiB │
+ │ │ │ ros-humble-ament-cmake-python                     ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.92 KiB │
+ │ │ │ ros-humble-ament-cmake-ros                        ┆ 0.10.0       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  30.42 KiB │
+ │ │ │ ros-humble-ament-cmake-target-dependencies        ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.40 KiB │
+ │ │ │ ros-humble-ament-cmake-test                       ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  34.96 KiB │
+ │ │ │ ros-humble-ament-cmake-version                    ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.61 KiB │
+ │ │ │ ros-humble-ament-index-python                     ┆ 1.4.1        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  27.24 KiB │
+ │ │ │ ros-humble-ament-lint-auto                        ┆ 0.12.15      ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.79 KiB │
+ │ │ │ ros-humble-ament-lint-cmake                       ┆ 0.12.15      ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  37.81 KiB │
+ │ │ │ ros-humble-ament-package                          ┆ 0.14.2       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  45.33 KiB │
+ │ │ │ ros-humble-builtin-interfaces                     ┆ 1.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  74.72 KiB │
+ │ │ │ ros-humble-domain-coordinator                     ┆ 0.10.0       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  19.89 KiB │
+ │ │ │ ros-humble-fastcdr                                ┆ 1.0.29       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  65.18 KiB │
+ │ │ │ ros-humble-fastrtps-cmake-module                  ┆ 2.2.4        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  26.60 KiB │
+ │ │ │ ros-humble-geometry-msgs                          ┆ 4.9.1        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆ 310.89 KiB │
+ │ │ │ ros-humble-gmock-vendor                           ┆ 1.10.9006    ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆ 110.81 KiB │
+ │ │ │ ros-humble-gtest-vendor                           ┆ 1.10.9006    ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆ 195.16 KiB │
+ │ │ │ ros-humble-python-cmake-module                    ┆ 0.10.0       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  27.66 KiB │
+ │ │ │ ros-humble-rcpputils                              ┆ 2.4.6        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  76.72 KiB │
+ │ │ │ ros-humble-rcutils                                ┆ 5.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆ 115.04 KiB │
+ │ │ │ ros-humble-rmw                                    ┆ 6.1.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  89.59 KiB │
+ │ │ │ ros-humble-ros-environment                        ┆ 3.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.12 KiB │
+ │ │ │ ros-humble-ros-workspace                          ┆ 1.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  34.75 KiB │
+ │ │ │ ros-humble-rosidl-adapter                         ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  61.08 KiB │
+ │ │ │ ros-humble-rosidl-cli                             ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  37.25 KiB │
+ │ │ │ ros-humble-rosidl-cmake                           ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  40.31 KiB │
+ │ │ │ ros-humble-rosidl-default-generators              ┆ 1.2.0        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  31.26 KiB │
+ │ │ │ ros-humble-rosidl-default-runtime                 ┆ 1.2.0        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  30.22 KiB │
+ │ │ │ ros-humble-rosidl-generator-c                     ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  46.01 KiB │
+ │ │ │ ros-humble-rosidl-generator-cpp                   ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  48.73 KiB │
+ │ │ │ ros-humble-rosidl-generator-py                    ┆ 0.14.6       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  58.95 KiB │
+ │ │ │ ros-humble-rosidl-generator-rs                    ┆ 0.4.11       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  47.48 KiB │
+ │ │ │ ros-humble-rosidl-parser                          ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  57.98 KiB │
+ │ │ │ ros-humble-rosidl-runtime-c                       ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  47.38 KiB │
+ │ │ │ ros-humble-rosidl-runtime-cpp                     ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  35.29 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-c                   ┆ 2.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  48.25 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-cpp                 ┆ 2.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  47.60 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-fastrtps-c          ┆ 2.2.4        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  47.87 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-fastrtps-cpp        ┆ 2.2.4        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  50.11 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-interface           ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  28.40 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-introspection-c     ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  45.49 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-introspection-cpp   ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  45.81 KiB │
+ │ │ │ ros-humble-rpyutils                               ┆ 0.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  25.03 KiB │
+ │ │ │ ros-humble-std-msgs                               ┆ 4.9.1        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆ 282.91 KiB │
+ │ │ │ ros2-distro-mutex                                 ┆ 0.8.0        ┆ humble_15            ┆ robostack-staging ┆   2.32 KiB │
+ │ │ │ setuptools                                        ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge       ┆ 512.20 KiB │
+ │ │ │ six                                               ┆ 1.17.0       ┆ pyhe01879c_1         ┆ conda-forge       ┆  18.02 KiB │
+ │ │ │ tk                                                ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge       ┆   3.40 MiB │
+ │ │ │ tomli                                             ┆ 2.4.1        ┆ pyhcf101f3_0         ┆ conda-forge       ┆  21.06 KiB │
+ │ │ │ typing_extensions                                 ┆ 4.16.0       ┆ pyhcf101f3_0         ┆ conda-forge       ┆  51.40 KiB │
+ │ │ │ tzdata                                            ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge       ┆ 116.06 KiB │
+ │ │ │ wheel                                             ┆ 0.48.0       ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  33.72 KiB │
+ │ │ │ zipp                                              ┆ 4.1.0        ┆ pyhcf101f3_0         ┆ conda-forge       ┆  23.62 KiB │
+ │ │ │ zstd                                              ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge       ┆ 587.21 KiB │
+ │ │ ╰───────────────────────────────────────────────────┴──────────────┴──────────────────────┴───────────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │ 
+ │ Finalized run dependencies (ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18):
+ │ ╭───────────────────────────────────┬────────────────────────────────────────────────────╮
+ │ │ Name                              ┆ Spec                                               │
+ │ ╞═══════════════════════════════════╪════════════════════════════════════════════════════╡
+ │ │ Run dependencies                  ┆                                                    │
+ │ │ __glibc                           ┆ >=2.17,<3.0.a0 (RE of [build: sysroot_linux-64])   │
+ │ │ libgcc                            ┆ >=14 (RE of [build: gcc_linux-64])                 │
+ │ │                                   ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ libstdcxx                         ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ numpy                             ┆ >=1.25,<3 (RE of [host: numpy])                    │
+ │ │ python                            ┆ *                                                  │
+ │ │ python_abi                        ┆ 3.12.* *_cp312 (RE of [host: python])              │
+ │ │ ros-humble-geometry-msgs          ┆ *                                                  │
+ │ │ ros-humble-ros-workspace          ┆ *                                                  │
+ │ │ ros-humble-rosidl-default-runtime ┆ *                                                  │
+ │ │ ros-humble-std-msgs               ┆ *                                                  │
+ │ │ ros2-distro-mutex                 ┆ 0.8.* humble_*                                     │
+ │ │                                   ┆ >=0.8.0,<0.9.0a0 (RE of [host: ros2-distro-mutex]) │
+ │ ╰───────────────────────────────────┴────────────────────────────────────────────────────╯
+ │
+ │ ╭─ Installing build environment
+ │ │ ✔ Successfully updated the build environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Installing host environment
+ │ │ ✔ Successfully updated the host environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Running build script
+ │ │ INFO: activate-binutils_linux-64.sh made the following environmental changes:
+ │ │ +ADDR2LINE=x86_64-conda-linux-gnu-addr2line
+ │ │ +AR=x86_64-conda-linux-gnu-ar
+ │ │ +AS=x86_64-conda-linux-gnu-as
+ │ │ +CXXFILT=x86_64-conda-linux-gnu-c++filt
+ │ │ +ELFEDIT=x86_64-conda-linux-gnu-elfedit
+ │ │ +GPROF=x86_64-conda-linux-gnu-gprof
+ │ │ +LD=x86_64-conda-linux-gnu-ld
+ │ │ +NM=x86_64-conda-linux-gnu-nm
+ │ │ +OBJCOPY=x86_64-conda-linux-gnu-objcopy
+ │ │ +OBJDUMP=x86_64-conda-linux-gnu-objdump
+ │ │ +RANLIB=x86_64-conda-linux-gnu-ranlib
+ │ │ +READELF=x86_64-conda-linux-gnu-readelf
+ │ │ +SIZE=x86_64-conda-linux-gnu-size
+ │ │ +STRINGS=x86_64-conda-linux-gnu-strings
+ │ │ +STRIP=x86_64-conda-linux-gnu-strip
+ │ │ INFO: activate-gcc_linux-64.sh made the following environmental changes:
+ │ │ +BUILD=x86_64-conda-linux-gnu
+ │ │ +CC=x86_64-conda-linux-gnu-cc
+ │ │ +CC_FOR_BUILD=x86_64-conda-linux-gnu-cc
+ │ │ +CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -fno-merge-constants -isystem $
+ │ │ PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/ros-humble-aruco-opencv-msgs-2.4.2 -fdebug-prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +CMAKE_ARGS=-DCMAKE_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-ar -DCMAKE_CXX_COMPILER_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_C_COMPIL
+ │ │ ER_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_RANLIB=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-ranlib -DCMAKE_CXX_COMPILER_RANLIB=$BUILD_PRE
+ │ │ FIX/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_C_COMPILER_RANLIB=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_LINKER=$BUILD_PREFIX/bin/x8
+ │ │ 6_64-conda-linux-gnu-ld -DCMAKE_STRIP=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-strip -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER -
+ │ │ DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY -DCMAKE_FIND_ROOT_PATH=$PREFIX;$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroo
+ │ │ t -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_PROGRAM_PATH=$BUILD_PREFIX/bin;$PREFIX/bin -DCMAKE_POLICY_DEFAULT_CMP0094=NEW
+ │ │ +CMAKE_PREFIX_PATH=$PREFIX:$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr
+ │ │ +CONDA_BUILD_CROSS_COMPILATION=
+ │ │ +CONDA_BUILD_SYSROOT=$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot
+ │ │ +CONDA_TOOLCHAIN_BUILD=x86_64-conda-linux-gnu
+ │ │ +CONDA_TOOLCHAIN_HOST=x86_64-conda-linux-gnu
+ │ │ +CPP=x86_64-conda-linux-gnu-cpp
+ │ │ +CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem $PREFIX/include
+ │ │ +CPP_FOR_BUILD=x86_64-conda-linux-gnu-cpp
+ │ │ +DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction
+ │ │ -sections -pipe -fno-merge-constants -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/ros-humble-aruco-opencv-msgs-2.4.2 -fdebug-p
+ │ │ refix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og -isystem $PREFIX/include
+ │ │ +GCC=x86_64-conda-linux-gnu-gcc
+ │ │ +GCC_AR=x86_64-conda-linux-gnu-gcc-ar
+ │ │ +GCC_NM=x86_64-conda-linux-gnu-gcc-nm
+ │ │ +GCC_RANLIB=x86_64-conda-linux-gnu-gcc-ranlib
+ │ │ +HOST=x86_64-conda-linux-gnu
+ │ │ +LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath
+ │ │ ,$PREFIX/lib -Wl,-rpath-link,$PREFIX/lib -L$PREFIX/lib
+ │ │ +LDFLAGS_LD=-O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath $PREFIX/lib -rpath-link $PREFIX/
+ │ │ lib -L$PREFIX/lib
+ │ │ +MESON_ARGS=-Dbuildtype=release --prefix=$PREFIX -Dlibdir=lib
+ │ │ +build_alias=x86_64-conda-linux-gnu
+ │ │ +host_alias=x86_64-conda-linux-gnu
+ │ │ -BUILD=x86_64-conda_cos6-linux-gnu
+ │ │ -CONDA_BUILD_CROSS_COMPILATION=0
+ │ │ INFO: activate-gxx_linux-64.sh made the following environmental changes:
+ │ │ +CXX=x86_64-conda-linux-gnu-c++
+ │ │ +CXXFLAGS=-fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffuncti
+ │ │ on-sections -pipe -fno-merge-constants -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/ros-humble-aruco-opencv-msgs-2.4.2 -fdebug
+ │ │ -prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +CXX_FOR_BUILD=x86_64-conda-linux-gnu-c++
+ │ │ +DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -W
+ │ │ all -Wextra -fvar-tracking-assignments -ffunction-sections -pipe -fno-merge-constants -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/c
+ │ │ onda/ros-humble-aruco-opencv-msgs-2.4.2 -fdebug-prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +GXX=x86_64-conda-linux-gnu-g++
+ │ │ + /home/ubuntu/work/ros-humble/recipes/ros-humble-aruco-opencv-msgs/build_ament_cmake.sh
+ │ │ USING PYTHON_EXECUTABLE=$PREFIX/bin/python
+ │ │ USING PKG_CONFIG_EXECUTABLE=$PREFIX/bin/pkg-config
+ │ │ Using Python 3.12
+ │ │ Using PYTHON_INSTALL_DIR: lib/python3.12/site-packages
+ │ │ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+ │ │ Ignoring COMPILE_WARNING_AS_ERROR target property and CMAKE_COMPILE_WARNING_AS_ERROR variable.
+ │ │   to tell CMake that the project requires at least <min> but has been updated
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ -- The C compiler identification is GNU 14.4.0
+ │ │ -- The CXX compiler identification is GNU 14.4.0
+ │ │ -- Detecting C compiler ABI info
+ │ │ -- Detecting C compiler ABI info - done
+ │ │ -- Check for working C compiler: $BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc - skipped
+ │ │ -- Detecting C compile features
+ │ │ -- Detecting C compile features - done
+ │ │ -- Detecting CXX compiler ABI info
+ │ │ -- Detecting CXX compiler ABI info - done
+ │ │ -- Check for working CXX compiler: $BUILD_PREFIX/bin/x86_64-conda-linux-gnu-c++ - skipped
+ │ │ -- Detecting CXX compile features
+ │ │ -- Detecting CXX compile features - done
+ │ │ -- Found ament_cmake: 1.3.13 ($PREFIX/share/ament_cmake/cmake)
+ │ │ -- Found Python3: $PREFIX/bin/python (found version "3.12.14") found components: Interpreter
+ │ │ -- Found rosidl_default_generators: 1.2.0 ($PREFIX/share/rosidl_default_generators/cmake)
+ │ │ -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+ │ │ -- Found rosidl_adapter: 3.1.8 ($PREFIX/share/rosidl_adapter/cmake)
+ │ │ -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+ │ │ -- Found std_msgs: 4.9.1 ($PREFIX/share/std_msgs/cmake)
+ │ │ -- Found geometry_msgs: 4.9.1 ($PREFIX/share/geometry_msgs/cmake)
+ │ │ -- Found ament_cmake_ros: 0.10.0 ($PREFIX/share/ament_cmake_ros/cmake)
+ │ │ -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+ │ │ -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+ │ │ -- Found python_cmake_module: 0.10.0 ($PREFIX/share/python_cmake_module/cmake)
+ │ │ CMake Warning (dev) at $PREFIX/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:52 (find_package):
+ │ │   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+ │ │   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+ │ │   the cmake_policy command to set the policy and suppress this warning.
+ │ │ Call Stack (most recent call first):
+ │ │   $PREFIX/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:33 (find_package)
+ │ │   $PREFIX/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+ │ │   $PREFIX/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+ │ │   CMakeLists.txt:9 (rosidl_generate_interfaces)
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- Found PythonInterp: $PREFIX/bin/python (found suitable version "3.12.14", minimum required is "3.6")
+ │ │ CMake Warning (dev) at $PREFIX/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:140 (find_package):
+ │ │   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+ │ │   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+ │ │   the cmake_policy command to set the policy and suppress this warning.
+ │ │ Call Stack (most recent call first):
+ │ │   $PREFIX/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:33 (find_package)
+ │ │   $PREFIX/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+ │ │   $PREFIX/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+ │ │   CMakeLists.txt:9 (rosidl_generate_interfaces)
+ │ │ This warning is for project developers.  Use -Wno-dev to suppress it.
+ │ │ -- Found PythonLibs: $PREFIX/lib/libpython3.12.so (found suitable version "3.12.14", minimum required is "3.5")
+ │ │ -- Using PYTHON_EXECUTABLE: $PREFIX/bin/python
+ │ │ -- Using PYTHON_INCLUDE_DIRS: $PREFIX/include/python3.12
+ │ │ -- Using PYTHON_LIBRARIES: $PREFIX/lib/libpython3.12.so
+ │ │ -- Found PythonExtra: .so
+ │ │ -- Found Python: $PREFIX/bin/python (found version "3.12.14") found components: Interpreter Development NumPy Development.Module Development.Embed
+ │ │ -- Configuring done (2.2s)
+ │ │ -- Generating done (0.0s)
+ │ │ CMake Warning:
+ │ │ -- Build files have been written to: $SRC_DIR/build
+ │ │   Manually-specified variables were not used by the project:
+ │ │     AMENT_PREFIX_PATH
+ │ │     CATKIN_SKIP_TESTING
+ │ │     CMAKE_INSTALL_LIBDIR
+ │ │     CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP
+ │ │     PKG_CONFIG_EXECUTABLE
+ │ │     SETUPTOOLS_DEB_LAYOUT
+ │ │ [1/51] cd $SRC_DIR/build && $BUILD_PREFIX/bin/cmake -E copy_directory $SRC_DIR/build/rosidl_generator_py/aruco_opencv_msgs $SRC_DIR/build/ament_cmake_pytho
+ │ │ n/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ [2/51] Generating Rust code for ROS interfaces
+ │ │ [3/51] Generating C++ code for ROS interfaces
+ │ │ [4/51] Generating C code for ROS interfaces
+ │ │ [5/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_generator_c.dir/rosidl_generator_c/aruco_opencv_msgs/msg/detail/board_pose__functions.c.o
+ │ │ [6/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_generator_c.dir/rosidl_generator_c/aruco_opencv_msgs/msg/detail/marker_pose__functions.c.o
+ │ │ [7/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_generator_c.dir/rosidl_generator_c/aruco_opencv_msgs/msg/detail/aruco_detection__functions.c.
+ │ │ o
+ │ │ [8/51] Linking C shared library libaruco_opencv_msgs__rosidl_generator_c.so
+ │ │ [9/51] cd $SRC_DIR/build/ament_cmake_python/aruco_opencv_msgs && $PREFIX/bin/python setup.py egg_info
+ │ │ running egg_info
+ │ │ creating aruco_opencv_msgs.egg-info
+ │ │ writing aruco_opencv_msgs.egg-info/PKG-INFO
+ │ │ writing dependency_links to aruco_opencv_msgs.egg-info/dependency_links.txt
+ │ │ writing top-level names to aruco_opencv_msgs.egg-info/top_level.txt
+ │ │ writing manifest file 'aruco_opencv_msgs.egg-info/SOURCES.txt'
+ │ │ reading manifest file 'aruco_opencv_msgs.egg-info/SOURCES.txt'
+ │ │ writing manifest file 'aruco_opencv_msgs.egg-info/SOURCES.txt'
+ │ │ [10/51] Generating C++ type support dispatch for ROS interfaces
+ │ │ [11/51] Generating C++ introspection for ROS interfaces
+ │ │ [12/51] Generating C++ type support for eProsima Fast-RTPS
+ │ │ [13/51] Generating C type support dispatch for ROS interfaces
+ │ │ [14/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/aruco_opencv_msgs/msg/aruco_detection__type_support
+ │ │ .cpp.o
+ │ │ [15/51] Generating C introspection for ROS interfaces
+ │ │ [16/51] Generating C type support for eProsima Fast-RTPS
+ │ │ [17/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/aruco_opencv_msgs/msg/board_pose__type_support.cpp.
+ │ │ o
+ │ │ [18/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/aruco_opencv_msgs/msg/det
+ │ │ ail/aruco_detection__type_support.c.o
+ │ │ [19/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/aruco_opencv_msgs/msg/marker_pose__type_support
+ │ │ .cpp.o
+ │ │ [20/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/aruco_opencv_msgs/msg/det
+ │ │ ail/board_pose__type_support.c.o
+ │ │ [21/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/aruco_opencv_msgs/msg/det
+ │ │ ail/marker_pose__type_support.c.o
+ │ │ [22/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/aruco_opencv_msgs/msg/marker_pose__type_support.cpp
+ │ │ .o
+ │ │ [23/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/aruco_opencv_msgs/msg/board_pose__type_support.
+ │ │ cpp.o
+ │ │ [24/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/aruco_opencv_msgs/m
+ │ │ sg/detail/board_pose__type_support.cpp.o
+ │ │ [25/51] Linking C shared library libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so
+ │ │ [26/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/aruco_opencv_msgs/msg/aruco_detection__type_sup
+ │ │ port.cpp.o
+ │ │ [27/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/aruco_opencv_msgs/msg/detail/boar
+ │ │ d_pose__type_support_c.cpp.o
+ │ │ [28/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/aruco_opencv_msgs/msg/detail/aruc
+ │ │ o_detection__type_support_c.cpp.o
+ │ │ [29/51] Linking CXX shared library libaruco_opencv_msgs__rosidl_typesupport_c.so
+ │ │ [30/51] Linking CXX shared library libaruco_opencv_msgs__rosidl_typesupport_cpp.so
+ │ │ [31/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/aruco_opencv_msgs/m
+ │ │ sg/detail/marker_pose__type_support.cpp.o
+ │ │ [32/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/aruco_opencv_msgs/m
+ │ │ sg/detail/aruco_detection__type_support.cpp.o
+ │ │ [33/51] Linking CXX shared library libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so
+ │ │ [34/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/aruco_opencv_msgs/msg/detail/mark
+ │ │ er_pose__type_support_c.cpp.o
+ │ │ [35/51] Linking CXX shared library libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so
+ │ │ [36/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/aruco_opencv_msgs/msg/detail/
+ │ │ dds_fastrtps/aruco_detection__type_support.cpp.o
+ │ │ [37/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/aruco_opencv_msgs/msg/detail/
+ │ │ dds_fastrtps/board_pose__type_support.cpp.o
+ │ │ [38/51] Building CXX object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/aruco_opencv_msgs/msg/detail/
+ │ │ dds_fastrtps/marker_pose__type_support.cpp.o
+ │ │ [39/51] Linking CXX shared library libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so
+ │ │ [40/51] Generating Python code for ROS interfaces
+ │ │ [41/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_generator_py.dir/rosidl_generator_py/aruco_opencv_msgs/msg/_marker_pose_s.c.o
+ │ │ [42/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_generator_py.dir/rosidl_generator_py/aruco_opencv_msgs/msg/_board_pose_s.c.o
+ │ │ [43/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/aruco_opencv_msgs/_aruco_opencv_m
+ │ │ sgs_s.ep.rosidl_typesupport_introspection_c.c.o
+ │ │ [44/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosid
+ │ │ l_typesupport_c.c.o
+ │ │ [45/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/aruco_opencv_msgs/_aruco_opencv_msgs_s
+ │ │ .ep.rosidl_typesupport_fastrtps_c.c.o
+ │ │ [46/51] Building C object CMakeFiles/aruco_opencv_msgs__rosidl_generator_py.dir/rosidl_generator_py/aruco_opencv_msgs/msg/_aruco_detection_s.c.o
+ │ │ [47/51] Linking C shared library rosidl_generator_py/aruco_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so
+ │ │ [48/51] Linking C shared module rosidl_generator_py/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.
+ │ │ so
+ │ │ [49/51] Linking C shared module rosidl_generator_py/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so
+ │ │ [50/51] Linking C shared module rosidl_generator_py/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so
+ │ │ [50/51] Install the project...
+ │ │ -- Install configuration: "Release"
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/rosidl_interfaces/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_generator_c__visibility_control.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/aruco_detection.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/board_pose.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__functions.c
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__functions.c
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__functions.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__functions.c
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__struct.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__functions.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__struct.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__functions.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__struct.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/marker_pose.h
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_generator_c.so
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_fastrtps_c.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_fastrtps_c.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_fastrtps_c.h
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_introspection_c.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_introspection_c.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.c
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_introspection_c.h
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.c
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.c
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so" to ""
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_c.so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_c.so" to ""
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/aruco_detection.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/board_pose.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/marker_pose.hpp
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__traits.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__builder.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__traits.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__struct.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__traits.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__struct.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__builder.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__struct.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__builder.hpp
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_fastrtps_cpp.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_fastrtps_cpp.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/dds_fastrtps
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_fastrtps_cpp.hpp
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg
+ │ │ -- Up-to-date: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.cpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.cpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_introspection_cpp.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_introspection_cpp.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_introspection_cpp.hpp
+ │ │ -- Installing: $PREFIX/include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.cpp
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_typesupport_cpp.so
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/environment/pythonpath.sh
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/environment/pythonpath.dsv
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/PKG-INFO
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/SOURCES.txt
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/top_level.txt
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/dependency_links.txt
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/_board_pose_s.c
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/__init__.py
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/_marker_pose.py
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/_board_pose.py
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/_aruco_detection.py
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/_aruco_detection_s.c
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/msg/_marker_pose_s.c
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosidl_typesupport_introspection_c.c
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/__init__.py
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.
+ │ │ so
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosidl_typesupport_c.c
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+ │ │ Listing 'lib/python3.12/site-packages/aruco_opencv_msgs'...
+ │ │ Can't list 'lib/python3.12/site-packages/aruco_opencv_msgs'
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.
+ │ │ cpython-312-x86_64-linux-gnu.so" to ""
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.
+ │ │ so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspecti
+ │ │ on_c.cpython-312-x86_64-linux-gnu.so" to ""
+ │ │ -- Installing: $PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-3
+ │ │ 12-x86_64-linux-gnu.so" to ""
+ │ │ -- Installing: $PREFIX/lib/libaruco_opencv_msgs__rosidl_generator_py.so
+ │ │ -- Set non-toolchain portion of runtime path of "$PREFIX/lib/libaruco_opencv_msgs__rosidl_generator_py.so" to ""
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/rust_packages/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/src
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/src/msg.rs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/src/msg
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/src/msg/rmw.rs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/src/lib.rs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/Cargo.toml
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/rust/build.rs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/msg/ArucoDetection.idl
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/msg/BoardPose.idl
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/msg/MarkerPose.idl
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/msg/ArucoDetection.msg
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/msg/BoardPose.msg
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/msg/MarkerPose.msg
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/package_run_dependencies/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/parent_prefix_path/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/environment/ament_prefix_path.sh
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/environment/ament_prefix_path.dsv
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/environment/path.sh
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/environment/path.dsv
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/local_setup.bash
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/local_setup.sh
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/local_setup.zsh
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/local_setup.dsv
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/package.dsv
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/packages/aruco_opencv_msgs
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_cExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_cExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_cppExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cppExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cppExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cppExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cppExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_pyExport.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_pyExport-release.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/rosidl_cmake-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/ament_cmake_export_targets-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgsConfig.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/cmake/aruco_opencv_msgsConfig-version.cmake
+ │ │ -- Installing: $PREFIX/share/aruco_opencv_msgs/package.xml
+ │ │
+ │ ╰─────────────────── (took 4 seconds)
+ │
+ │ ╭─ Packaging new files
+ │ │ Copying done!
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _typesupport_introspection_c.so" - removing it
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so"
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _typesupport_fastrtps_c.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/python3.12/site-packages/aru
+ │ │ co_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/work/build") is outside of prefix ("/home/ubuntu/work/output/bld
+ │ │ /rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_p
+ │ │ lacehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/python3.12/site-packages/aruco_
+ │ │ opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _typesupport_introspection_cpp.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _typesupport_fastrtps_cpp.so" - removing it
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so"
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _generator_py.so" - removing it
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so"
+ │ │ Relinking "aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so"
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so"
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/python3.12/site-packages/aru
+ │ │ co_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _generator_c.so" - removing it
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_generator_c.so"
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_generator_py.so"
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_generator_py.so"
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/python3.12/site-packages/aru
+ │ │ co_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _typesupport_cpp.so" - removing it
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_typesupport_cpp.so"
+ │ │ Relinking "aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so"
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/python3.12/site-packages/aru
+ │ │ co_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.so" - removing it
+ │ │ rpath ("/home/ubuntu/work/output/bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/build_env/lib") is outside of prefix ("/home/ubuntu/work/output/
+ │ │ bld/rattler-build_ros-humble-aruco-opencv-msgs_1789349439/host_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehol
+ │ │ d_placehold_placehold_placehold_placehold_placehold_placehold_placehold_pla") for "/tmp/ros-humble-aruco-opencv-msgsnqmPTa/lib/libaruco_opencv_msgs__rosidl
+ │ │ _typesupport_c.so" - removing it
+ │ │ Relinking "aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.so"
+ │ │ Relinking "libaruco_opencv_msgs__rosidl_typesupport_c.so"
+ │ │ 
+ │ │ [lib/python3.12/site-packages/aruco_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so] links against:
+ │ │  ├─ lib/libpython3.12.so.1.0
+ │ │  ├─ lib/libstd_msgs__rosidl_generator_py.so (ros-humble-std-msgs)
+ │ │  ├─ libc.so.6 (system)
+ │ │  ├─ lib/librosidl_runtime_c.so
+ │ │  ├─ lib/libgeometry_msgs__rosidl_generator_py.so (ros-humble-geometry-msgs)
+ │ │  └─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_generator_py.so] links against:
+ │ │  ├─ lib/libgeometry_msgs__rosidl_generator_py.so (ros-humble-geometry-msgs)
+ │ │  ├─ lib/libpython3.12.so.1.0
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │  ├─ lib/libstd_msgs__rosidl_generator_py.so (ros-humble-std-msgs)
+ │ │  ├─ libc.so.6 (system)
+ │ │  └─ lib/librosidl_runtime_c.so
+ │ │ 
+ │ │ [lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.so] links against:
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_py.so (package)
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │  └─ lib/libaruco_opencv_msgs__rosidl_typesupport_c.so (package)
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so] links against:
+ │ │  ├─ libc.so.6 (system)
+ │ │  ├─ lib/librosidl_runtime_c.so
+ │ │  ├─ lib/libfastcdr.so.1.0.29
+ │ │  ├─ lib/libgcc_s.so.1 (libgcc)
+ │ │  ├─ lib/libstdc++.so.6.0.36 (libstdcxx)
+ │ │  ├─ lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so (ros-humble-std-msgs)
+ │ │  ├─ lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so (ros-humble-geometry-msgs)
+ │ │  └─ lib/librosidl_typesupport_fastrtps_cpp.so
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_typesupport_cpp.so] links against:
+ │ │  └─ lib/librosidl_typesupport_cpp.so
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so] links against:
+ │ │  ├─ lib/librosidl_runtime_c.so
+ │ │  ├─ lib/libstd_msgs__rosidl_typesupport_introspection_c.so (ros-humble-std-msgs)
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │  ├─ lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so (ros-humble-geometry-msgs)
+ │ │  └─ lib/librosidl_typesupport_introspection_c.so
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_typesupport_c.so] links against:
+ │ │  └─ lib/librosidl_typesupport_c.so
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so] links against:
+ │ │  ├─ lib/libgcc_s.so.1 (libgcc)
+ │ │  ├─ lib/librosidl_typesupport_fastrtps_c.so
+ │ │  ├─ lib/libfastcdr.so.1.0.29
+ │ │  ├─ lib/libstdc++.so.6.0.36 (libstdcxx)
+ │ │  ├─ lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so (ros-humble-std-msgs)
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │  ├─ lib/librosidl_runtime_c.so
+ │ │  ├─ lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so (ros-humble-geometry-msgs)
+ │ │  └─ libc.so.6 (system)
+ │ │ 
+ │ │ [lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so] links against:
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_c.so (package)
+ │ │  └─ lib/libaruco_opencv_msgs__rosidl_generator_py.so (package)
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so] links against:
+ │ │  ├─ lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so (ros-humble-std-msgs)
+ │ │  ├─ lib/libstdc++.so.6.0.36 (libstdcxx)
+ │ │  ├─ lib/libgcc_s.so.1 (libgcc)
+ │ │  ├─ lib/librosidl_runtime_c.so
+ │ │  ├─ lib/librosidl_typesupport_introspection_cpp.so
+ │ │  └─ lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so (ros-humble-geometry-msgs)
+ │ │ 
+ │ │ [lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so] links against:
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (package)
+ │ │  ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_c.so (package)
+ │ │  └─ lib/libaruco_opencv_msgs__rosidl_generator_py.so (package)
+ │ │ 
+ │ │ [lib/libaruco_opencv_msgs__rosidl_generator_c.so] links against:
+ │ │  ├─ lib/librosidl_runtime_c.so
+ │ │  ├─ lib/libstd_msgs__rosidl_generator_c.so (ros-humble-std-msgs)
+ │ │  ├─ libc.so.6 (system)
+ │ │  ├─ lib/libgeometry_msgs__rosidl_generator_c.so (ros-humble-geometry-msgs)
+ │ │  └─ lib/librcutils.so
+ │ │ Compiling 5 .py files to .pyc
+ │ │ Post-processing done!
+ │ │ Writing test files
+ │ │ Writing metadata for package
+ │ │ Copying license files
+ │ │ Copying recipe files
+ │ │ 
+ │ │ Files in package:
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/aruco_detection.h (535 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/aruco_detection.hpp (557 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/board_pose.h (500 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/board_pose.hpp (522 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__builder.hpp (2.04 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__functions.c (8.44 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__functions.h (6.53 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_fastrtps_c.h (1.34 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_fastrtps_cpp.hpp (2.21 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_introspection_c.h (1007 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__rosidl_typesupport_introspection_cpp.hpp (1.04 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__struct.h (1.46 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__struct.hpp (5.29 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__traits.hpp (4.43 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.c (12.97 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.cpp (8.90 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.h (933 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/aruco_detection__type_support.hpp (952 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__builder.hpp (1.56 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__functions.c (7.50 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__functions.h (6.27 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_fastrtps_c.h (1.30 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_fastrtps_cpp.hpp (2.16 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_introspection_c.h (982 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__rosidl_typesupport_introspection_cpp.hpp (1.02 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__struct.h (1.24 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__struct.hpp (4.59 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__traits.hpp (2.96 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.c (5.08 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.cpp (4.33 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.h (908 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/board_pose__type_support.hpp (927 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__builder.hpp (1.58 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__functions.c (7.17 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__functions.h (6.33 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_fastrtps_c.h (1.31 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_fastrtps_cpp.hpp (2.17 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_introspection_c.h (987 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__rosidl_typesupport_introspection_cpp.hpp (1.03 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__struct.h (1.17 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__struct.hpp (4.35 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__traits.hpp (3.05 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.c (5.04 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.cpp (4.35 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.h (913 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/detail/marker_pose__type_support.hpp (932 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/marker_pose.h (507 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/marker_pose.hpp (529 B)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_generator_c__visibility_control.h (1.55 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_generator_cpp__visibility_control.hpp (1.60 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h (1.74 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h (1.78 KiB)
+ │ │   ├─ include/aruco_opencv_msgs/aruco_opencv_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h (1.84 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_generator_c.so (26.12 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_generator_py.so (20.54 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_c.so (17.22 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_cpp.so (17.80 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so (23.36 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so (34.59 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so (24.63 KiB)
+ │ │   ├─ lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so (30.30 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/__init__.py (0 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/__pycache__/__init__.cpython-312.pyc (195 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosidl_typesupport_c.c (14.65 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosidl_typesupport_fastrtps_c.c (14.66 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/_aruco_opencv_msgs_s.ep.rosidl_typesupport_introspection_c.c (14.67 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_c.cpython-312-x86_64-linux-gnu.so (20.96 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_fastrtps_c.cpython-312-x86_64-linux-gnu.so (20.98 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/aruco_opencv_msgs_s__rosidl_typesupport_introspection_c.cpython-312-x86_64-linux-gnu.so (20.98 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so (20.54 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/__init__.py (222 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/__pycache__/__init__.cpython-312.pyc (417 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/__pycache__/_aruco_detection.cpython-312.pyc (9.96 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/__pycache__/_board_pose.cpython-312.pyc (7.22 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/__pycache__/_marker_pose.cpython-312.pyc (7.36 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/_aruco_detection.py (7.35 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/_aruco_detection_s.c (7.75 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/_board_pose.py (5.06 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/_board_pose_s.c (4.34 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/_marker_pose.py (5.19 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs/msg/_marker_pose_s.c (3.96 KiB)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/PKG-INFO (61 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/SOURCES.txt (202 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/dependency_links.txt (1 B)
+ │ │   ├─ lib/python3.12/site-packages/aruco_opencv_msgs-2.4.2-py3.12.egg-info/top_level.txt (18 B)
+ │ │   ├─ share/ament_index/resource_index/package_run_dependencies/aruco_opencv_msgs (84 B)
+ │ │   ├─ share/ament_index/resource_index/packages/aruco_opencv_msgs (0 B)
+ │ │   ├─ share/ament_index/resource_index/parent_prefix_path/aruco_opencv_msgs (8 B)
+ │ │   ├─ share/ament_index/resource_index/rosidl_interfaces/aruco_opencv_msgs (119 B)
+ │ │   ├─ share/ament_index/resource_index/rust_packages/aruco_opencv_msgs (0 B)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/ament_cmake_export_dependencies-extras.cmake (4.55 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/ament_cmake_export_include_directories-extras.cmake (815 B)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/ament_cmake_export_libraries-extras.cmake (5.11 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/ament_cmake_export_targets-extras.cmake (1.38 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgsConfig-version.cmake (432 B)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgsConfig.cmake (1.62 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cExport-release.cmake (1.25 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cExport.cmake (5.21 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cppExport-release.cmake (1.31 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_cppExport.cmake (5.23 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cExport-release.cmake (1.24 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cExport.cmake (5.46 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cppExport-release.cmake (1.25 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/aruco_opencv_msgs__rosidl_typesupport_introspection_cppExport.cmake (5.58 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_cExport-release.cmake (1.11 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_cExport.cmake (4.52 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_cppExport.cmake (4.47 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_pyExport-release.cmake (1.44 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_generator_pyExport.cmake (4.07 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake (1.20 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cExport.cmake (5.62 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake (1.21 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/export_aruco_opencv_msgs__rosidl_typesupport_fastrtps_cppExport.cmake (5.59 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/rosidl_cmake-extras.cmake (262 B)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake (1.95 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake (1.41 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/environment/ament_prefix_path.dsv (41 B)
+ │ │   ├─ share/aruco_opencv_msgs/environment/ament_prefix_path.sh (160 B)
+ │ │   ├─ share/aruco_opencv_msgs/environment/path.dsv (41 B)
+ │ │   ├─ share/aruco_opencv_msgs/environment/path.sh (185 B)
+ │ │   ├─ share/aruco_opencv_msgs/environment/pythonpath.dsv (62 B)
+ │ │   ├─ share/aruco_opencv_msgs/environment/pythonpath.sh (166 B)
+ │ │   ├─ share/aruco_opencv_msgs/local_setup.bash (1.56 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/local_setup.dsv (172 B)
+ │ │   ├─ share/aruco_opencv_msgs/local_setup.sh (5.23 KiB) [prefix:text]
+ │ │   ├─ share/aruco_opencv_msgs/local_setup.zsh (1.91 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/msg/ArucoDetection.idl (540 B)
+ │ │   ├─ share/aruco_opencv_msgs/msg/ArucoDetection.msg (99 B)
+ │ │   ├─ share/aruco_opencv_msgs/msg/BoardPose.idl (345 B)
+ │ │   ├─ share/aruco_opencv_msgs/msg/BoardPose.msg (42 B)
+ │ │   ├─ share/aruco_opencv_msgs/msg/MarkerPose.idl (346 B)
+ │ │   ├─ share/aruco_opencv_msgs/msg/MarkerPose.msg (41 B)
+ │ │   ├─ share/aruco_opencv_msgs/package.dsv (188 B)
+ │ │   ├─ share/aruco_opencv_msgs/package.xml (939 B)
+ │ │   ├─ share/aruco_opencv_msgs/rust/Cargo.toml (512 B)
+ │ │   ├─ share/aruco_opencv_msgs/rust/build.rs (339 B)
+ │ │   ├─ share/aruco_opencv_msgs/rust/src/lib.rs (230 B)
+ │ │   ├─ share/aruco_opencv_msgs/rust/src/msg/rmw.rs (9.08 KiB)
+ │ │   ├─ share/aruco_opencv_msgs/rust/src/msg.rs (5.43 KiB)
+ │ │   ├─ info/about.json (306 B)
+ │ │   ├─ info/hash_input.json (274 B)
+ │ │   ├─ info/index.json (613 B)
+ │ │   ├─ info/paths.json (34.43 KiB)
+ │ │   ├─ info/recipe/bld_ament_cmake.bat (2.31 KiB)
+ │ │   ├─ info/recipe/build_ament_cmake.sh (6.76 KiB)
+ │ │   ├─ info/recipe/recipe.yaml (2.29 KiB)
+ │ │   ├─ info/recipe/rendered_recipe.yaml (156.88 KiB)
+ │ │   ├─ info/recipe/variant_config.yaml (227 B)
+ │ │   └─ info/tests/tests.yaml (3 B)
+ │ │ 
+ │ │ Package statistics: 149 files (139 content, 10 metadata), total size: 836.50 KiB
+ │ │ Largest files:
+ │ │   34.59 KiB - lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so
+ │ │   30.30 KiB - lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so
+ │ │   26.12 KiB - lib/libaruco_opencv_msgs__rosidl_generator_c.so
+ │ │   24.63 KiB - lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so
+ │ │   23.36 KiB - lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so
+ │ │ Creating target folder '/home/ubuntu/work/output/linux-64'
+ │ │ Compressing archive...
+ │ │ Archive written to '/home/ubuntu/work/output/linux-64/ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18.conda'
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ ╰─────────────────── (took 8 seconds)
+ Collecting tests from '/tmp/.tmp05hw0N/ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18'
+ ✔ all tests passed!
+
+ ╭─ Build summary
+ │
+ │ ╭─ Build summary for recipe: ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18
+ │ │ Variant configuration (hash: np2py312h2ed9cc7_18):
+ │ │ ╭──────────────────────┬────────────────────╮
+ │ │ │ build_platform       ┆ "linux-64"         │
+ │ │ │ c_compiler           ┆ "gcc"              │
+ │ │ │ c_compiler_version   ┆ "14"               │
+ │ │ │ c_stdlib             ┆ "sysroot"          │
+ │ │ │ c_stdlib_version     ┆ "2.17"             │
+ │ │ │ cmake                ┆ "3.*"              │
+ │ │ │ cxx_compiler         ┆ "gxx"              │
+ │ │ │ cxx_compiler_version ┆ "14"               │
+ │ │ │ numpy                ┆ "2"                │
+ │ │ │ python               ┆ "3.12.* *_cpython" │
+ │ │ │ target_platform      ┆ "linux-64"         │
+ │ │ ╰──────────────────────┴────────────────────╯
+ │ │ 
+ │ │ Build dependencies:
+ │ │ ╭──────────────────────────┬─────────────────────────────┬──────────────┬──────────────────────┬─────────────┬────────────╮
+ │ │ │ Package                  ┆ Spec                        ┆ Version      ┆ Build                ┆ Channel     ┆       Size │
+ │ │ ╞══════════════════════════╪═════════════════════════════╪══════════════╪══════════════════════╪═════════════╪════════════╡
+ │ │ │ cmake                    ┆ cmake 3.* (V)               ┆ 3.31.8       ┆ hc85cc9f_0           ┆ conda-forge ┆  20.02 MiB │
+ │ │ │ coreutils                ┆ coreutils                   ┆ 9.11         ┆ h280c20c_0           ┆ conda-forge ┆   3.27 MiB │
+ │ │ │ cython                   ┆ cython                      ┆ 3.3.0        ┆ py312h03570ca_0      ┆ conda-forge ┆   3.83 MiB │
+ │ │ │ gcc_linux-64             ┆ gcc_linux-64 14.*           ┆ 14.4.0       ┆ hc469d41_1           ┆ conda-forge ┆  29.09 KiB │
+ │ │ │ git                      ┆ git                         ┆ 2.55.0       ┆ pl5321h3795e67_2     ┆ conda-forge ┆  11.23 MiB │
+ │ │ │ git-lfs                  ┆ git-lfs                     ┆ 3.8.0        ┆ h2c09266_0           ┆ conda-forge ┆   4.83 MiB │
+ │ │ │ gxx_linux-64             ┆ gxx_linux-64 14.*           ┆ 14.4.0       ┆ he93183a_1           ┆ conda-forge ┆  27.50 KiB │
+ │ │ │ make                     ┆ make                        ┆ 4.4.1        ┆ hb03c661_3           ┆ conda-forge ┆ 498.73 KiB │
+ │ │ │ ninja                    ┆ ninja                       ┆ 1.13.2       ┆ h171cf75_1           ┆ conda-forge ┆ 182.39 KiB │
+ │ │ │ patch                    ┆ patch                       ┆ 2.8          ┆ h280c20c_1003        ┆ conda-forge ┆ 107.65 KiB │
+ │ │ │ python                   ┆ python 3.12.* *_cpython (V) ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge ┆  21.98 MiB │
+ │ │ │ setuptools               ┆ setuptools                  ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge ┆ 512.20 KiB │
+ │ │ │ sysroot_linux-64         ┆ sysroot_linux-64 2.17.*     ┆ 2.17         ┆ h0157908_18          ┆ conda-forge ┆  14.46 MiB │
+ │ │ │ _openmp_mutex            ┆                             ┆ 4.5          ┆ 20_gnu               ┆ conda-forge ┆  28.27 KiB │
+ │ │ │ binutils_impl_linux-64   ┆                             ┆ 2.46.1       ┆ default_hfdba357_102 ┆ conda-forge ┆   3.54 MiB │
+ │ │ │ binutils_linux-64        ┆                             ┆ 2.46.1       ┆ default_h4852527_102 ┆ conda-forge ┆  35.49 KiB │
+ │ │ │ bzip2                    ┆                             ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge ┆ 251.77 KiB │
+ │ │ │ c-ares                   ┆                             ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge ┆ 223.34 KiB │
+ │ │ │ ca-certificates          ┆                             ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge ┆ 128.69 KiB │
+ │ │ │ gcc_impl_linux-64        ┆                             ┆ 14.4.0       ┆ heaf7ae8_4           ┆ conda-forge ┆  73.68 MiB │
+ │ │ │ gxx_impl_linux-64        ┆                             ┆ 14.4.0       ┆ hc436dd5_4           ┆ conda-forge ┆  15.13 MiB │
+ │ │ │ icu                      ┆                             ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge ┆  13.79 MiB │
+ │ │ │ kernel-headers_linux-64  ┆                             ┆ 3.10.0       ┆ he073ed8_18          ┆ conda-forge ┆ 921.37 KiB │
+ │ │ │ keyutils                 ┆                             ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge ┆ 132.12 KiB │
+ │ │ │ krb5                     ┆                             ┆ 1.22.2       ┆ hbc21106_2           ┆ conda-forge ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64         ┆                             ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge ┆ 727.83 KiB │
+ │ │ │ libcurl                  ┆                             ┆ 8.22.0       ┆ ha042cf0_0           ┆ conda-forge ┆ 487.94 KiB │
+ │ │ │ libedit                  ┆                             ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge ┆ 131.93 KiB │
+ │ │ │ libev                    ┆                             ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge ┆  42.21 KiB │
+ │ │ │ libexpat                 ┆                             ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge ┆  76.03 KiB │
+ │ │ │ libffi                   ┆                             ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge ┆  66.41 KiB │
+ │ │ │ libgcc                   ┆                             ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge ┆   1.01 MiB │
+ │ │ │ libgcc-devel_linux-64    ┆                             ┆ 14.4.0       ┆ hd9a9cd0_104         ┆ conda-forge ┆   2.95 MiB │
+ │ │ │ libgomp                  ┆                             ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge ┆ 624.97 KiB │
+ │ │ │ libiconv                 ┆                             ┆ 1.18         ┆ h0cb94f2_3           ┆ conda-forge ┆ 770.97 KiB │
+ │ │ │ liblzma                  ┆                             ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge ┆ 110.35 KiB │
+ │ │ │ libnghttp2               ┆                             ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge ┆ 634.74 KiB │
+ │ │ │ libnsl                   ┆                             ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge ┆  32.94 KiB │
+ │ │ │ libpsl                   ┆                             ┆ 0.23.1       ┆ hd9e3e90_1           ┆ conda-forge ┆  70.82 KiB │
+ │ │ │ libpython                ┆                             ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge ┆   8.36 MiB │
+ │ │ │ libsanitizer             ┆                             ┆ 14.4.0       ┆ hf39dbba_4           ┆ conda-forge ┆   7.15 MiB │
+ │ │ │ libsqlite                ┆                             ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge ┆ 951.51 KiB │
+ │ │ │ libssh2                  ┆                             ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge ┆ 298.87 KiB │
+ │ │ │ libstdcxx                ┆                             ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge ┆   6.31 MiB │
+ │ │ │ libstdcxx-devel_linux-64 ┆                             ┆ 14.4.0       ┆ ha5b54cb_104         ┆ conda-forge ┆  19.47 MiB │
+ │ │ │ libuuid                  ┆                             ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge ┆  39.06 KiB │
+ │ │ │ libuv                    ┆                             ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge ┆ 410.20 KiB │
+ │ │ │ libxcrypt                ┆                             ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge ┆  99.57 KiB │
+ │ │ │ libzlib                  ┆                             ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge ┆  62.22 KiB │
+ │ │ │ ncurses                  ┆                             ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge ┆ 889.84 KiB │
+ │ │ │ openssl                  ┆                             ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge ┆   3.05 MiB │
+ │ │ │ pcre2                    ┆                             ┆ 10.47        ┆ h8b3dc9c_1           ┆ conda-forge ┆   1.16 MiB │
+ │ │ │ perl                     ┆                             ┆ 5.32.1       ┆ 9_h7cc23a3_perl5     ┆ conda-forge ┆  12.76 MiB │
+ │ │ │ python_abi               ┆                             ┆ 3.12         ┆ 9_cp312              ┆ conda-forge ┆   6.59 KiB │
+ │ │ │ readline                 ┆                             ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge ┆ 340.72 KiB │
+ │ │ │ rhash                    ┆                             ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge ┆ 190.42 KiB │
+ │ │ │ tk                       ┆                             ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge ┆   3.40 MiB │
+ │ │ │ tzdata                   ┆                             ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge ┆ 116.06 KiB │
+ │ │ │ zstd                     ┆                             ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge ┆ 587.21 KiB │
+ │ │ ╰──────────────────────────┴─────────────────────────────┴──────────────┴──────────────────────┴─────────────┴────────────╯
+ │ │ 
+ │ │ Host dependencies:
+ │ │ ╭───────────────────────────────────────────────────┬──────────────────────────────────────────────┬──────────────┬──────────────────────┬─────────────────
+ │ │ ──┬────────────╮
+ │ │ │ Package                                           ┆ Spec                                         ┆ Version      ┆ Build                ┆ Channel         
+ │ │   ┆       Size │
+ │ │ ╞═══════════════════════════════════════════════════╪══════════════════════════════════════════════╪══════════════╪══════════════════════╪═════════════════
+ │ │ ══╪════════════╡
+ │ │ │ empy                                              ┆ empy <4                                      ┆ 3.3.4        ┆ pyh9f0ad1d_1         ┆ conda-forge     
+ │ │   ┆  39.27 KiB │
+ │ │ │ libgcc                                            ┆ libgcc >=14 (RE of [build: gcc_linux-64])    ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge     
+ │ │   ┆   1.01 MiB │
+ │ │ │ libstdcxx                                         ┆ libstdcxx >=14 (RE of [build: gxx_linux-64]) ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge     
+ │ │   ┆   6.31 MiB │
+ │ │ │ numpy                                             ┆ numpy 2.* (V)                                ┆ 2.5.3        ┆ py312he827f4e_0      ┆ conda-forge     
+ │ │   ┆   8.80 MiB │
+ │ │ │ pip                                               ┆ pip                                          ┆ 26.2.1       ┆ pyh8b19718_0         ┆ conda-forge     
+ │ │   ┆   1.14 MiB │
+ │ │ │ pkg-config                                        ┆ pkg-config                                   ┆ 0.29.2       ┆ h1114479_1013        ┆ conda-forge     
+ │ │   ┆ 138.06 KiB │
+ │ │ │ python                                            ┆ python 3.12.* *_cpython (V)                  ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge     
+ │ │   ┆  21.98 MiB │
+ │ │ │ ros-humble-ament-cmake                            ┆ ros-humble-ament-cmake                       ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.07 KiB │
+ │ │ │ ros-humble-ament-cmake-lint-cmake                 ┆ ros-humble-ament-cmake-lint-cmake            ┆ 0.12.15      ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.12 KiB │
+ │ │ │ ros-humble-ament-lint-auto                        ┆ ros-humble-ament-lint-auto                   ┆ 0.12.15      ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.79 KiB │
+ │ │ │ ros-humble-geometry-msgs                          ┆ ros-humble-geometry-msgs                     ┆ 4.9.1        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆ 310.89 KiB │
+ │ │ │ ros-humble-ros-environment                        ┆ ros-humble-ros-environment                   ┆ 3.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.12 KiB │
+ │ │ │ ros-humble-ros-workspace                          ┆ ros-humble-ros-workspace                     ┆ 1.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  34.75 KiB │
+ │ │ │ ros-humble-rosidl-default-generators              ┆ ros-humble-rosidl-default-generators         ┆ 1.2.0        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  31.26 KiB │
+ │ │ │ ros-humble-std-msgs                               ┆ ros-humble-std-msgs                          ┆ 4.9.1        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆ 282.91 KiB │
+ │ │ │ ros2-distro-mutex                                 ┆ ros2-distro-mutex 0.8.* humble_*             ┆ 0.8.0        ┆ humble_15            ┆ robostack-stagin
+ │ │ g ┆   2.32 KiB │
+ │ │ │ _openmp_mutex                                     ┆                                              ┆ 4.5          ┆ 20_gnu               ┆ conda-forge     
+ │ │   ┆  28.27 KiB │
+ │ │ │ argcomplete                                       ┆                                              ┆ 3.7.2        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  46.04 KiB │
+ │ │ │ bzip2                                             ┆                                              ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge     
+ │ │   ┆ 251.77 KiB │
+ │ │ │ c-ares                                            ┆                                              ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge     
+ │ │   ┆ 223.34 KiB │
+ │ │ │ ca-certificates                                   ┆                                              ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge     
+ │ │   ┆ 128.69 KiB │
+ │ │ │ catkin_pkg                                        ┆                                              ┆ 1.1.1        ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  53.61 KiB │
+ │ │ │ cmake                                             ┆                                              ┆ 4.2.3        ┆ hc85cc9f_1           ┆ conda-forge     
+ │ │   ┆  21.30 MiB │
+ │ │ │ colorama                                          ┆                                              ┆ 0.4.6        ┆ pyhd8ed1ab_1         ┆ conda-forge     
+ │ │   ┆  26.38 KiB │
+ │ │ │ docutils                                          ┆                                              ┆ 0.23         ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆ 448.77 KiB │
+ │ │ │ exceptiongroup                                    ┆                                              ┆ 1.3.1        ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  20.83 KiB │
+ │ │ │ gmock                                             ┆                                              ┆ 1.17.0       ┆ h8e2ec6c_2           ┆ conda-forge     
+ │ │   ┆   4.83 KiB │
+ │ │ │ gtest                                             ┆                                              ┆ 1.17.0       ┆ h171cf75_2           ┆ conda-forge     
+ │ │   ┆ 441.28 KiB │
+ │ │ │ icu                                               ┆                                              ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge     
+ │ │   ┆  13.79 MiB │
+ │ │ │ importlib-metadata                                ┆                                              ┆ 9.0.1        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  34.10 KiB │
+ │ │ │ importlib_resources                               ┆                                              ┆ 7.1.0        ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  33.99 KiB │
+ │ │ │ iniconfig                                         ┆                                              ┆ 2.3.0        ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  13.07 KiB │
+ │ │ │ keyutils                                          ┆                                              ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge     
+ │ │   ┆ 132.12 KiB │
+ │ │ │ krb5                                              ┆                                              ┆ 1.21.3       ┆ h659f571_0           ┆ conda-forge     
+ │ │   ┆   1.31 MiB │
+ │ │ │ lark-parser                                       ┆                                              ┆ 0.12.0       ┆ pyhd8ed1ab_1         ┆ conda-forge     
+ │ │   ┆  84.12 KiB │
+ │ │ │ ld_impl_linux-64                                  ┆                                              ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge     
+ │ │   ┆ 727.83 KiB │
+ │ │ │ libblas                                           ┆                                              ┆ 3.11.0       ┆ 11_h4a7cf45_openblas ┆ conda-forge     
+ │ │   ┆  17.82 KiB │
+ │ │ │ libcblas                                          ┆                                              ┆ 3.11.0       ┆ 11_h0358290_openblas ┆ conda-forge     
+ │ │   ┆  17.77 KiB │
+ │ │ │ libcurl                                           ┆                                              ┆ 8.18.0       ┆ h4e3cde8_0           ┆ conda-forge     
+ │ │   ┆ 452.09 KiB │
+ │ │ │ libedit                                           ┆                                              ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge     
+ │ │   ┆ 131.93 KiB │
+ │ │ │ libev                                             ┆                                              ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge     
+ │ │   ┆  42.21 KiB │
+ │ │ │ libexpat                                          ┆                                              ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge     
+ │ │   ┆  76.03 KiB │
+ │ │ │ libffi                                            ┆                                              ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge     
+ │ │   ┆  66.41 KiB │
+ │ │ │ libgcc-ng                                         ┆                                              ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge     
+ │ │   ┆  27.74 KiB │
+ │ │ │ libgfortran                                       ┆                                              ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge     
+ │ │   ┆  27.71 KiB │
+ │ │ │ libgfortran5                                      ┆                                              ┆ 16.2.0       ┆ h6b99dfc_4           ┆ conda-forge     
+ │ │   ┆   2.41 MiB │
+ │ │ │ libgomp                                           ┆                                              ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge     
+ │ │   ┆ 624.97 KiB │
+ │ │ │ liblapack                                         ┆                                              ┆ 3.11.0       ┆ 11_h47877c9_openblas ┆ conda-forge     
+ │ │   ┆  17.80 KiB │
+ │ │ │ liblzma                                           ┆                                              ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge     
+ │ │   ┆ 110.35 KiB │
+ │ │ │ libnghttp2                                        ┆                                              ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge     
+ │ │   ┆ 634.74 KiB │
+ │ │ │ libnsl                                            ┆                                              ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge     
+ │ │   ┆  32.94 KiB │
+ │ │ │ libopenblas                                       ┆                                              ┆ 0.3.34       ┆ pthreads_hf13c14d_2  ┆ conda-forge     
+ │ │   ┆   6.53 MiB │
+ │ │ │ libpython                                         ┆                                              ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge     
+ │ │   ┆   8.36 MiB │
+ │ │ │ libsqlite                                         ┆                                              ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge     
+ │ │   ┆ 951.51 KiB │
+ │ │ │ libssh2                                           ┆                                              ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge     
+ │ │   ┆ 298.87 KiB │
+ │ │ │ libstdcxx-ng                                      ┆                                              ┆ 16.2.0       ┆ hdf11a46_4           ┆ conda-forge     
+ │ │   ┆  27.79 KiB │
+ │ │ │ libuuid                                           ┆                                              ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge     
+ │ │   ┆  39.06 KiB │
+ │ │ │ libuv                                             ┆                                              ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge     
+ │ │   ┆ 410.20 KiB │
+ │ │ │ libxcrypt                                         ┆                                              ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge     
+ │ │   ┆  99.57 KiB │
+ │ │ │ libzlib                                           ┆                                              ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge     
+ │ │   ┆  62.22 KiB │
+ │ │ │ ncurses                                           ┆                                              ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge     
+ │ │   ┆ 889.84 KiB │
+ │ │ │ openssl                                           ┆                                              ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge     
+ │ │   ┆   3.05 MiB │
+ │ │ │ packaging                                         ┆                                              ┆ 26.3         ┆ pyhc364b38_0         ┆ conda-forge     
+ │ │   ┆ 113.64 KiB │
+ │ │ │ pluggy                                            ┆                                              ┆ 1.6.0        ┆ pyhf9edf01_1         ┆ conda-forge     
+ │ │   ┆  25.27 KiB │
+ │ │ │ pygments                                          ┆                                              ┆ 2.21.0       ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆ 936.89 KiB │
+ │ │ │ pyparsing                                         ┆                                              ┆ 3.3.2        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆ 108.29 KiB │
+ │ │ │ pytest                                            ┆                                              ┆ 9.1.1        ┆ pyhc364b38_2         ┆ conda-forge     
+ │ │   ┆ 299.54 KiB │
+ │ │ │ python-dateutil                                   ┆                                              ┆ 2.9.0.post0  ┆ pyhe01879c_2         ┆ conda-forge     
+ │ │   ┆ 227.84 KiB │
+ │ │ │ python_abi                                        ┆                                              ┆ 3.12         ┆ 9_cp312              ┆ conda-forge     
+ │ │   ┆   6.59 KiB │
+ │ │ │ readline                                          ┆                                              ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge     
+ │ │   ┆ 340.72 KiB │
+ │ │ │ rhash                                             ┆                                              ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge     
+ │ │   ┆ 190.42 KiB │
+ │ │ │ ros-humble-ament-cmake-core                       ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  43.48 KiB │
+ │ │ │ ros-humble-ament-cmake-export-definitions         ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.83 KiB │
+ │ │ │ ros-humble-ament-cmake-export-dependencies        ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.00 KiB │
+ │ │ │ ros-humble-ament-cmake-export-include-directories ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.26 KiB │
+ │ │ │ ros-humble-ament-cmake-export-interfaces          ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.44 KiB │
+ │ │ │ ros-humble-ament-cmake-export-libraries           ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.73 KiB │
+ │ │ │ ros-humble-ament-cmake-export-link-flags          ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.77 KiB │
+ │ │ │ ros-humble-ament-cmake-export-targets             ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.59 KiB │
+ │ │ │ ros-humble-ament-cmake-gen-version-h              ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  24.53 KiB │
+ │ │ │ ros-humble-ament-cmake-gmock                      ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  24.13 KiB │
+ │ │ │ ros-humble-ament-cmake-gtest                      ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  24.34 KiB │
+ │ │ │ ros-humble-ament-cmake-include-directories        ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.71 KiB │
+ │ │ │ ros-humble-ament-cmake-libraries                  ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.44 KiB │
+ │ │ │ ros-humble-ament-cmake-pytest                     ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  24.55 KiB │
+ │ │ │ ros-humble-ament-cmake-python                     ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.92 KiB │
+ │ │ │ ros-humble-ament-cmake-ros                        ┆                                              ┆ 0.10.0       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  30.42 KiB │
+ │ │ │ ros-humble-ament-cmake-target-dependencies        ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.40 KiB │
+ │ │ │ ros-humble-ament-cmake-test                       ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  34.96 KiB │
+ │ │ │ ros-humble-ament-cmake-version                    ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.61 KiB │
+ │ │ │ ros-humble-ament-index-python                     ┆                                              ┆ 1.4.1        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  27.24 KiB │
+ │ │ │ ros-humble-ament-lint-cmake                       ┆                                              ┆ 0.12.15      ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  37.81 KiB │
+ │ │ │ ros-humble-ament-package                          ┆                                              ┆ 0.14.2       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  45.33 KiB │
+ │ │ │ ros-humble-builtin-interfaces                     ┆                                              ┆ 1.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  74.72 KiB │
+ │ │ │ ros-humble-domain-coordinator                     ┆                                              ┆ 0.10.0       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  19.89 KiB │
+ │ │ │ ros-humble-fastcdr                                ┆                                              ┆ 1.0.29       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  65.18 KiB │
+ │ │ │ ros-humble-fastrtps-cmake-module                  ┆                                              ┆ 2.2.4        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  26.60 KiB │
+ │ │ │ ros-humble-gmock-vendor                           ┆                                              ┆ 1.10.9006    ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆ 110.81 KiB │
+ │ │ │ ros-humble-gtest-vendor                           ┆                                              ┆ 1.10.9006    ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆ 195.16 KiB │
+ │ │ │ ros-humble-python-cmake-module                    ┆                                              ┆ 0.10.0       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  27.66 KiB │
+ │ │ │ ros-humble-rcpputils                              ┆                                              ┆ 2.4.6        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  76.72 KiB │
+ │ │ │ ros-humble-rcutils                                ┆                                              ┆ 5.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆ 115.04 KiB │
+ │ │ │ ros-humble-rmw                                    ┆                                              ┆ 6.1.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  89.59 KiB │
+ │ │ │ ros-humble-rosidl-adapter                         ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  61.08 KiB │
+ │ │ │ ros-humble-rosidl-cli                             ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  37.25 KiB │
+ │ │ │ ros-humble-rosidl-cmake                           ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  40.31 KiB │
+ │ │ │ ros-humble-rosidl-default-runtime                 ┆                                              ┆ 1.2.0        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  30.22 KiB │
+ │ │ │ ros-humble-rosidl-generator-c                     ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  46.01 KiB │
+ │ │ │ ros-humble-rosidl-generator-cpp                   ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  48.73 KiB │
+ │ │ │ ros-humble-rosidl-generator-py                    ┆                                              ┆ 0.14.6       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  58.95 KiB │
+ │ │ │ ros-humble-rosidl-generator-rs                    ┆                                              ┆ 0.4.11       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  47.48 KiB │
+ │ │ │ ros-humble-rosidl-parser                          ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  57.98 KiB │
+ │ │ │ ros-humble-rosidl-runtime-c                       ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  47.38 KiB │
+ │ │ │ ros-humble-rosidl-runtime-cpp                     ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  35.29 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-c                   ┆                                              ┆ 2.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  48.25 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-cpp                 ┆                                              ┆ 2.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  47.60 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-fastrtps-c          ┆                                              ┆ 2.2.4        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  47.87 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-fastrtps-cpp        ┆                                              ┆ 2.2.4        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  50.11 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-interface           ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  28.40 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-introspection-c     ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  45.49 KiB │
+ │ │ │ ros-humble-rosidl-typesupport-introspection-cpp   ┆                                              ┆ 3.1.8        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  45.81 KiB │
+ │ │ │ ros-humble-rpyutils                               ┆                                              ┆ 0.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  25.03 KiB │
+ │ │ │ setuptools                                        ┆                                              ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge     
+ │ │   ┆ 512.20 KiB │
+ │ │ │ six                                               ┆                                              ┆ 1.17.0       ┆ pyhe01879c_1         ┆ conda-forge     
+ │ │   ┆  18.02 KiB │
+ │ │ │ tk                                                ┆                                              ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge     
+ │ │   ┆   3.40 MiB │
+ │ │ │ tomli                                             ┆                                              ┆ 2.4.1        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  21.06 KiB │
+ │ │ │ typing_extensions                                 ┆                                              ┆ 4.16.0       ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  51.40 KiB │
+ │ │ │ tzdata                                            ┆                                              ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge     
+ │ │   ┆ 116.06 KiB │
+ │ │ │ wheel                                             ┆                                              ┆ 0.48.0       ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  33.72 KiB │
+ │ │ │ zipp                                              ┆                                              ┆ 4.1.0        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  23.62 KiB │
+ │ │ │ zstd                                              ┆                                              ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge     
+ │ │   ┆ 587.21 KiB │
+ │ │ ╰───────────────────────────────────────────────────┴──────────────────────────────────────────────┴──────────────┴──────────────────────┴─────────────────
+ │ │ ──┴────────────╯
+ │ │ 
+ │ │ Run dependencies:
+ │ │ ╭───────────────────────────────────┬────────────────────────────────────────────────────╮
+ │ │ │ Name                              ┆ Spec                                               │
+ │ │ ╞═══════════════════════════════════╪════════════════════════════════════════════════════╡
+ │ │ │ Run dependencies                  ┆                                                    │
+ │ │ │ __glibc                           ┆ >=2.17,<3.0.a0 (RE of [build: sysroot_linux-64])   │
+ │ │ │ libgcc                            ┆ >=14 (RE of [build: gcc_linux-64])                 │
+ │ │ │                                   ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ │ libstdcxx                         ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ │ numpy                             ┆ >=1.25,<3 (RE of [host: numpy])                    │
+ │ │ │ python                            ┆ *                                                  │
+ │ │ │ python_abi                        ┆ 3.12.* *_cp312 (RE of [host: python])              │
+ │ │ │ ros-humble-geometry-msgs          ┆ *                                                  │
+ │ │ │ ros-humble-ros-workspace          ┆ *                                                  │
+ │ │ │ ros-humble-rosidl-default-runtime ┆ *                                                  │
+ │ │ │ ros-humble-std-msgs               ┆ *                                                  │
+ │ │ │ ros2-distro-mutex                 ┆ 0.8.* humble_*                                     │
+ │ │ │                                   ┆ >=0.8.0,<0.9.0a0 (RE of [host: ros2-distro-mutex]) │
+ │ │ ╰───────────────────────────────────┴────────────────────────────────────────────────────╯
+ │ │ 
+ │ │ ⚠ warning Warnings:
+ │ │ ⚠ warning Overlinking against "lib/libpython3.12.so.1.0" for "lib/python3.12/site-packages/aruco_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/python3.12/site-packages/aruco_opencv_msgs/libaruco_opencv_msgs__rosidl_generator_py.so"
+ │ │ ⚠ warning Overlinking against "lib/libpython3.12.so.1.0" for "lib/libaruco_opencv_msgs__rosidl_generator_py.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/libaruco_opencv_msgs__rosidl_generator_py.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so"
+ │ │ ⚠ warning Overlinking against "lib/libfastcdr.so.1.0.29" for "lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_typesupport_fastrtps_cpp.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_cpp.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_typesupport_cpp.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_cpp.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_typesupport_introspection_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_c.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_typesupport_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_c.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_typesupport_fastrtps_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so"
+ │ │ ⚠ warning Overlinking against "lib/libfastcdr.so.1.0.29" for "lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_fastrtps_c.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_typesupport_introspection_cpp.so" for "lib/libaruco_opencv_msgs__rosidl_typesupport_introspection_cpp.so"
+ │ │ ⚠ warning Overlinking against "lib/librosidl_runtime_c.so" for "lib/libaruco_opencv_msgs__rosidl_generator_c.so"
+ │ │ ⚠ warning Overlinking against "lib/librcutils.so" for "lib/libaruco_opencv_msgs__rosidl_generator_c.so"
+ │ │ Artifact: /home/ubuntu/work/output/linux-64/ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18.conda (96.40 KiB)
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ ╰─────────────────── (took 0 seconds)

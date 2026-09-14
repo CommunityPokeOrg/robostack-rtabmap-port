@@ -1,0 +1,120 @@
+ros_distro: humble
+
+# mapping for package keys
+conda_index:
+  - robostack.yaml
+  - packages-ignore.yaml
+
+# Reminder for next full rebuild, the next build number should be 20
+build_number: 18
+
+mutex_package:
+  name: "ros2-distro-mutex"
+  version: "0.8.0"
+  upper_bound: "x.x"
+  run_constraints:
+    - libboost 1.88.*
+    - libboost-devel 1.88.*
+    - pcl 1.15.1.*
+    - gazebo 11.*
+    - libprotobuf 6.33.5.*
+    - vtk 9.5.2.*
+    - krb5 1.21.*
+
+patch_dir: patch
+rosdistro_snapshot: rosdistro_snapshot.yaml
+rosdistro_additional_recipes: rosdistro_additional_recipes.yaml
+
+skip_existing:
+  - https://conda.anaconda.org/robostack-staging/
+
+packages_skip_by_deps:
+  - libpointmatcher
+  - if: not linux
+    then:
+      - pendulum_control
+      - rttest
+      - tlsf
+      - tlsf_cpp
+  - if: wasm32
+    then:
+      - rmw_fastrtps_cpp
+      - rosidl_typesupport_fastrtps_c
+      - rosidl_typesupport_fastrtps_cpp
+      - rmw_cyclonedds_cpp
+      - rmw_connextdds
+      - rmw_fastrtps_shared_cpp
+      - rmw_fastrtps_dynamic_cpp
+      - rmw_fastrtps_dds_common
+      - mimick_vendor
+      - ament_xmllint
+      - ament_cmake_xmllint
+      - performance_test_fixture
+      - rmw_connextdds
+      - rmw_cyclonedds_cpp
+      - osrf_testing_tools_cpp
+  - if: win
+    then:
+      - rclc_examples
+      # Modern gz-sim integration is not supported on Humble on Windows, please
+      # look to Jazzy or Kilted if you are interested in it, see
+      # https://github.com/RoboStack/ros-humble/issues/68
+      - ros_gz
+      - ros_gz_bridge
+      - ros_gz_image
+      - ros_gz_sim
+      - ros_gz_sim_demos
+      - test_ros_gz_bridge
+      - ros_ign
+      - ros_ign_bridge
+      - ros_ign_gazebo
+      - ros_ign_gazebo_demos
+      - ros_ign_image
+
+packages_remove_from_deps:
+  - libpointmatcher
+  - if: not linux
+    then:
+      - pendulum_control
+      - rttest
+      - tlsf
+      - tlsf_cpp
+  - if: wasm32
+    then:
+      - rmw_fastrtps_cpp
+      - rosidl_typesupport_fastrtps_c
+      - rosidl_typesupport_fastrtps_cpp
+      - rmw_cyclonedds_cpp
+      - rmw_connextdds
+      - rmw_fastrtps_shared_cpp
+      - rmw_fastrtps_dynamic_cpp
+      - rmw_fastrtps_dds_common
+      - mimick_vendor
+      - ament_xmllint
+      - ament_cmake_xmllint
+      - performance_test_fixture
+      - rmw_connextdds
+      - rmw_cyclonedds_cpp
+      - osrf_testing_tools_cpp
+  - if: win
+    then:
+      - rclc_examples
+      # Modern gz-sim integration is not supported on Humble on Windows, please
+      # look to Jazzy or Kilted if you are interested in it, see
+      # https://github.com/RoboStack/ros-humble/issues/68
+      - ros_gz
+      - ros_gz_bridge
+      - ros_gz_image
+      - ros_gz_sim
+      - ros_gz_sim_demos
+      - test_ros_gz_bridge
+      - ros_ign
+      - ros_ign_bridge
+      - ros_ign_gazebo
+      - ros_ign_gazebo_demos
+      - ros_ign_image
+
+packages_select_by_deps:
+  - if: not win
+    then:
+      - rtabmap_ros
