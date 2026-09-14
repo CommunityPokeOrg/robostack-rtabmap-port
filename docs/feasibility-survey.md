@@ -1,6 +1,6 @@
 # Feasibility survey — RTAB-Map port to RoboStack (issue #12, CommunityPokeOrg/robostack-rtabmap-port)
 
-Research only; no conclusions. Sources: `RoboStack/{ros-humble,ros-jazzy,ros-noetic}` (git clones; ros-noetic deepened to depth≥200 for patch history), installed vinca at `/home/ubuntu/micromamba/envs/build/lib/python3.11/site-packages/vinca/` (RoboStack vinca @ b5e03d1f), repodata snapshots saved under `investigation/feasibility-raw/repodata-<channel>-<platform>.json` and consolidated query output in `investigation/feasibility-raw/repodata-queries.txt`, staged-recipes PR files copied verbatim to `investigation/feasibility-raw/staged-recipes-34714.txt`.
+Research only; no conclusions. Sources: `RoboStack/{ros-humble,ros-jazzy,ros-noetic}` (git clones; ros-noetic deepened to depth≥200 for patch history), installed vinca at the installed RoboStack vinca package (RoboStack vinca @ b5e03d1f), repodata snapshots saved under `investigation/feasibility-raw/repodata-<channel>-<platform>.json` and consolidated query output in `investigation/feasibility-raw/repodata-queries.txt`, staged-recipes PR files copied verbatim to `investigation/feasibility-raw/staged-recipes-34714.txt`.
 
 ---
 
@@ -34,7 +34,7 @@ Note the vinca templates hardcode `OSX_DEPLOYMENT_TARGET` to 10.15/11.0 (see 1.4
 
 ### 1.4 vinca build templates — macOS-relevant lines
 
-Files: `/home/ubuntu/micromamba/envs/build/lib/python3.11/site-packages/vinca/templates/build_ament_cmake.sh.in` and `build_catkin.sh.in` (identical copies in `RoboStack/vinca/vinca/templates/`).
+Files: `vinca/templates/build_ament_cmake.sh.in` and `build_catkin.sh.in` (identical copies in `RoboStack/vinca/vinca/templates/`).
 
 | template:line | content |
 |---|---|
@@ -83,7 +83,7 @@ Method: grep over `patch/*.patch` in each repo for `APPLE|Darwin|osx|macOS|dynam
 | `ros-humble-plotjuggler.osx.patch` | qt5 | qwt links `Qt5::Xml` (missing link) |
 | `ros-humble-grid-map-pcl.osx.patch` | apple pcl | helpers.hpp Apple fix |
 | `ros-humble-moveit-ros-move-group.patch` | apple macos rpath | rpath fix |
-| `ros-humble-rtabmap.patch` | opencv pcl sqlite | **the stale 2022 patch** (moved to `/home/ubuntu/work/stale-ros-humble-rtabmap.patch`); old Qt5-era edits |
+| `ros-humble-rtabmap.patch` | opencv pcl sqlite | **the stale 2022 patch** (kept as `evidence/humble/stale-ros-humble-rtabmap.patch`); old Qt5-era edits |
 | also matching grep but lower relevance | — | `ros-humble-cyclonedds`, `-fastrtps` (APPLE), `-rcutils` (APPLE), `-ros-workspace` (APPLE), `-rosidl-generator-py` (APPLE), `-osrf-testing-tools-cpp` (APPLE darwin), `-apriltag-ros` (APPLE), `-mimick-vendor.osx`, `-mavlink.osx`, `-menge-vendor`, `-realsense2-camera`, `-realtime-tools.osx`, `-rplidar-ros`, `-ublox-dgnss-node`, `-gripper-controllers`, `-mrpt2` |
 
 ### 2.3 jazzy patches (selected)
@@ -229,7 +229,7 @@ libglfw3-dev:   robostack: [glfw 3.*]               # L342
 libvulkan-dev:  {linux: [libvulkan-headers, libvulkan-loader], osx: [], win64: […]}  # L574
 ```
 
-**Not present** (grep returns nothing): `liboctomap-dev` (added in our worktree at `/home/ubuntu/work/ros-humble/robostack.yaml:403`), `qtbase5-private-dev` (hence vinca warning "Unsatisfied dependencies: {…, qtbase5-private-dev}" during phase-2 generation), `libgl-dev`, `libopengl-dev` bare keys, any `qt6*` rosdep keys.
+**Not present** (grep returns nothing): `liboctomap-dev` (added in our worktree at `robostack/humble/robostack.yaml`), `qtbase5-private-dev` (hence vinca warning "Unsatisfied dependencies: {…, qtbase5-private-dev}" during phase-2 generation), `libgl-dev`, `libopengl-dev` bare keys, any `qt6*` rosdep keys.
 
 ---
 
