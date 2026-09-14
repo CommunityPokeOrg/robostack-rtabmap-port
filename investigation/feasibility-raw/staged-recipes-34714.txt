@@ -1,0 +1,374 @@
+########## recipe.yaml
+schema_version: 1
+
+context:
+  version: "0.23.8"
+
+package:
+  name: rtabmap
+  version: ${{ version }}
+
+source:
+  url: https://github.com/introlab/rtabmap/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 990029f1021e3c124c3accc7baf25b6c762c49537b9ae326965ff50b395afb11
+  patches:
+    - 0001-use-system-lz4-and-sqlite.patch
+    - 0002-exclude-disabled-orb-octree.patch
+    - 0003-scope-vtk-and-pthreads-discovery.patch
+    - 0004-include-winsock2-before-windows.patch
+    - 0005-export-pdal-writer-api.patch
+    # Backported from https://github.com/introlab/rtabmap/pull/1732;
+    # remove with the first post-0.23.8 release.
+    - 0006-support-opencv-5.patch
+
+build:
+  number: 0
+  script:
+    - if: win
+      then: call "%RECIPE_DIR%\build.bat"
+      else: bash "${RECIPE_DIR}/build.sh"
+
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ compiler("cxx") }}
+    - ${{ stdlib("c") }}
+    - cmake >=3.14
+    - ninja
+    - pkg-config
+    - if: build_platform != target_platform
+      then: qt6-main
+  host:
+    - apriltag
+    - ceres-solver
+    - eigen
+    - if: linux
+      then:
+        - libgomp
+        - libopengl-devel
+    - if: not win
+      then: libdc1394
+    - libopencv
+    - librealsense
+    - lz4-c
+    - if: osx
+      then: llvm-openmp
+    - octomap
+    - pcl >=1.7
+    - libpdal-core
+    - qt6-main
+    # The source patch makes this required instead of using bundled SQLite.
+    - sqlite
+    - vtk
+    - yaml-cpp
+    - zlib
+  run:
+    - if: linux
+      then: libgomp
+  run_exports:
+    # RTAB-Map's shared-library SOVERSION is major.minor (0.23).
+    - ${{ pin_subpackage("rtabmap", upper_bound="x.x") }}
+
+tests:
+  - package_contents:
+      bin:
+        - if: win
+          then: RTABMap
+          else: rtabmap
+        - rtabmap-console
+        - rtabmap-databaseViewer
+        - rtabmap-euroc_dataset
+        - rtabmap-info
+      include:
+        - rtabmap-0.23/rtabmap/core/Rtabmap.h
+        - rtabmap-0.23/rtabmap/gui/MainWindow.h
+      lib:
+        - rtabmap_core
+        - rtabmap_gui
+        - rtabmap_utilite
+  - script:
+      - if: unix
+        then: test "$(rtabmap-console -v)" = "${{ version }}"
+      - if: win
+        then: rtabmap-console -v | findstr /x "${{ version }}" >NUL || exit /b 1
+  - files:
+      recipe:
+        - run_test.py
+    requirements:
+      run:
+        - python
+    script: python run_test.py
+  - files:
+      recipe:
+        - tests/CMakeLists.txt
+        - tests/core.cpp
+        - tests/gui.cpp
+    requirements:
+      build:
+        - ${{ compiler("cxx") }}
+        - ${{ stdlib("c") }}
+        - cmake >=3.14
+        - ninja
+    script:
+      - if: win
+        then:
+          - cmake %CMAKE_ARGS% -S tests -B tests/build -G Ninja -DCMAKE_BUILD_TYPE=Release
+          - cmake --build tests/build --config Release
+          - ctest --test-dir tests/build --output-on-failure --build-config Release
+        else:
+          - cmake ${CMAKE_ARGS} -S tests -B tests/build -G Ninja -DCMAKE_BUILD_TYPE=Release
+          - cmake --build tests/build --config Release
+          - ctest --test-dir tests/build --output-on-failure --build-config Release
+
+about:
+  homepage: https://introlab.github.io/rtabmap/
+  repository: https://github.com/introlab/rtabmap
+  documentation: https://github.com/introlab/rtabmap/wiki
+  summary: Real-Time Appearance-Based Mapping library and standalone application
+  description: |
+    RTAB-Map is a graph-based RGB-D, stereo, and lidar SLAM approach designed
+    for long-term and large-scale online operation. This package provides its
+    shared C++ libraries, CMake package, Qt GUI, standalone application, and
+    command-line tools.
+  license: BSD-3-Clause AND BSD-2-Clause AND MIT AND LGPL-2.1-only
+  license_file:
+    - LICENSE
+    # Only notices for source compiled into RTAB-Map itself are listed here;
+    # independently packaged dependencies carry their own license metadata.
+    - corelib/src/SimpleIni.h
+    - corelib/include/rtabmap/core/rvl_codec.h
+    - corelib/src/rtflann/general.h
+    - corelib/include/rtabmap/core/clams/discrete_depth_distortion_model.h
+    - corelib/src/GeodeticCoords.cpp
+    - corelib/src/imufilter/ComplementaryFilter.cpp
+    - corelib/src/optimizer/ceres/pose_graph_2d/angle_manifold.h
+    - corelib/src/opencv/five-point.cpp
+    - corelib/src/opencv/solvepnp.cpp
+    - corelib/src/pcl18/surface/organized_fast_mesh.h
+    - corelib/src/pcl18/surface/texture_mapping.h
+    - corelib/src/lidar/LidarVLP16.cpp
+    - guilib/src/3rdParty/QMultiComboBox.cpp
+    - guilib/src/3rdParty/lgpl-2.1.txt
+    - guilib/src/opencv/vtkImageMatSource.cpp
+
+extra:
+  recipe-maintainers:
+    - jeongseok-meta
+
+########## build.sh
+#!/usr/bin/env bash
+set -euxo pipefail
+
+rtabmap_build_jobs="${CPU_COUNT:-2}"
+if ((rtabmap_build_jobs > 2)); then
+    rtabmap_build_jobs=2
+fi
+
+# CMAKE_ARGS is intentionally word-split into the arguments supplied by conda-build.
+# shellcheck disable=SC2086
+cmake ${CMAKE_ARGS} -S . -B build-conda -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DANDROID_PREBUILD=OFF \
+    -DBUILD_SHARED_LIBS=ON \
+    -DBUILD_AS_BUNDLE=OFF \
+    -DBUILD_APP=ON \
+    -DBUILD_TOOLS=ON \
+    -DBUILD_EXAMPLES=ON \
+    -DBUILD_OPENGV=OFF \
+    -DBUILD_WITH_RPATH_NOT_RUNPATH=OFF \
+    -DFLANN_KDTREE_MEM_OPT=OFF \
+    -DMULTI_ARCH=OFF \
+    -DPCL_OMP=ON \
+    -DRTABMAP_QT_VERSION=6 \
+    -DWITH_ALICE_VISION=OFF \
+    -DWITH_APRILTAG=ON \
+    -DWITH_CCCORELIB=OFF \
+    -DWITH_CERES=ON \
+    -DWITH_CPUTSDF=OFF \
+    -DWITH_CUDASIFT=OFF \
+    -DWITH_CUVSLAM=OFF \
+    -DWITH_CVSBA=OFF \
+    -DWITH_DC1394=ON \
+    -DWITH_DEPTHAI=OFF \
+    -DWITH_DVO=OFF \
+    -DWITH_FASTCV=OFF \
+    -DWITH_FLOAM=OFF \
+    -DWITH_FOVIS=OFF \
+    -DWITH_FREENECT=OFF \
+    -DWITH_FREENECT2=OFF \
+    -DWITH_FLYCAPTURE2=OFF \
+    -DWITH_G2O=OFF \
+    -DWITH_GRIDMAP=OFF \
+    -DWITH_GTSAM=OFF \
+    -DWITH_K4A=OFF \
+    -DWITH_K4W2=OFF \
+    -DWITH_LIBLAS=OFF \
+    -DWITH_LIOSAM=OFF \
+    -DWITH_LOAM=OFF \
+    -DWITH_MADGWICK=OFF \
+    -DWITH_MRPT=OFF \
+    -DWITH_MSCKF_VIO=OFF \
+    -DWITH_MYNTEYE=OFF \
+    -DWITH_OCTOMAP=ON \
+    -DWITH_OKVIS=OFF \
+    -DWITH_OPEN3D=OFF \
+    -DWITH_OPENCHISEL=OFF \
+    -DWITH_OPENGV=OFF \
+    -DWITH_OPENMP=ON \
+    -DWITH_OPENNI=OFF \
+    -DWITH_OPENNI2=OFF \
+    -DWITH_OPENVINS=OFF \
+    -DWITH_ORBBEC_SDK=OFF \
+    -DWITH_ORB_OCTREE=OFF \
+    -DWITH_ORB_SLAM=OFF \
+    -DWITH_PDAL=ON \
+    -DWITH_POINTMATCHER=OFF \
+    -DWITH_PYTHON=OFF \
+    -DWITH_PYTHON_THREADING=OFF \
+    -DWITH_QT=ON \
+    -DWITH_REALSENSE=OFF \
+    -DWITH_REALSENSE2=ON \
+    -DWITH_REALSENSE_SLAM=OFF \
+    -DWITH_TORCH=OFF \
+    -DWITH_TORO=OFF \
+    -DWITH_VERTIGO=OFF \
+    -DVTK_GLOBAL_WARNING_DISPLAY=OFF \
+    -DWITH_VINS_FUSION=OFF \
+    -DWITH_VISO2=OFF \
+    -DWITH_XVSDK=OFF \
+    -DWITH_ZED=OFF \
+    -DWITH_ZEDOC=OFF
+
+cmake --build build-conda --parallel "${rtabmap_build_jobs}"
+cmake --install build-conda
+
+########## 0001-use-system-lz4-and-sqlite.patch
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 25adacc..4fc1ed1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -263,6 +263,8 @@ else()
+ endif()
+ 
+ FIND_PACKAGE(ZLIB REQUIRED QUIET)
++FIND_PACKAGE(PkgConfig REQUIRED)
++PKG_CHECK_MODULES(LZ4 REQUIRED IMPORTED_TARGET liblz4)
+ 
+-FIND_PACKAGE(SQLite3 QUIET)
++FIND_PACKAGE(SQLite3 REQUIRED)
+ IF(SQLite3_FOUND)
+diff --git a/corelib/src/CMakeLists.txt b/corelib/src/CMakeLists.txt
+index 6969c5c..b706bb5 100644
+--- a/corelib/src/CMakeLists.txt
++++ b/corelib/src/CMakeLists.txt
+@@ -128,8 +128,6 @@ SET(SRC_FILES
+     
+     GainCompensator.cpp
+ 
+-    rtflann/ext/lz4.c
+-    rtflann/ext/lz4hc.c
+     FlannIndex.cpp
+     
+     #clams stuff
+@@ -176,6 +174,7 @@ SET(PUBLIC_INCLUDE_DIRS
+ 
+ SET(LIBRARIES
+ 	${ZLIB_LIBRARIES}
++	PkgConfig::LZ4
+ )
+ 
+ # Issue that qhull dependency uses optimized and debug keywords,
+diff --git a/corelib/src/rtflann/util/serialization.h b/corelib/src/rtflann/util/serialization.h
+index 8c25166..8099339 100644
+--- a/corelib/src/rtflann/util/serialization.h
++++ b/corelib/src/rtflann/util/serialization.h
+@@ -6,8 +6,8 @@
+ #include <cstdlib>
+ #include <cstring>
+ #include <stdio.h>
+-#include "rtflann/ext/lz4.h"
+-#include "rtflann/ext/lz4hc.h"
++#include <lz4.h>
++#include <lz4hc.h>
+ 
+ 
+ namespace rtflann
+
+########## 0003-scope-vtk-and-pthreads-discovery.patch
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 5e0a184..f35b45b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -322,7 +322,11 @@ ENDIF(ZLIB_FOUND)
+ 
+ SET(ADD_VTK_GUI_SUPPORT_QT_TO_CONF FALSE)
+ IF(WITH_QT)
++  IF(PCL_VTK_COMPONENTS)
++    FIND_PACKAGE(VTK COMPONENTS ${PCL_VTK_COMPONENTS})
++  ELSE()
+     FIND_PACKAGE(VTK)
++  ENDIF()
+     IF(NOT VTK_FOUND)
+       MESSAGE(FATAL_ERROR "VTK is required when using Qt. Set -DWITH_QT=OFF if you don't want gui tools.")
+     ENDIF(NOT VTK_FOUND)
+diff --git a/utilite/CMakeLists.txt b/utilite/CMakeLists.txt
+index b152c0f..7bc18f3 100644
+--- a/utilite/CMakeLists.txt
++++ b/utilite/CMakeLists.txt
+@@ -2,7 +2,8 @@ SET(UTILITE_VERSION "0.3.0")
+ ADD_DEFINITIONS(-DUTILITE_VERSION="${UTILITE_VERSION}")
+ 
+ if(UNIX AND NOT ANDROID)
+-   FIND_PACKAGE(Pthreads REQUIRED)
++   SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake_modules;${CMAKE_MODULE_PATH}")
++   FIND_PACKAGE(Pthreads REQUIRED MODULE)
+ ENDIF(UNIX AND NOT ANDROID)
+ 
+ ADD_SUBDIRECTORY( src )
+diff --git a/utilite/src/CMakeLists.txt b/utilite/src/CMakeLists.txt
+--- a/utilite/src/CMakeLists.txt
++++ b/utilite/src/CMakeLists.txt
+@@ -20,8 +20,8 @@ generate_export_header(rtabmap_utilite
+   BASE_NAME utilite)
+ 
+ target_include_directories(rtabmap_utilite PUBLIC 
+-  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include;${CMAKE_CURRENT_BINARY_DIR}/include;${PTHREADS_INCLUDE_DIR}>"
+-  "$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR};${PTHREADS_INCLUDE_DIR}>")
++  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../include;${CMAKE_CURRENT_BINARY_DIR}/include;${PTHREADS_INCLUDE_DIR}>"
++  "$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>")
+ 
+ IF(MINGW)
+     TARGET_LINK_LIBRARIES(rtabmap_utilite PRIVATE ${PTHREADS_LIBRARY} "-lpsapi")
+diff --git a/corelib/src/CMakeLists.txt b/corelib/src/CMakeLists.txt
+--- a/corelib/src/CMakeLists.txt
++++ b/corelib/src/CMakeLists.txt
+@@ -883,8 +883,7 @@ target_include_directories(rtabmap_core PUBLIC
+   "$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>")
+ 
+ target_include_directories(rtabmap_core SYSTEM PUBLIC 
+-  "$<BUILD_INTERFACE:${PUBLIC_INCLUDE_DIRS};${INCLUDE_DIRS}>"
+-  "$<INSTALL_INTERFACE:${PUBLIC_INCLUDE_DIRS}>")
++  "$<BUILD_INTERFACE:${PUBLIC_INCLUDE_DIRS};${INCLUDE_DIRS}>")
+   
+ TARGET_LINK_LIBRARIES(rtabmap_core 
+   PUBLIC 
+diff --git a/guilib/src/CMakeLists.txt b/guilib/src/CMakeLists.txt
+--- a/guilib/src/CMakeLists.txt
++++ b/guilib/src/CMakeLists.txt
+@@ -202,8 +202,7 @@ target_include_directories(rtabmap_gui PUBLIC
+   "$<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>")
+ 
+ target_include_directories(rtabmap_gui SYSTEM PUBLIC 
+-  "$<BUILD_INTERFACE:${PUBLIC_INCLUDE_DIRS};${INCLUDE_DIRS}>"
+-  "$<INSTALL_INTERFACE:${PUBLIC_INCLUDE_DIRS}>")
++  "$<BUILD_INTERFACE:${PUBLIC_INCLUDE_DIRS};${INCLUDE_DIRS}>")
+ 
+ TARGET_LINK_LIBRARIES(rtabmap_gui 
+   PUBLIC
+
+########## conda-forge.yml
+shellcheck:
+  enabled: true
+

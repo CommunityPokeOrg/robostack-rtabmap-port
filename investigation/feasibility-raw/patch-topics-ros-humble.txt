@@ -1,0 +1,66 @@
+ros-humble-ament-package.patch :: darwin 
+ros-humble-apriltag-mit.win.patch :: eigen 
+ros-humble-apriltag-ros.patch :: apple 
+ros-humble-as2-core.patch :: eigen 
+ros-humble-autoware-downsample-filters.patch :: eigen pcl 
+ros-humble-autoware-ekf-localizer.patch :: eigen 
+ros-humble-autoware-map-loader.osx.patch :: pcl 
+ros-humble-autoware-ndt-scan-matcher.patch :: pcl 
+ros-humble-cartographer-ros.patch :: pcl 
+ros-humble-cyclonedds.patch :: apple macos 
+ros-humble-fastrtps.patch :: apple 
+ros-humble-franka-semantic-components.patch :: eigen 
+ros-humble-geometric-shapes.patch :: eigen 
+ros-humble-grid-map-pcl.osx.patch :: apple pcl 
+ros-humble-gripper-controllers.patch :: apple macos osx 
+ros-humble-gz-ros2-control.patch :: macos 
+ros-humble-iceoryx-binding-c.win.patch :: darwin 
+ros-humble-iceoryx-hoofs.win.patch :: darwin 
+ros-humble-iceoryx-posh.win.patch :: darwin 
+ros-humble-imu-calib.patch :: eigen 
+ros-humble-kinematics-interface.patch :: eigen 
+ros-humble-libg2o.patch :: opengl openmp 
+ros-humble-mavlink.osx.patch :: apple 
+ros-humble-mavros-extras.patch :: eigen 
+ros-humble-mavros.linux.patch :: eigen 
+ros-humble-menge-vendor.patch :: apple 
+ros-humble-mimick-vendor.linux.patch :: apple 
+ros-humble-mimick-vendor.osx.patch :: apple 
+ros-humble-moveit-core.osx.patch :: eigen 
+ros-humble-moveit-planners-ompl.patch :: apple macos openmp 
+ros-humble-moveit-ros-benchmarks.patch :: eigen 
+ros-humble-moveit-ros-move-group.patch :: apple macos rpath 
+ros-humble-moveit-ros-perception.osx.patch :: apple eigen glew opencv opengl 
+ros-humble-moveit-setup-framework.patch :: qt5 
+ros-humble-mrpt2.patch :: apple opencv opengl 
+ros-humble-nav2-constrained-smoother.win.patch :: eigen 
+ros-humble-nav2-mppi-controller.linux.patch :: openmp 
+ros-humble-nav2-mppi-controller.osx.patch :: openmp 
+ros-humble-nav2-rviz-plugins.patch :: qt5 
+ros-humble-nav2-smac-planner.osx.patch :: apple eigen openmp 
+ros-humble-nav2-smac-planner.win.patch :: eigen openmp 
+ros-humble-nav2-waypoint-follower.win.patch :: opencv 
+ros-humble-osrf-testing-tools-cpp.patch :: apple darwin 
+ros-humble-plotjuggler.osx.patch :: qt5 
+ros-humble-popf.patch :: macos 
+ros-humble-python-qt-binding.patch :: apple qt5 
+ros-humble-qt-gui-cpp.patch :: apple darwin opengl 
+ros-humble-rcutils.patch :: apple 
+ros-humble-realsense2-camera.patch :: apple macos 
+ros-humble-realtime-tools.osx.patch :: apple macos 
+ros-humble-rmw-implementation-cmake.osx.patch :: macos 
+ros-humble-ros-workspace.patch :: apple 
+ros-humble-rosidl-generator-py.patch :: apple 
+ros-humble-rosx-introspection.win.patch :: osx 
+ros-humble-rplidar-ros.patch :: apple macos 
+ros-humble-rqt-gui-cpp.linux.patch :: qt5 
+ros-humble-rtabmap.patch :: opencv pcl sqlite 
+ros-humble-rviz-default-plugins.patch :: qt5 
+ros-humble-rviz-ogre-vendor.patch :: apple macos osx 
+ros-humble-rviz2.patch :: qt5 
+ros-humble-sick-safetyscanners-base.patch :: pcl 
+ros-humble-slam-toolbox.win.patch :: eigen 
+ros-humble-theora-image-transport.win.patch :: opencv 
+ros-humble-ublox-dgnss-node.patch :: apple 
+ros-humble-ur-calibration.win.patch :: eigen 
+ros-humble-vision-msgs-rviz-plugins.patch :: qt5 

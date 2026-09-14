@@ -11,10 +11,14 @@ Requested by Hermano (@dotio). Maintained under CommunityPokeOrg.
 > research how comparable C++/ROS packages reach osx-arm64 via RoboStack/conda-forge, document
 > macOS toolchain/linking/runtime quirks, and record an explicit **go / conditional-go / no-go**
 > for `rtabmap` and for `rtabmap_ros`, with unknowns listed separately from findings
-> (`docs/feasibility.md`, TODO). Milestones #1–#11 are gated by that decision; the linux-64
+> (`docs/feasibility.md`). Milestones #1–#11 are gated by that decision; the linux-64
 > builds below are evidence *for* the feasibility pass, not a commitment.
 >
-> **Feasibility decision: PENDING** (no osx-arm64 build has been attempted yet).
+> **Feasibility decision (2026-09-14): CONDITIONAL-GO for both `rtabmap` and `rtabmap_ros` on osx-arm64** —
+> see [`docs/feasibility.md`](docs/feasibility.md) (§1 verdict + conditions C1–C6, §6 unknowns) and the
+> evidence survey [`docs/feasibility-survey.md`](docs/feasibility-survey.md). Key facts: RoboStack already
+> builds the ROS 1 Noetic RTAB-Map suite natively on osx-arm64; the only structural conflict found
+> (Qt5 rviz vs Qt6 VTK/PCL) is patched and built on linux-64; no osx-arm64 build has been executed yet (#8).
 
 > Status legend: **BUILT** = a `.conda` artifact was produced and the log is committed under `evidence/`;
 > **FAILED** = attempted, log committed; **TODO** = not attempted. Nothing here is claimed
@@ -148,7 +152,7 @@ robostack/humble/            IMPLEMENTED — RoboStack/ros-humble overlay (base 
   patch/ros-humble-rtabmap-rviz-plugins.patch   the only source patch so far (Qt5/Qt6 interface strip)
 evidence/humble/             IMPLEMENTED — full build logs, generated recipe, diffs vs upstream
 investigation/               IMPLEMENTED — repodata query script + per-distro dependency availability tables
-docs/                        TODO — feasibility.md (#12, first deliverable), dependency-matrix.md (#1, #5), humble-vs-rolling.md (#10), how-to-build.md, limitations.md (#11)
+docs/                        feasibility.md + feasibility-survey.md IMPLEMENTED (#12); TODO: dependency-matrix.md (#1, #5), humble-vs-rolling.md (#10), how-to-build.md, limitations.md (#11)
 conda-forge/                 TODO — only if a non-ROS variant is needed; otherwise defer to staged-recipes#34714
 .github/workflows/           TODO — linux-64 + macos-14 (arm64) matrix (#9)
 ```

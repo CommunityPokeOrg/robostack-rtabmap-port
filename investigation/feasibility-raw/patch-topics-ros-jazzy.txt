@@ -1,0 +1,53 @@
+ros-jazzy-ament-package.patch :: darwin 
+ros-jazzy-apriltag-mit.win.patch :: eigen 
+ros-jazzy-apriltag-ros.patch :: apple 
+ros-jazzy-behaviortree-cpp.patch :: apple 
+ros-jazzy-bonxai-ros.patch :: eigen pcl 
+ros-jazzy-cartographer-ros.patch :: pcl 
+ros-jazzy-clearpath-diagnostics.patch :: rpath 
+ros-jazzy-ffmpeg-encoder-decoder.unix.patch :: apple 
+ros-jazzy-foxglove-bridge.patch :: apple darwin 
+ros-jazzy-grid-map-core.patch :: eigen 
+ros-jazzy-grid-map-pcl.osx.patch :: apple pcl 
+ros-jazzy-gz-ogre-next-vendor.patch :: apple macos opengl osx 
+ros-jazzy-hardware-interface.osx.patch :: macos 
+ros-jazzy-iceoryx-binding-c.win.patch :: darwin 
+ros-jazzy-iceoryx-hoofs.win.patch :: darwin 
+ros-jazzy-iceoryx-posh.win.patch :: darwin 
+ros-jazzy-kinematics-interface.patch :: eigen 
+ros-jazzy-lanelet2-core.patch :: eigen 
+ros-jazzy-libg2o.patch :: eigen 
+ros-jazzy-lttngpy.patch :: apple 
+ros-jazzy-mavlink.osx.patch :: apple 
+ros-jazzy-moveit-core.patch :: eigen 
+ros-jazzy-moveit-core.win.patch :: eigen 
+ros-jazzy-moveit-planners-ompl.patch :: apple openmp 
+ros-jazzy-moveit-ros-occupancy-map-monitor.patch :: eigen 
+ros-jazzy-moveit-ros-perception.osx.patch :: apple eigen glew opencv opengl 
+ros-jazzy-moveit-setup-framework.patch :: qt5 
+ros-jazzy-nav2-constrained-smoother.win.patch :: eigen 
+ros-jazzy-nav2-mppi-controller.osx.patch :: apple openmp 
+ros-jazzy-nav2-rviz-plugins.patch :: qt5 
+ros-jazzy-nav2-smac-planner.win.patch :: eigen 
+ros-jazzy-nav2-util.patch :: apple 
+ros-jazzy-octomap-rviz-plugins.patch :: qt5 
+ros-jazzy-ouster-ros.patch :: eigen opencv 
+ros-jazzy-pcl-ros.win.patch :: eigen pcl 
+ros-jazzy-plotjuggler.osx.patch :: qt5 
+ros-jazzy-plotjuggler.win.patch :: apple opengl qt5 
+ros-jazzy-python-qt-binding.patch :: apple darwin macos osx qt5 
+ros-jazzy-qt-gui-cpp.patch :: apple darwin macos opengl osx 
+ros-jazzy-realtime-tools.osx.patch :: apple 
+ros-jazzy-ros-workspace.patch :: apple 
+ros-jazzy-rosidl-generator-py.osx.patch :: apple 
+ros-jazzy-rosx-introspection.win.patch :: osx 
+ros-jazzy-rviz-common.osx.patch :: apple macos 
+ros-jazzy-rviz-ogre-vendor.patch :: apple macos opengl osx 
+ros-jazzy-rviz2.osx.patch :: apple macos 
+ros-jazzy-rwm-implementation-cmake.osx.patch :: macos 
+ros-jazzy-slam-toolbox.patch :: eigen 
+ros-jazzy-spatio-temporal-voxel-layer.patch :: eigen pcl 
+ros-jazzy-theora-image-transport.win.patch :: opencv 
+ros-jazzy-ur-calibration.win.patch :: eigen 
+ros-jazzy-warehouse-ros-sqlite.patch :: sqlite 
+ros-jazzy-web-video-server.patch :: opencv 

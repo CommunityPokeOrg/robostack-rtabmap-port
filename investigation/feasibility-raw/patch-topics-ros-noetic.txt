@@ -1,0 +1,80 @@
+ros-noetic-apriltag.win.patch :: opencv 
+ros-noetic-aruco-ros.patch :: opencv 
+ros-noetic-catkin.patch :: apple darwin osx 
+ros-noetic-cmake-modules.patch :: apple 
+ros-noetic-costmap-converter.patch :: opencv 
+ros-noetic-cras-cpp-common.patch :: apple eigen 
+ros-noetic-cv-bridge.patch :: apple opencv 
+ros-noetic-dynamic-graph.patch :: apple 
+ros-noetic-ecl-core-apps.patch :: apple 
+ros-noetic-eigenpy.patch :: apple macos 
+ros-noetic-euslisp.patch :: darwin rpath 
+ros-noetic-face-detector.patch :: opencv 
+ros-noetic-gazebo-plugins.patch :: opencv 
+ros-noetic-grid-map-core.win.patch :: eigen 
+ros-noetic-grid-map-demos.patch :: opencv opengl 
+ros-noetic-grid-map-filters.win.patch :: apple darwin eigen opencv 
+ros-noetic-grid-map-pcl.patch :: openmp pcl 
+ros-noetic-hebi-cpp-api.patch :: apple 
+ros-noetic-ifm3d.patch :: pcl 
+ros-noetic-ifopt.patch :: rpath 
+ros-noetic-jsk-pcl-ros-utils.patch :: opencv openmp pcl vtk 
+ros-noetic-jsk-pcl-ros.patch :: eigen opencv openmp pcl vtk 
+ros-noetic-jsk-recognition-utils.patch :: apple dynamic_lookup glew opencv pcl qt5 
+ros-noetic-jsk-rviz-plugins.patch :: eigen opencv pcl qt5 
+ros-noetic-laser-ortho-projector.patch :: pcl 
+ros-noetic-libcmt.patch :: opencv 
+ros-noetic-libfranka.win.patch :: eigen 
+ros-noetic-libg2o.patch :: opengl openmp 
+ros-noetic-libmavconn.win.patch :: apple pcl 
+ros-noetic-librealsense2.patch :: apple 
+ros-noetic-libuvc-camera.patch :: apple 
+ros-noetic-lvr2.patch :: opencv openmp 
+ros-noetic-mavlink.patch :: apple 
+ros-noetic-mavros.patch :: apple 
+ros-noetic-mavros.win.patch :: apple eigen 
+ros-noetic-moveit-core.win.patch :: eigen 
+ros-noetic-moveit-planners-ompl.osx.patch :: openmp 
+ros-noetic-moveit-ros-occupancy-map-monitor.osx.patch :: apple 
+ros-noetic-moveit-ros-perception.osx.patch :: apple eigen glew opencv opengl openmp 
+ros-noetic-moveit-ros-perception.win.patch :: apple eigen glew opengl 
+ros-noetic-moveit-ros-planning-interface.patch :: apple dynamic_lookup eigen 
+ros-noetic-moveit-ros-planning.win.patch :: eigen 
+ros-noetic-moveit-visual-tools.patch :: eigen 
+ros-noetic-mrpt2.patch :: apple glew opencv opengl 
+ros-noetic-multirobot-map-merge.patch :: opencv 
+ros-noetic-naoqi-driver.patch :: opencv 
+ros-noetic-openslam-gmapping.patch :: eigen 
+ros-noetic-pcl-ros.patch :: eigen pcl 
+ros-noetic-plotjuggler.patch :: apple macos opengl qt5 rpath 
+ros-noetic-python-qt-binding.patch :: apple 
+ros-noetic-python-qt-binding.win.patch :: qt5 
+ros-noetic-qt-gui-cpp.patch :: apple darwin qt5 
+ros-noetic-realsense2-camera.patch :: openmp 
+ros-noetic-robot-localization.patch :: eigen 
+ros-noetic-robot-localization.win.patch :: eigen 
+ros-noetic-ros-type-introspection.patch :: macos rpath 
+ros-noetic-rosbag-storage.patch :: apple 
+ros-noetic-rqt-gui-cpp.patch :: apple dynamic_lookup qt5 
+ros-noetic-rqt-image-view.patch :: opencv qt5 
+ros-noetic-rtabmap-conversions.patch :: eigen pcl vtk 
+ros-noetic-rtabmap-demos.patch :: apple 
+ros-noetic-rtabmap-rviz-plugins.patch :: pcl qt5 qt6 
+ros-noetic-rtabmap-slam.patch :: pcl 
+ros-noetic-rtabmap-viz.patch :: qt5 qt6 
+ros-noetic-rtabmap.patch :: qt5 qt6 vtk 
+ros-noetic-rviz.patch :: apple darwin eigen opengl rpath 
+ros-noetic-scan-to-cloud-converter.patch :: pcl 
+ros-noetic-slam-toolbox.patch :: eigen 
+ros-noetic-soem.patch :: apple macos 
+ros-noetic-sparse-bundle-adjustment.patch :: apple darwin eigen macos osx 
+ros-noetic-swri-geometry-util.patch :: apple eigen opencv rpath 
+ros-noetic-swri-transform-util.patch :: apple opencv 
+ros-noetic-teb-local-planner.linux.patch :: apple darwin eigen macos osx 
+ros-noetic-teb-local-planner.osx.patch :: apple darwin eigen macos osx 
+ros-noetic-teb-local-planner.win.patch :: apple darwin eigen macos osx 
+ros-noetic-theora-image-transport.win.patch :: opencv 
+ros-noetic-toposens-pointcloud.patch :: pcl 
+ros-noetic-ur-client-library.patch :: apple 
+ros-noetic-urg-c.patch :: apple pcl 
+ros-noetic-webots-ros.osx.patch :: macos 
