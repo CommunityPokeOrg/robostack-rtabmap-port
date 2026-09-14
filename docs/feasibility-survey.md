@@ -83,7 +83,7 @@ Method: grep over `patch/*.patch` in each repo for `APPLE|Darwin|osx|macOS|dynam
 | `ros-humble-plotjuggler.osx.patch` | qt5 | qwt links `Qt5::Xml` (missing link) |
 | `ros-humble-grid-map-pcl.osx.patch` | apple pcl | helpers.hpp Apple fix |
 | `ros-humble-moveit-ros-move-group.patch` | apple macos rpath | rpath fix |
-| `ros-humble-rtabmap.patch` | opencv pcl sqlite | **the stale 2022 patch** (kept as `evidence/humble/stale-ros-humble-rtabmap.patch`); old Qt5-era edits |
+| `ros-humble-rtabmap.patch` | opencv pcl sqlite | **the stale 2022 patch** (kept as `evidence/humble/stale-upstream-ros-humble-rtabmap.patch`); old Qt5-era edits |
 | also matching grep but lower relevance | — | `ros-humble-cyclonedds`, `-fastrtps` (APPLE), `-rcutils` (APPLE), `-ros-workspace` (APPLE), `-rosidl-generator-py` (APPLE), `-osrf-testing-tools-cpp` (APPLE darwin), `-apriltag-ros` (APPLE), `-mimick-vendor.osx`, `-mavlink.osx`, `-menge-vendor`, `-realsense2-camera`, `-realtime-tools.osx`, `-rplidar-ros`, `-ublox-dgnss-node`, `-gripper-controllers`, `-mrpt2` |
 
 ### 2.3 jazzy patches (selected)
