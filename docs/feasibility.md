@@ -96,9 +96,20 @@ This bounds the macOS delta to macOS-specific issues only.
 - [x] Recipe generation path (vinca → rattler-build) works — linux-64.
 - [x] `liboctomap-dev → octomap` mapping added to `robostack.yaml`.
 - [x] `libpointmatcher` removed from the dependency closure.
-- [ ] C1 — GTSAM/Boost: keep mutex 0.8 (works) or wait for `ros-humble-gtsam` rebuilt against mutex 0.9/Boost 1.88, or a conda-forge gtsam with Boost 1.88 (#2).
-- [ ] C2 — OpenMP on macOS: add `libomp-dev` to the generated recipe via `pkg_additional_info.yaml`/patch (maps to `llvm-openmp` on osx) **or** document `WITH_OPENMP=OFF` on macOS.
-- [ ] C3 — Native osx-arm64 build + smoke test (#8).
+- [x] C1 — GTSAM/Boost: **accepted mutex 0.8 / `ros-humble-gtsam` 4.2.0 / Boost 1.88 as the temporary pin** (#2).
+  `investigation/check_gtsam_boost.py` → `investigation/gtsam_boost_humble.md` shows from live repodata that
+  mutex 0.9 + `ros-humble-gtsam` 4.2.1 is unsatisfiable on linux-64 *and* osx-arm64 (gtsam 4.2.1 builds need
+  Boost 1.90), and that the 0.8 pair solves on both. Dry-run solve of the `ros-humble-rtabmap` host env for
+  osx-arm64: `evidence/humble/osx-arm64/dry-run-solve-rtabmap-host.txt` (gtsam 4.2.0 b14, boost 1.88, mutex 0.8.0).
+  Exit path unchanged: a `ros-humble-gtsam` rebuilt on mutex 0.9 against Boost 1.88, or a mutex ≥0.10 on Boost 1.90.
+- [x] C2 — OpenMP on macOS: `llvm-openmp` added `if osx` to host **and** run of `rtabmap` in
+  `robostack/humble/patch/dependencies.yaml` (vinca depmod, same mechanism upstream uses for `ceres-solver`/`vtk`).
+  Verified in the rendered osx-arm64 recipe (`evidence/humble/osx-arm64/render-rtabmap-osx-arm64.json`). Whether
+  CMake actually reports `WITH_OPENMP=ON` on macOS is still to be read off the first native build log (C3).
+- [ ] C3 — Native osx-arm64 build + smoke test (#8). CI scaffolding is in place
+  (`.github/workflows/build-humble.yml`: `macos-15` job → vinca `--platform osx-arm64` → drift/patch/dry-run-solve,
+  then `pixi run build-port` + smoke gated on the `ci:build` label / `workflow_dispatch`). **Not yet executed on a
+  Mac — the development machine is linux-64.**
 
 ### `rtabmap_ros`
 - [ ] C4 — `patch/ros-humble-rtabmap-rviz-plugins.patch` applies and builds on macOS (no APPLE-specific code in it; expected to carry over).
@@ -119,9 +130,9 @@ This bounds the macOS delta to macOS-specific issues only.
 - conda-forge recipe fragments for RTAB-Map 0.23.x: `investigation/feasibility-raw/staged-recipes-34714.txt`.
 
 ## 5. Recommended path (if the conditional-go is accepted)
-1. Add a `macos-15` (osx-arm64) job to this repo's CI (#9) that regenerates recipes with
-   `vinca --platform osx-arm64` and builds `ros-humble-rtabmap` first, then the `rtabmap_ros` chain (#8).
-2. Resolve C2 in the recipe before that run (cheapest: add `llvm-openmp` on osx via `pkg_additional_info.yaml`).
+1. ~~Add a `macos-15` (osx-arm64) job to this repo's CI (#9)~~ — done, `.github/workflows/build-humble.yml`;
+   first run the `build` stage via `workflow_dispatch` (or the `ci:build` PR label) and commit the log.
+2. ~~Resolve C2 in the recipe before that run~~ — done via `patch/dependencies.yaml`.
 3. Run the smoke test set from `evidence/humble/phase2-smoke-test.log` on macOS, plus `otool -L` checks (C5).
 4. Only after a green arm64 run, open the upstream RoboStack PR (seed + mapping + patch).
 
@@ -129,7 +140,7 @@ This bounds the macOS delta to macOS-specific issues only.
 1. Whether the osx-arm64 Noetic RTAB-Map GUI actually runs (artifacts exist, runtime untested).
 2. RTAB-Map Qt6 GUI rendering on macOS (upstream introlab/rtabmap#1567 "MainWindow fully black with Qt6" is open; platform unclear).
 3. Whether conda-forge `libopencv` on osx-arm64 includes `xfeatures2d`/contrib (affects feature detectors, not buildability).
-4. OpenMP: whether `WITH_OPENMP` silently ends up OFF on macOS with the current recipe (C2).
+4. OpenMP: `llvm-openmp` is now in the host env; still confirm `WITH_OPENMP=ON` in the macOS CMake log (C2/C3).
 5. Whether staged-recipes#34714 produced an osx-arm64 binary (only `osx_64` CI leg visible).
 6. Runtime Qt5+Qt6 coexistence inside one rviz2 process on macOS (C5).
 7. vinca template `OSX_DEPLOYMENT_TARGET=10.15` vs Humble `c_stdlib_version 10.13` mismatch — affects osx-64 only; arm64 is consistent at 11.0.

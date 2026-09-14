@@ -109,7 +109,8 @@ yet** (#8). What is known from repodata queries (`investigation/`):
 | `ros-humble-rtabmap-demos` | **BUILT** | 1 | `evidence/humble/build-rtabmap-demos-attempt1.log` |
 | `ros-humble-rtabmap-examples` | **BUILT** | 1 | `evidence/humble/build-rtabmap-examples-attempt1.log` |
 | `ros-humble-rtabmap-ros` (umbrella) | **BUILT** | 1 | `evidence/humble/build-rtabmap-ros-attempt1.log` |
-| any package on osx-arm64 / osx-64 / linux-aarch64 | TODO (#12 → #8, #9) | — | — |
+| `ros-humble-rtabmap` host env on **osx-arm64** | **SOLVES** (dry-run, from linux; gtsam 4.2.0/boost 1.88/mutex 0.8/llvm-openmp) | 1 | `evidence/humble/osx-arm64/dry-run-solve-rtabmap-host.txt`, `render-rtabmap-osx-arm64.json` |
+| any package **compiled** on osx-arm64 / osx-64 / linux-aarch64 | TODO — CI job exists (`.github/workflows/build-humble.yml`, `macos-15`), not yet run (#8, #9) | — | — |
 
 Feature summary of the built `ros-humble-rtabmap` (from the configure log): OpenCV 4.13 **on**,
 Qt 6.10 **on**, VTK 9.5 **on**, external SQLite3 **on**, OpenMP **on**, g2o **on**, GTSAM 4.2.0 **on**,
@@ -122,6 +123,12 @@ OctoMap 1.10 **on**, libpointmatcher **off** (not found), Ceres **off**, Python 
   requires conda-forge `gtsam` builds that need Boost >= 1.90 → unsolvable. This repo
   temporarily sets `mutex_package.version: 0.8.0` in `robostack/humble/vinca.yaml` and
   builds against `ros-humble-gtsam 4.2.0`. This is a workaround, not the target state.
+  `investigation/check_gtsam_boost.py` regenerates the evidence table
+  (`investigation/gtsam_boost_humble.md`) from live repodata; it confirms the conflict is identical on
+  osx-arm64 and that the 0.8 pair solves on both platforms.
+- **OpenMP on macOS (#12 C2):** RTAB-Map defaults `WITH_OPENMP=ON`; with conda-forge clang
+  `find_package(OpenMP)` only succeeds if `llvm-openmp` is in the host env. `patch/dependencies.yaml`
+  adds `llvm-openmp` (`if osx`) to host and run of `rtabmap`; linux keeps `libgomp` from the gcc toolchain.
 - **libpointmatcher (#4):** no conda-forge package; `ros-humble-libpointmatcher` is not
   published. Removed from the dependency closure (`packages_remove_from_deps`) — RTAB-Map
   builds without it.
@@ -136,7 +143,7 @@ OctoMap 1.10 **on**, libpointmatcher **off** (not found), Ceres **off**, Python 
   (the plugins only use core/conversions symbols); the built plugin links Qt5 only. This is the
   first RTAB-Map-specific patch of the port and a key feasibility input for macOS (#12).
 - **`empy` 4 vs `rosidl_adapter` 3.1.8:** interface packages need `empy <4` in host requirements
-  (recipe-level fix in `robostack/humble/recipes-generated/*-msgs`).
+  (encoded as `add_host: ["empy <4"]` in `robostack/humble/patch/dependencies.yaml`, so regenerated recipes keep it).
 - **The stale upstream patch** `RoboStack/ros-humble/patch/ros-humble-rtabmap.patch` (2022)
   does not apply to 0.22.1 and is not needed; kept for reference as
   `evidence/humble/stale-upstream-ros-humble-rtabmap.patch`.
@@ -147,14 +154,16 @@ OctoMap 1.10 **on**, libpointmatcher **off** (not found), Ceres **off**, Python 
 robostack/humble/            IMPLEMENTED — RoboStack/ros-humble overlay (base commit in UPSTREAM_BASE.txt)
   vinca.yaml                 seeds rtabmap_ros (if: not win) — replaces the upstream seed list for a scoped build; an upstream PR would only add the seed, drops libpointmatcher, mutex 0.8 workaround
   robostack.yaml             + liboctomap-dev mapping
-  conda_build_config.yaml, pkg_additional_info.yaml, rosdistro_snapshot.yaml, pixi.toml  (upstream copies)
-  recipes-generated/         the 16 vinca-generated rattler-build recipes that produced the linux-64 artifacts
+  conda_build_config.yaml, pkg_additional_info.yaml, rosdistro_snapshot.yaml, packages-ignore.yaml, rosdistro_additional_recipes.yaml  (upstream copies)
+  pixi.toml, pixi.lock       upstream + `build-port` task (native build against robostack-humble, output/ first in channels)
+  recipes-generated/         the 16 vinca-generated rattler-build recipes (linux-64 render; CI checks for drift)
+  patch/dependencies.yaml    upstream depmods + llvm-openmp (osx) for rtabmap, empy <4 for the *-msgs packages
   patch/ros-humble-rtabmap-rviz-plugins.patch   the only source patch so far (Qt5/Qt6 interface strip)
 evidence/humble/             IMPLEMENTED — full build logs, generated recipe, diffs vs upstream
-investigation/               IMPLEMENTED — repodata query script + per-distro dependency availability tables
+investigation/               IMPLEMENTED — repodata query scripts (check_ros_deps.py, check_gtsam_boost.py), render_host_solve.py (per-platform dry-run solve / smoke test used by CI)
 docs/                        feasibility.md + feasibility-survey.md IMPLEMENTED (#12); TODO: dependency-matrix.md (#1, #5), humble-vs-rolling.md (#10), how-to-build.md, limitations.md (#11)
 conda-forge/                 TODO — only if a non-ROS variant is needed; otherwise defer to staged-recipes#34714
-.github/workflows/           TODO — linux-64 + macos-14 (arm64) matrix (#9)
+.github/workflows/           build-humble.yml IMPLEMENTED (linux-64 + macos-15/osx-arm64: generate + drift check + dry-run solve on every PR; full rattler-build + smoke behind `ci:build` label / workflow_dispatch) — macOS leg NOT YET RUN (#9)
 ```
 
 ### Reproducing the linux-64 build

@@ -1,0 +1,138 @@
+name: build humble (linux-64 + native osx-arm64)
+
+# Native builds of the rtabmap / rtabmap_ros Humble recipes on both target
+# platforms (#9, #12). Follows RoboStack's ros-humble testpr.yml layout:
+# macos-15 runners are Apple Silicon -> osx-arm64 native, no cross-compile.
+#
+# Stage 1 ("generate") always runs and is cheap: regenerate recipes with vinca,
+# check that patches apply, and dry-run-solve the ros-humble-rtabmap host
+# environment for the target platform.
+# Stage 2 ("build") compiles everything with rattler-build; it takes >1h and is
+# gated behind workflow_dispatch / push to main / the `ci:build` PR label.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "robostack/humble/**"
+      - ".github/workflows/build-humble.yml"
+  pull_request:
+    paths:
+      - "robostack/humble/**"
+      - ".github/workflows/build-humble.yml"
+  workflow_dispatch:
+    inputs:
+      build:
+        description: "Run the full rattler-build stage"
+        type: boolean
+        default: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash -el {0}
+    working-directory: robostack/humble
+
+jobs:
+  generate:
+    name: generate + solve (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-64
+          - os: macos-15
+            platform: osx-arm64
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.8.10
+        with:
+          manifest-path: robostack/humble/pixi.toml
+          cache: true
+
+      - name: Regenerate recipes for ${{ matrix.platform }}
+        run: |
+          pixi run remove-recipes
+          pixi run vinca -m --platform ${{ matrix.platform }}
+          ls recipes
+
+      - name: Recipes must match the committed recipes-generated (drift check)
+        # recipes-generated/ is the linux-64 output; on osx the only expected
+        # difference is the unconditional libgl-devel/libopengl-devel lines.
+        if: matrix.platform == 'linux-64'
+        run: diff -r recipes recipes-generated
+
+      - name: Patches apply cleanly
+        run: |
+          set -e
+          for p in patch/*.patch; do
+            pkg=$(basename "$p" .patch)
+            test -f "recipes/$pkg/patch/$(basename "$p")"
+          done
+
+      - name: Dry-run solve ros-humble-rtabmap host env (${{ matrix.platform }})
+        # Proves the dependency set (mutex 0.8 / gtsam 4.2.0 / boost 1.88 + llvm-openmp
+        # on osx) is satisfiable on this platform before spending an hour compiling.
+        run: |
+          pixi run python ../../investigation/render_host_solve.py \
+            --recipe recipes/ros-humble-rtabmap/recipe.yaml \
+            --platform ${{ matrix.platform }} \
+            --dry-run
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recipes-${{ matrix.platform }}
+          path: robostack/humble/recipes
+
+  build:
+    name: rattler-build (${{ matrix.platform }})
+    needs: generate
+    if: >-
+      github.event_name == 'workflow_dispatch' && inputs.build ||
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ci:build'))
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux-64
+          - os: macos-15
+            platform: osx-arm64
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.8.10
+        with:
+          manifest-path: robostack/humble/pixi.toml
+          cache: true
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: recipes-${{ matrix.platform }}
+          path: robostack/humble/recipes
+
+      - name: Build all rtabmap recipes natively
+        run: pixi run build-port
+
+      - name: Smoke test (fresh env, rtabmap --version, otool/ldd of librtabmap)
+        run: |
+          pixi run python ../../investigation/render_host_solve.py \
+            --platform ${{ matrix.platform }} \
+            --smoke ./output
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: packages-${{ matrix.platform }}
+          path: |
+            robostack/humble/output/${{ matrix.platform }}/*.conda
+            robostack/humble/output/*.log

@@ -69,10 +69,10 @@ requirements:
       then:
         - ros-humble-rosidl-default-generators
   host:
-    - empy <4
     - if: build_platform == target_platform
       then:
         - pkg-config
+    - empy <4
     - numpy
     - pip
     - python
