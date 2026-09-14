@@ -1,0 +1,119 @@
+=== ros2 pkg list | grep rtabmap ===
+bash: line 1: ros2: command not found
+
+=== ros2 pkg executables rtabmap_slam ===
+bash: line 1: ros2: command not found
+
+=== rtabmap --version ===
+RTAB-Map:               0.22.1
+PCL:                    1.15.1
+With VTK:                9.5.2
+OpenCV:                 4.13.0
+With OpenCV xfeatures2d:  true
+With OpenCV nonfree:     false
+With ORB OcTree:          true
+With SuperPoint Torch:   false
+With Python3:            false
+With FastCV:             false
+With OpenGV:             false
+With Madgwick:            true
+With PDAL:               false
+With libLAS:             false
+With CudaSift:           false
+With TORO:                true
+With g2o:                 true
+With GTSAM:               true
+With Vertigo:             true
+With CVSBA:              false
+With Ceres:              false
+With OpenNI:             false
+With OpenNI2:            false
+With Freenect:           false
+With Freenect2:          false
+With K4W2:               false
+With K4A:                false
+With DC1394:             false
+With FlyCapture2:        false
+With ZED:                false
+With ZED Open Capture:   false
+With RealSense:          false
+With RealSense SLAM:     false
+With RealSense2:         false
+With MYNT EYE S:         false
+With DepthAI:            false
+With XVisio SDK:         false
+With libpointmatcher:    false
+With CCCoreLib:          false
+With Open3D:             false
+With OctoMap:             true
+With GridMap:            false
+With cpu-tsdf:           false
+With open chisel:        false
+With Alice Vision:       false
+With LOAM:               false
+With FLOAM:              false
+With FOVIS:              false
+With Viso2:              false
+With DVO:                false
+With ORB_SLAM:           false
+With OKVIS:              false
+With MSCKF_VIO:          false
+With VINS-Fusion:        false
+With OpenVINS:           false
+
+=== ldd librtabmap_core.so not found ===
+NONE
+
+=== ldd librtabmap_rviz_plugins.so Qt ===
+	libQt5Widgets.so.5 => /home/ubuntu/work/envs/rtabmap-test/lib/libQt5Widgets.so.5 (0x00007c06fc600000)
+	libQt5Gui.so.5 => /home/ubuntu/work/envs/rtabmap-test/lib/libQt5Gui.so.5 (0x00007c06fc000000)
+	libQt5Core.so.5 => /home/ubuntu/work/envs/rtabmap-test/lib/libQt5Core.so.5 (0x00007c06fba00000)
+=== ros2 pkg list | grep rtabmap ===
+usage: ros2 [-h] [--use-python-default-buffering]
+            Call `ros2 <command> -h` for more detailed usage. ...
+ros2: error: argument Call `ros2 <command> -h` for more detailed usage.: invalid choice: 'pkg' (choose from daemon, extension_points, extensions)
+
+=== ros2 pkg executables rtabmap_slam ===
+usage: ros2 [-h] [--use-python-default-buffering]
+            Call `ros2 <command> -h` for more detailed usage. ...
+ros2: error: argument Call `ros2 <command> -h` for more detailed usage.: invalid choice: 'pkg' (choose from daemon, extension_points, extensions)
+
+=== ros2 pkg executables rtabmap_odom ===
+usage: ros2 [-h] [--use-python-default-buffering]
+            Call `ros2 <command> -h` for more detailed usage. ...
+ros2: error: argument Call `ros2 <command> -h` for more detailed usage.: invalid choice: 'pkg' (choose from daemon, extension_points, extensions)
+=== ros2 pkg list | grep rtabmap ===
+rtabmap_conversions
+rtabmap_launch
+rtabmap_msgs
+rtabmap_odom
+rtabmap_rviz_plugins
+rtabmap_slam
+rtabmap_sync
+rtabmap_util
+rtabmap_viz
+
+=== ros2 pkg executables rtabmap_slam ===
+rtabmap_slam rtabmap
+
+=== ros2 pkg executables rtabmap_odom ===
+rtabmap_odom icp_odometry
+rtabmap_odom rgbd_odometry
+rtabmap_odom stereo_odometry
+
+=== ros2 pkg executables rtabmap_util ===
+rtabmap_util disparity_to_depth
+rtabmap_util imu_to_tf
+rtabmap_util lidar_deskewing
+rtabmap_util map_assembler
+rtabmap_util obstacles_detection
+rtabmap_util point_cloud_aggregator
+rtabmap_util point_cloud_assembler
+rtabmap_util point_cloud_xyz
+rtabmap_util point_cloud_xyzrgb
+rtabmap_util pointcloud_to_depthimage
+rtabmap_util republish_tf_static.py
+rtabmap_util rgbd_relay
+rtabmap_util rgbd_split
+rtabmap_util transform_to_tf.py
+rtabmap_util yaml_to_camera_info.py

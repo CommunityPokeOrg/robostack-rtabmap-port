@@ -1,5 +1,5 @@
 --- /home/ubuntu/upstream/ros-humble/vinca.yaml	2026-09-14 00:58:19.588089347 +0000
-+++ ros-humble/vinca.yaml	2026-09-14 01:24:09.480385073 +0000
++++ ros-humble/vinca.yaml	2026-09-14 01:29:12.655696679 +0000
 @@ -10,7 +10,7 @@
  
  mutex_package:
@@ -484,4 +484,4 @@
 -
 -      - realsense2-camera   # IntelRealSense
 -      - realsense2-description # IntelRealSense
-+      - rtabmap
++      - rtabmap_ros

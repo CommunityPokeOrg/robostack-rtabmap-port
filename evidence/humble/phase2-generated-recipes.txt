@@ -1,0 +1,16 @@
+ros-humble-aruco-msgs
+ros-humble-aruco-opencv-msgs
+ros-humble-rtabmap
+ros-humble-rtabmap-conversions
+ros-humble-rtabmap-demos
+ros-humble-rtabmap-examples
+ros-humble-rtabmap-launch
+ros-humble-rtabmap-msgs
+ros-humble-rtabmap-odom
+ros-humble-rtabmap-python
+ros-humble-rtabmap-ros
+ros-humble-rtabmap-rviz-plugins
+ros-humble-rtabmap-slam
+ros-humble-rtabmap-sync
+ros-humble-rtabmap-util
+ros-humble-rtabmap-viz

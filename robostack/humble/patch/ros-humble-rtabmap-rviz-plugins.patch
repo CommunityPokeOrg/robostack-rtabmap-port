@@ -1,0 +1,27 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c1808eb..8887130 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -76,6 +76,22 @@ target_include_directories(rtabmap_rviz_plugins
+     $<INSTALL_INTERFACE:include>
+ )
+ 
++# RoboStack: conda-forge VTK>=9 is built against Qt6 while rviz uses Qt5.
++# The plugins only need rtabmap core/conversions and PCL symbols, so strip
++# interface entries that pull in Qt6 targets (rtabmap::gui, VTK::GUISupportQt,
++# Qt6::*) to avoid the QT_MAJOR_VERSION conflict.
++foreach(_target IN ITEMS rtabmap_conversions::rtabmap_conversions rtabmap::core rtabmap::gui pcl_visualization VTK::GUISupportQt)
++  if(TARGET ${_target})
++    get_target_property(_iface_libs ${_target} INTERFACE_LINK_LIBRARIES)
++    if(_iface_libs)
++      list(FILTER _iface_libs EXCLUDE REGEX "(rtabmap::gui|VTK::GUISupportQt|Qt6::)")
++      set_property(TARGET ${_target} PROPERTY INTERFACE_LINK_LIBRARIES "${_iface_libs}")
++    endif()
++  endif()
++endforeach()
++if(DEFINED rtabmap_conversions_LIBRARIES)
++  list(FILTER rtabmap_conversions_LIBRARIES EXCLUDE REGEX "(rtabmap_gui|rtabmap::gui|Qt6::)")
++endif()
+ ament_target_dependencies(rtabmap_rviz_plugins ${Libraries})
+ 
+ # Causes the visibility macros to use dllexport rather than dllimport,

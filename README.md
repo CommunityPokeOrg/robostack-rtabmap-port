@@ -46,7 +46,7 @@ Out of scope for the MVP: Windows (`win-64`) — see [Current status](#current-s
 | target | ROS distro | RTAB-Map version | notes |
 |---|---|---|---|
 | `ros-humble-rtabmap` | Humble | 0.22.1 | MVP; **BUILT on linux-64** |
-| `ros-humble-rtabmap-*` / `ros-humble-rtabmap-ros` | Humble | 0.22.1 | in progress, see table below |
+| `ros-humble-rtabmap-*` / `ros-humble-rtabmap-ros` | Humble | 0.22.1 | **BUILT on linux-64** (15 pkgs, 1 patch) |
 | `ros-jazzy-rtabmap`, `ros-jazzy-rtabmap-*` | Jazzy | 0.23.7 | TODO (#10) |
 | `ros-kilted-rtabmap`, `ros-rolling-rtabmap` | Kilted / Rolling | 0.22.1 | core only; `rtabmap_ros` is **not released** to Rolling upstream (#10) |
 | standalone `rtabmap` on conda-forge | — | 0.23.8 | **not duplicated here**: open PR [conda-forge/staged-recipes#34714](https://github.com/conda-forge/staged-recipes/pull/34714) |
@@ -83,19 +83,29 @@ yet** (#8). What is known from repodata queries (`investigation/`):
 
 ## Current status (2026-09-14, linux-64, RoboStack Humble, mutex 0.8 — see below)
 
-| package | status | log |
-|---|---|---|
-| `ros-humble-rtabmap` 0.22.1 | **BUILT** (attempt 1 failed on solve, attempt 2 ok, no source patch needed) | `evidence/humble/build-ros-humble-rtabmap-attempt{1,2}.log` |
-| `ros-humble-aruco-msgs` 5.0.5 | **BUILT** (attempt 1 failed: `empy` 4 vs `rosidl_adapter`; attempt 2 ok with `empy <4`) | `evidence/humble/build-aruco-msgs-attempt{1,2}.log` |
-| `ros-humble-aruco-opencv-msgs` 2.4.2 | **BUILT** | `evidence/humble/build-aruco-opencv-msgs-attempt1.log` |
-| `ros-humble-rtabmap-msgs` | **BUILT** | `evidence/humble/build-rtabmap-msgs-attempt1.log` |
-| `ros-humble-rtabmap-conversions` | **BUILT** | `evidence/humble/build-rtabmap-conversions-attempt1.log` |
-| `ros-humble-rtabmap-sync` | **BUILT** | `evidence/humble/build-rtabmap-sync-attempt1.log` |
-| `ros-humble-rtabmap-util` | **BUILT** | `evidence/humble/build-rtabmap-util-attempt1.log` |
-| `ros-humble-rtabmap-odom` | **BUILT** | `evidence/humble/build-rtabmap-odom-attempt1.log` |
-| `ros-humble-rtabmap-slam` | in progress | — |
-| `rtabmap-viz`, `rtabmap-rviz-plugins`, `rtabmap-launch`, `rtabmap-python`, `rtabmap-demos`, `rtabmap-examples`, `rtabmap-ros` | TODO (#7) | — |
-| any package on osx-arm64 / osx-64 / linux-aarch64 | TODO (#8, #9) | — |
+**All 15 Humble packages BUILT on linux-64** and smoke-tested in a fresh env
+(`evidence/humble/phase2-smoke-test.log`: `ros2 pkg list`, `ros2 pkg executables`, `rtabmap --version`,
+`ldd librtabmap_core.so` has no "not found"). Per-package results: `evidence/humble/phase2-results.txt`.
+
+| package | status | attempts / notes | log |
+|---|---|---|---|
+| `ros-humble-rtabmap` 0.22.1 | **BUILT** | 2 (attempt 1: mutex-0.9 GTSAM/Boost solve failure, #2); no source patch | `evidence/humble/build-ros-humble-rtabmap-attempt{1,2}.log` |
+| `ros-humble-aruco-msgs` 5.0.5 | **BUILT** | 2 (attempt 1: `empy` 4 breaks `rosidl_adapter`; fix `empy <4` in host reqs) | `evidence/humble/build-aruco-msgs-attempt{1,2}.log` |
+| `ros-humble-aruco-opencv-msgs` 2.4.2 | **BUILT** | 1 | `evidence/humble/build-aruco-opencv-msgs-attempt1.log` |
+| `ros-humble-rtabmap-msgs` | **BUILT** | 1 | `evidence/humble/build-rtabmap-msgs-attempt1.log` |
+| `ros-humble-rtabmap-conversions` | **BUILT** | 1 | `evidence/humble/build-rtabmap-conversions-attempt1.log` |
+| `ros-humble-rtabmap-sync` | **BUILT** | 1 | `evidence/humble/build-rtabmap-sync-attempt1.log` |
+| `ros-humble-rtabmap-util` | **BUILT** | 1 | `evidence/humble/build-rtabmap-util-attempt1.log` |
+| `ros-humble-rtabmap-odom` | **BUILT** | 1 | `evidence/humble/build-rtabmap-odom-attempt1.log` |
+| `ros-humble-rtabmap-slam` | **BUILT** | 1 | `evidence/humble/build-rtabmap-slam-attempt1.log` |
+| `ros-humble-rtabmap-viz` | **BUILT** | 1 (Qt6 standalone GUI) | `evidence/humble/build-rtabmap-viz-attempt1.log` |
+| `ros-humble-rtabmap-rviz-plugins` | **BUILT** | 2 — **needs source patch** `robostack/humble/patch/ros-humble-rtabmap-rviz-plugins.patch` (Qt5 rviz vs Qt6 VTK, see below) | `evidence/humble/build-rtabmap-rviz-plugins-attempt{1,2}.log` |
+| `ros-humble-rtabmap-launch` | **BUILT** | 1 | `evidence/humble/build-rtabmap-launch-attempt1.log` |
+| `ros-humble-rtabmap-python` | **BUILT** | 1 | `evidence/humble/build-rtabmap-python-attempt1.log` |
+| `ros-humble-rtabmap-demos` | **BUILT** | 1 | `evidence/humble/build-rtabmap-demos-attempt1.log` |
+| `ros-humble-rtabmap-examples` | **BUILT** | 1 | `evidence/humble/build-rtabmap-examples-attempt1.log` |
+| `ros-humble-rtabmap-ros` (umbrella) | **BUILT** | 1 | `evidence/humble/build-rtabmap-ros-attempt1.log` |
+| any package on osx-arm64 / osx-64 / linux-aarch64 | TODO (#12 → #8, #9) | — | — |
 
 Feature summary of the built `ros-humble-rtabmap` (from the configure log): OpenCV 4.13 **on**,
 Qt 6.10 **on**, VTK 9.5 **on**, external SQLite3 **on**, OpenMP **on**, g2o **on**, GTSAM 4.2.0 **on**,
@@ -115,6 +125,14 @@ OctoMap 1.10 **on**, libpointmatcher **off** (not found), Ceres **off**, Python 
   repo adds `liboctomap-dev: robostack: [octomap]`.
 - **Windows:** `ros-humble-libg2o`, `grid-map-ros`, `realsense2-camera`, `velodyne` are
   not published on win-64 → the seed is `if: not win`.
+- **Qt5 (rviz) vs Qt6 (VTK/rtabmap_gui) split (#5, #12):** RoboStack Humble rviz is Qt5, but
+  conda-forge VTK ≥ 9 is Qt6-only, so `rtabmap::gui` exports Qt6 targets. `rtabmap_rviz_plugins`
+  hits `INTERFACE_QT_MAJOR_VERSION ... does not agree` at configure time. The committed patch
+  strips `rtabmap::gui` / `VTK::GUISupportQt` / `Qt6::*` from the consumed link interfaces
+  (the plugins only use core/conversions symbols); the built plugin links Qt5 only. This is the
+  first RTAB-Map-specific patch of the port and a key feasibility input for macOS (#12).
+- **`empy` 4 vs `rosidl_adapter` 3.1.8:** interface packages need `empy <4` in host requirements
+  (recipe-level fix in `robostack/humble/recipes-generated/*-msgs`).
 - **The stale upstream patch** `RoboStack/ros-humble/patch/ros-humble-rtabmap.patch` (2022)
   does not apply to 0.22.1 and is not needed; kept for reference as
   `evidence/humble/stale-upstream-ros-humble-rtabmap.patch`.
@@ -123,11 +141,11 @@ OctoMap 1.10 **on**, libpointmatcher **off** (not found), Ceres **off**, Python 
 
 ```
 robostack/humble/            IMPLEMENTED — RoboStack/ros-humble overlay (base commit in UPSTREAM_BASE.txt)
-  vinca.yaml                 seeds rtabmap_ros (if: not win), drops libpointmatcher, mutex 0.8 workaround
+  vinca.yaml                 seeds rtabmap_ros (if: not win) — replaces the upstream seed list for a scoped build; an upstream PR would only add the seed, drops libpointmatcher, mutex 0.8 workaround
   robostack.yaml             + liboctomap-dev mapping
   conda_build_config.yaml, pkg_additional_info.yaml, rosdistro_snapshot.yaml, pixi.toml  (upstream copies)
-  recipes-generated-ros-humble-rtabmap/   the exact rattler-build recipe that produced the linux-64 artifact
-  patch/                     empty so far — one patch per package (patch/ros-humble-<pkg>.patch) as failures demand
+  recipes-generated/         the 16 vinca-generated rattler-build recipes that produced the linux-64 artifacts
+  patch/ros-humble-rtabmap-rviz-plugins.patch   the only source patch so far (Qt5/Qt6 interface strip)
 evidence/humble/             IMPLEMENTED — full build logs, generated recipe, diffs vs upstream
 investigation/               IMPLEMENTED — repodata query script + per-distro dependency availability tables
 docs/                        TODO — feasibility.md (#12, first deliverable), dependency-matrix.md (#1, #5), humble-vs-rolling.md (#10), how-to-build.md, limitations.md (#11)

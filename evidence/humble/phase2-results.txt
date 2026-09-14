@@ -1,0 +1,12 @@
+rtabmap-conversions PASS
+rtabmap-sync PASS
+rtabmap-util PASS
+rtabmap-odom PASS
+rtabmap-slam PASS
+rtabmap-viz PASS
+rtabmap-rviz-plugins FAIL
+rtabmap-launch PASS
+rtabmap-python PASS
+rtabmap-demos PASS
+rtabmap-examples PASS
+rtabmap-ros PASS

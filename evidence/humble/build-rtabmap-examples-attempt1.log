@@ -1,0 +1,784 @@
+ rattler-build 0.76.0
+ No configuration file loaded
+ Processing recipe at path: /home/ubuntu/work/ros-humble/recipes/ros-humble-rtabmap-examples/recipe.yaml
+
+ ╭─ Finding outputs from recipe
+ │ Loading variant config from: conda_build_config.yaml
+ │ Found 1 variants
+ │ 
+ │ Build variant: ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18
+ │ 
+ │ ╭──────────────────────┬────────────────────╮
+ │ │ Variant              ┆ Version            │
+ │ ╞══════════════════════╪════════════════════╡
+ │ │ build_platform       ┆ "linux-64"         │
+ │ │ c_compiler           ┆ "gcc"              │
+ │ │ c_compiler_version   ┆ "14"               │
+ │ │ c_stdlib             ┆ "sysroot"          │
+ │ │ c_stdlib_version     ┆ "2.17"             │
+ │ │ cmake                ┆ "3.*"              │
+ │ │ cxx_compiler         ┆ "gxx"              │
+ │ │ cxx_compiler_version ┆ "14"               │
+ │ │ numpy                ┆ "2"                │
+ │ │ python               ┆ "3.12.* *_cpython" │
+ │ │ target_platform      ┆ "linux-64"         │
+ │ ╰──────────────────────┴────────────────────╯
+ │
+ ╰─────────────────── (took 0 seconds)
+ Starting build of 1 outputs
+
+ ╭─ Running build for recipe: ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18
+ │
+ │ ╭─ Fetching source code
+ │ │ Fetching source from git repo: https://github.com/introlab/rtabmap_ros-release.git
+ │ │ Fetching git repository: https://github.com/introlab/rtabmap_ros-release.git
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving build environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.8.0=0, __glibc=2.35=0, __archspec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - https://prefix.dev/conda-forge/
+ │ │    - robostack-staging
+ │ │   Specs:
+ │ │    - gxx_linux-64 14.*
+ │ │    - gcc_linux-64 14.*
+ │ │    - sysroot_linux-64 2.17.*
+ │ │    - ninja
+ │ │    - python 3.12.* *_cpython
+ │ │    - setuptools
+ │ │    - git
+ │ │    - git-lfs
+ │ │    - patch
+ │ │    - make
+ │ │    - coreutils
+ │ │    - cmake 3.*
+ │ │    - cython
+ │ │ 
+ │ │ ╭──────────────────────────┬──────────────┬──────────────────────┬─────────────┬────────────╮
+ │ │ │ Package                  ┆ Version      ┆ Build                ┆ Channel     ┆       Size │
+ │ │ ╞══════════════════════════╪══════════════╪══════════════════════╪═════════════╪════════════╡
+ │ │ │ _openmp_mutex            ┆ 4.5          ┆ 20_gnu               ┆ conda-forge ┆  28.27 KiB │
+ │ │ │ binutils_impl_linux-64   ┆ 2.46.1       ┆ default_hfdba357_102 ┆ conda-forge ┆   3.54 MiB │
+ │ │ │ binutils_linux-64        ┆ 2.46.1       ┆ default_h4852527_102 ┆ conda-forge ┆  35.49 KiB │
+ │ │ │ bzip2                    ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge ┆ 251.77 KiB │
+ │ │ │ c-ares                   ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge ┆ 223.34 KiB │
+ │ │ │ ca-certificates          ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge ┆ 128.69 KiB │
+ │ │ │ cmake                    ┆ 3.31.8       ┆ hc85cc9f_0           ┆ conda-forge ┆  20.02 MiB │
+ │ │ │ coreutils                ┆ 9.11         ┆ h280c20c_0           ┆ conda-forge ┆   3.27 MiB │
+ │ │ │ cython                   ┆ 3.3.0        ┆ py312h03570ca_0      ┆ conda-forge ┆   3.83 MiB │
+ │ │ │ gcc_impl_linux-64        ┆ 14.4.0       ┆ heaf7ae8_4           ┆ conda-forge ┆  73.68 MiB │
+ │ │ │ gcc_linux-64             ┆ 14.4.0       ┆ hc469d41_1           ┆ conda-forge ┆  29.09 KiB │
+ │ │ │ git                      ┆ 2.55.0       ┆ pl5321h3795e67_2     ┆ conda-forge ┆  11.23 MiB │
+ │ │ │ git-lfs                  ┆ 3.8.0        ┆ h2c09266_0           ┆ conda-forge ┆   4.83 MiB │
+ │ │ │ gxx_impl_linux-64        ┆ 14.4.0       ┆ hc436dd5_4           ┆ conda-forge ┆  15.13 MiB │
+ │ │ │ gxx_linux-64             ┆ 14.4.0       ┆ he93183a_1           ┆ conda-forge ┆  27.50 KiB │
+ │ │ │ icu                      ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge ┆  13.79 MiB │
+ │ │ │ kernel-headers_linux-64  ┆ 3.10.0       ┆ he073ed8_18          ┆ conda-forge ┆ 921.37 KiB │
+ │ │ │ keyutils                 ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge ┆ 132.12 KiB │
+ │ │ │ krb5                     ┆ 1.22.2       ┆ hbc21106_2           ┆ conda-forge ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64         ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge ┆ 727.83 KiB │
+ │ │ │ libcurl                  ┆ 8.22.0       ┆ ha042cf0_0           ┆ conda-forge ┆ 487.94 KiB │
+ │ │ │ libedit                  ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge ┆ 131.93 KiB │
+ │ │ │ libev                    ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge ┆  42.21 KiB │
+ │ │ │ libexpat                 ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge ┆  76.03 KiB │
+ │ │ │ libffi                   ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge ┆  66.41 KiB │
+ │ │ │ libgcc                   ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge ┆   1.01 MiB │
+ │ │ │ libgcc-devel_linux-64    ┆ 14.4.0       ┆ hd9a9cd0_104         ┆ conda-forge ┆   2.95 MiB │
+ │ │ │ libgomp                  ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge ┆ 624.97 KiB │
+ │ │ │ libiconv                 ┆ 1.18         ┆ h0cb94f2_3           ┆ conda-forge ┆ 770.97 KiB │
+ │ │ │ liblzma                  ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge ┆ 110.35 KiB │
+ │ │ │ libnghttp2               ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge ┆ 634.74 KiB │
+ │ │ │ libnsl                   ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge ┆  32.94 KiB │
+ │ │ │ libpsl                   ┆ 0.23.1       ┆ hd9e3e90_1           ┆ conda-forge ┆  70.82 KiB │
+ │ │ │ libpython                ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge ┆   8.36 MiB │
+ │ │ │ libsanitizer             ┆ 14.4.0       ┆ hf39dbba_4           ┆ conda-forge ┆   7.15 MiB │
+ │ │ │ libsqlite                ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge ┆ 951.51 KiB │
+ │ │ │ libssh2                  ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge ┆ 298.87 KiB │
+ │ │ │ libstdcxx                ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge ┆   6.31 MiB │
+ │ │ │ libstdcxx-devel_linux-64 ┆ 14.4.0       ┆ ha5b54cb_104         ┆ conda-forge ┆  19.47 MiB │
+ │ │ │ libuuid                  ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge ┆  39.06 KiB │
+ │ │ │ libuv                    ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge ┆ 410.20 KiB │
+ │ │ │ libxcrypt                ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge ┆  99.57 KiB │
+ │ │ │ libzlib                  ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge ┆  62.22 KiB │
+ │ │ │ make                     ┆ 4.4.1        ┆ hb03c661_3           ┆ conda-forge ┆ 498.73 KiB │
+ │ │ │ ncurses                  ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge ┆ 889.84 KiB │
+ │ │ │ ninja                    ┆ 1.13.2       ┆ h171cf75_1           ┆ conda-forge ┆ 182.39 KiB │
+ │ │ │ openssl                  ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge ┆   3.05 MiB │
+ │ │ │ patch                    ┆ 2.8          ┆ h280c20c_1003        ┆ conda-forge ┆ 107.65 KiB │
+ │ │ │ pcre2                    ┆ 10.47        ┆ h8b3dc9c_1           ┆ conda-forge ┆   1.16 MiB │
+ │ │ │ perl                     ┆ 5.32.1       ┆ 9_h7cc23a3_perl5     ┆ conda-forge ┆  12.76 MiB │
+ │ │ │ python                   ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge ┆  21.98 MiB │
+ │ │ │ python_abi               ┆ 3.12         ┆ 9_cp312              ┆ conda-forge ┆   6.59 KiB │
+ │ │ │ readline                 ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge ┆ 340.72 KiB │
+ │ │ │ rhash                    ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge ┆ 190.42 KiB │
+ │ │ │ setuptools               ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge ┆ 512.20 KiB │
+ │ │ │ sysroot_linux-64         ┆ 2.17         ┆ h0157908_18          ┆ conda-forge ┆  14.46 MiB │
+ │ │ │ tk                       ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge ┆   3.40 MiB │
+ │ │ │ tzdata                   ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge ┆ 116.06 KiB │
+ │ │ │ zstd                     ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge ┆ 587.21 KiB │
+ │ │ ╰──────────────────────────┴──────────────┴──────────────────────┴─────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Resolving host environment
+ │ │   Platform: linux-64 [__unix=0=0, __linux=6.8.0=0, __glibc=2.35=0, __archspec=1=icelake]
+ │ │   Channels: 
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - file:///home/ubuntu/work/output/
+ │ │    - https://prefix.dev/conda-forge/
+ │ │    - robostack-staging
+ │ │   Specs:
+ │ │    - pkg-config
+ │ │    - numpy 2.*
+ │ │    - pip
+ │ │    - python 3.12.* *_cpython
+ │ │    - ros-humble-ament-cmake
+ │ │    - ros-humble-ros-environment
+ │ │    - ros-humble-ros-workspace
+ │ │    - ros2-distro-mutex 0.8.* humble_*
+ │ │    - libstdcxx >=14
+ │ │    - libgcc >=14
+ │ │    - libgcc >=14
+ │ │    - __glibc >=2.17,<3.0.a0
+ │ │ 
+ │ │ ╭───────────────────────────────────────────────────┬──────────────┬──────────────────────┬───────────────────┬────────────╮
+ │ │ │ Package                                           ┆ Version      ┆ Build                ┆ Channel           ┆       Size │
+ │ │ ╞═══════════════════════════════════════════════════╪══════════════╪══════════════════════╪═══════════════════╪════════════╡
+ │ │ │ _openmp_mutex                                     ┆ 4.5          ┆ 20_gnu               ┆ conda-forge       ┆  28.27 KiB │
+ │ │ │ bzip2                                             ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge       ┆ 251.77 KiB │
+ │ │ │ c-ares                                            ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge       ┆ 223.34 KiB │
+ │ │ │ ca-certificates                                   ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge       ┆ 128.69 KiB │
+ │ │ │ catkin_pkg                                        ┆ 1.1.1        ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  53.61 KiB │
+ │ │ │ cmake                                             ┆ 4.2.3        ┆ hc85cc9f_1           ┆ conda-forge       ┆  21.30 MiB │
+ │ │ │ docutils                                          ┆ 0.23         ┆ pyhcf101f3_0         ┆ conda-forge       ┆ 448.77 KiB │
+ │ │ │ icu                                               ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge       ┆  13.79 MiB │
+ │ │ │ importlib-metadata                                ┆ 9.0.1        ┆ pyhcf101f3_0         ┆ conda-forge       ┆  34.10 KiB │
+ │ │ │ importlib_resources                               ┆ 7.1.0        ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  33.99 KiB │
+ │ │ │ keyutils                                          ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge       ┆ 132.12 KiB │
+ │ │ │ krb5                                              ┆ 1.21.3       ┆ h659f571_0           ┆ conda-forge       ┆   1.31 MiB │
+ │ │ │ ld_impl_linux-64                                  ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge       ┆ 727.83 KiB │
+ │ │ │ libblas                                           ┆ 3.11.0       ┆ 11_h4a7cf45_openblas ┆ conda-forge       ┆  17.82 KiB │
+ │ │ │ libcblas                                          ┆ 3.11.0       ┆ 11_h0358290_openblas ┆ conda-forge       ┆  17.77 KiB │
+ │ │ │ libcurl                                           ┆ 8.18.0       ┆ h4e3cde8_0           ┆ conda-forge       ┆ 452.09 KiB │
+ │ │ │ libedit                                           ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge       ┆ 131.93 KiB │
+ │ │ │ libev                                             ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge       ┆  42.21 KiB │
+ │ │ │ libexpat                                          ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge       ┆  76.03 KiB │
+ │ │ │ libffi                                            ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge       ┆  66.41 KiB │
+ │ │ │ libgcc                                            ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge       ┆   1.01 MiB │
+ │ │ │ libgcc-ng                                         ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge       ┆  27.74 KiB │
+ │ │ │ libgfortran                                       ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge       ┆  27.71 KiB │
+ │ │ │ libgfortran5                                      ┆ 16.2.0       ┆ h6b99dfc_4           ┆ conda-forge       ┆   2.41 MiB │
+ │ │ │ libgomp                                           ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge       ┆ 624.97 KiB │
+ │ │ │ liblapack                                         ┆ 3.11.0       ┆ 11_h47877c9_openblas ┆ conda-forge       ┆  17.80 KiB │
+ │ │ │ liblzma                                           ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge       ┆ 110.35 KiB │
+ │ │ │ libnghttp2                                        ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge       ┆ 634.74 KiB │
+ │ │ │ libnsl                                            ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge       ┆  32.94 KiB │
+ │ │ │ libopenblas                                       ┆ 0.3.34       ┆ pthreads_hf13c14d_2  ┆ conda-forge       ┆   6.53 MiB │
+ │ │ │ libpython                                         ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge       ┆   8.36 MiB │
+ │ │ │ libsqlite                                         ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge       ┆ 951.51 KiB │
+ │ │ │ libssh2                                           ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge       ┆ 298.87 KiB │
+ │ │ │ libstdcxx                                         ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge       ┆   6.31 MiB │
+ │ │ │ libstdcxx-ng                                      ┆ 16.2.0       ┆ hdf11a46_4           ┆ conda-forge       ┆  27.79 KiB │
+ │ │ │ libuuid                                           ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge       ┆  39.06 KiB │
+ │ │ │ libuv                                             ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge       ┆ 410.20 KiB │
+ │ │ │ libxcrypt                                         ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge       ┆  99.57 KiB │
+ │ │ │ libzlib                                           ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge       ┆  62.22 KiB │
+ │ │ │ ncurses                                           ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge       ┆ 889.84 KiB │
+ │ │ │ numpy                                             ┆ 2.5.3        ┆ py312he827f4e_0      ┆ conda-forge       ┆   8.80 MiB │
+ │ │ │ openssl                                           ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge       ┆   3.05 MiB │
+ │ │ │ packaging                                         ┆ 26.3         ┆ pyhc364b38_0         ┆ conda-forge       ┆ 113.64 KiB │
+ │ │ │ pip                                               ┆ 26.2.1       ┆ pyh8b19718_0         ┆ conda-forge       ┆   1.14 MiB │
+ │ │ │ pkg-config                                        ┆ 0.29.2       ┆ h1114479_1013        ┆ conda-forge       ┆ 138.06 KiB │
+ │ │ │ pyparsing                                         ┆ 3.3.2        ┆ pyhcf101f3_0         ┆ conda-forge       ┆ 108.29 KiB │
+ │ │ │ python                                            ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge       ┆  21.98 MiB │
+ │ │ │ python-dateutil                                   ┆ 2.9.0.post0  ┆ pyhe01879c_2         ┆ conda-forge       ┆ 227.84 KiB │
+ │ │ │ python_abi                                        ┆ 3.12         ┆ 9_cp312              ┆ conda-forge       ┆   6.59 KiB │
+ │ │ │ readline                                          ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge       ┆ 340.72 KiB │
+ │ │ │ rhash                                             ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge       ┆ 190.42 KiB │
+ │ │ │ ros-humble-ament-cmake                            ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.07 KiB │
+ │ │ │ ros-humble-ament-cmake-core                       ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  43.48 KiB │
+ │ │ │ ros-humble-ament-cmake-export-definitions         ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.83 KiB │
+ │ │ │ ros-humble-ament-cmake-export-dependencies        ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.00 KiB │
+ │ │ │ ros-humble-ament-cmake-export-include-directories ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.26 KiB │
+ │ │ │ ros-humble-ament-cmake-export-interfaces          ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.44 KiB │
+ │ │ │ ros-humble-ament-cmake-export-libraries           ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.73 KiB │
+ │ │ │ ros-humble-ament-cmake-export-link-flags          ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.77 KiB │
+ │ │ │ ros-humble-ament-cmake-export-targets             ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  22.59 KiB │
+ │ │ │ ros-humble-ament-cmake-gen-version-h              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  24.53 KiB │
+ │ │ │ ros-humble-ament-cmake-include-directories        ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.71 KiB │
+ │ │ │ ros-humble-ament-cmake-libraries                  ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.44 KiB │
+ │ │ │ ros-humble-ament-cmake-python                     ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.92 KiB │
+ │ │ │ ros-humble-ament-cmake-target-dependencies        ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  23.40 KiB │
+ │ │ │ ros-humble-ament-cmake-test                       ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  34.96 KiB │
+ │ │ │ ros-humble-ament-cmake-version                    ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.61 KiB │
+ │ │ │ ros-humble-ament-package                          ┆ 0.14.2       ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  45.33 KiB │
+ │ │ │ ros-humble-ros-environment                        ┆ 3.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  21.12 KiB │
+ │ │ │ ros-humble-ros-workspace                          ┆ 1.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-staging ┆  34.75 KiB │
+ │ │ │ ros2-distro-mutex                                 ┆ 0.8.0        ┆ humble_15            ┆ robostack-staging ┆   2.32 KiB │
+ │ │ │ setuptools                                        ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge       ┆ 512.20 KiB │
+ │ │ │ six                                               ┆ 1.17.0       ┆ pyhe01879c_1         ┆ conda-forge       ┆  18.02 KiB │
+ │ │ │ tk                                                ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge       ┆   3.40 MiB │
+ │ │ │ tzdata                                            ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge       ┆ 116.06 KiB │
+ │ │ │ wheel                                             ┆ 0.48.0       ┆ pyhd8ed1ab_0         ┆ conda-forge       ┆  33.72 KiB │
+ │ │ │ zipp                                              ┆ 4.1.0        ┆ pyhcf101f3_0         ┆ conda-forge       ┆  23.62 KiB │
+ │ │ │ zstd                                              ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge       ┆ 587.21 KiB │
+ │ │ ╰───────────────────────────────────────────────────┴──────────────┴──────────────────────┴───────────────────┴────────────╯
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │ 
+ │ Finalized run dependencies (ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18):
+ │ ╭─────────────────────────────────┬────────────────────────────────────────────────────╮
+ │ │ Name                            ┆ Spec                                               │
+ │ ╞═════════════════════════════════╪════════════════════════════════════════════════════╡
+ │ │ Run dependencies                ┆                                                    │
+ │ │ __glibc                         ┆ >=2.17,<3.0.a0 (RE of [build: sysroot_linux-64])   │
+ │ │ libgcc                          ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │                                 ┆ >=14 (RE of [build: gcc_linux-64])                 │
+ │ │ libstdcxx                       ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ numpy                           ┆ >=1.25,<3 (RE of [host: numpy])                    │
+ │ │ python                          ┆ *                                                  │
+ │ │ python_abi                      ┆ 3.12.* *_cp312 (RE of [host: python])              │
+ │ │ ros-humble-imu-filter-madgwick  ┆ *                                                  │
+ │ │ ros-humble-realsense2-camera    ┆ *                                                  │
+ │ │ ros-humble-ros-workspace        ┆ *                                                  │
+ │ │ ros-humble-rtabmap-odom         ┆ *                                                  │
+ │ │ ros-humble-rtabmap-rviz-plugins ┆ *                                                  │
+ │ │ ros-humble-rtabmap-slam         ┆ *                                                  │
+ │ │ ros-humble-rtabmap-util         ┆ *                                                  │
+ │ │ ros-humble-rtabmap-viz          ┆ *                                                  │
+ │ │ ros-humble-tf2-ros              ┆ *                                                  │
+ │ │ ros-humble-velodyne             ┆ *                                                  │
+ │ │ ros2-distro-mutex               ┆ 0.8.* humble_*                                     │
+ │ │                                 ┆ >=0.8.0,<0.9.0a0 (RE of [host: ros2-distro-mutex]) │
+ │ ╰─────────────────────────────────┴────────────────────────────────────────────────────╯
+ │
+ │ ╭─ Installing build environment
+ │ │ ✔ Successfully updated the build environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Installing host environment
+ │ │ ✔ Successfully updated the host environment
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ │ ╭─ Running build script
+ │ │ INFO: activate-binutils_linux-64.sh made the following environmental changes:
+ │ │ +ADDR2LINE=x86_64-conda-linux-gnu-addr2line
+ │ │ +AR=x86_64-conda-linux-gnu-ar
+ │ │ +AS=x86_64-conda-linux-gnu-as
+ │ │ +CXXFILT=x86_64-conda-linux-gnu-c++filt
+ │ │ +ELFEDIT=x86_64-conda-linux-gnu-elfedit
+ │ │ +GPROF=x86_64-conda-linux-gnu-gprof
+ │ │ +LD=x86_64-conda-linux-gnu-ld
+ │ │ +NM=x86_64-conda-linux-gnu-nm
+ │ │ +OBJCOPY=x86_64-conda-linux-gnu-objcopy
+ │ │ +OBJDUMP=x86_64-conda-linux-gnu-objdump
+ │ │ +RANLIB=x86_64-conda-linux-gnu-ranlib
+ │ │ +READELF=x86_64-conda-linux-gnu-readelf
+ │ │ +SIZE=x86_64-conda-linux-gnu-size
+ │ │ +STRINGS=x86_64-conda-linux-gnu-strings
+ │ │ +STRIP=x86_64-conda-linux-gnu-strip
+ │ │ INFO: activate-gcc_linux-64.sh made the following environmental changes:
+ │ │ +BUILD=x86_64-conda-linux-gnu
+ │ │ +CC=x86_64-conda-linux-gnu-cc
+ │ │ +CC_FOR_BUILD=x86_64-conda-linux-gnu-cc
+ │ │ +CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -fno-merge-constants -isystem $
+ │ │ PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/ros-humble-rtabmap-examples-0.22.1 -fdebug-prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +CMAKE_ARGS=-DCMAKE_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-ar -DCMAKE_CXX_COMPILER_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_C_COMPIL
+ │ │ ER_AR=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_RANLIB=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-ranlib -DCMAKE_CXX_COMPILER_RANLIB=$BUILD_PRE
+ │ │ FIX/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_C_COMPILER_RANLIB=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_LINKER=$BUILD_PREFIX/bin/x8
+ │ │ 6_64-conda-linux-gnu-ld -DCMAKE_STRIP=$BUILD_PREFIX/bin/x86_64-conda-linux-gnu-strip -DCMAKE_BUILD_TYPE=Release -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER -
+ │ │ DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY -DCMAKE_FIND_ROOT_PATH_MODE_INCLUDE=ONLY -DCMAKE_FIND_ROOT_PATH=$PREFIX;$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroo
+ │ │ t -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_PROGRAM_PATH=$BUILD_PREFIX/bin;$PREFIX/bin -DCMAKE_POLICY_DEFAULT_CMP0094=NEW
+ │ │ +CMAKE_PREFIX_PATH=$PREFIX:$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot/usr
+ │ │ +CONDA_BUILD_CROSS_COMPILATION=
+ │ │ +CONDA_BUILD_SYSROOT=$BUILD_PREFIX/x86_64-conda-linux-gnu/sysroot
+ │ │ +CONDA_TOOLCHAIN_BUILD=x86_64-conda-linux-gnu
+ │ │ +CONDA_TOOLCHAIN_HOST=x86_64-conda-linux-gnu
+ │ │ +CPP=x86_64-conda-linux-gnu-cpp
+ │ │ +CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem $PREFIX/include
+ │ │ +CPP_FOR_BUILD=x86_64-conda-linux-gnu-cpp
+ │ │ +DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction
+ │ │ -sections -pipe -fno-merge-constants -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/ros-humble-rtabmap-examples-0.22.1 -fdebug-p
+ │ │ refix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og -isystem $PREFIX/include
+ │ │ +GCC=x86_64-conda-linux-gnu-gcc
+ │ │ +GCC_AR=x86_64-conda-linux-gnu-gcc-ar
+ │ │ +GCC_NM=x86_64-conda-linux-gnu-gcc-nm
+ │ │ +GCC_RANLIB=x86_64-conda-linux-gnu-gcc-ranlib
+ │ │ +HOST=x86_64-conda-linux-gnu
+ │ │ +LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath
+ │ │ ,$PREFIX/lib -Wl,-rpath-link,$PREFIX/lib -L$PREFIX/lib
+ │ │ +LDFLAGS_LD=-O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath $PREFIX/lib -rpath-link $PREFIX/
+ │ │ lib -L$PREFIX/lib
+ │ │ +MESON_ARGS=-Dbuildtype=release --prefix=$PREFIX -Dlibdir=lib
+ │ │ +build_alias=x86_64-conda-linux-gnu
+ │ │ +host_alias=x86_64-conda-linux-gnu
+ │ │ -BUILD=x86_64-conda_cos6-linux-gnu
+ │ │ -CONDA_BUILD_CROSS_COMPILATION=0
+ │ │ INFO: activate-gxx_linux-64.sh made the following environmental changes:
+ │ │ +CXX=x86_64-conda-linux-gnu-c++
+ │ │ +CXXFLAGS=-fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffuncti
+ │ │ on-sections -pipe -fno-merge-constants -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/conda/ros-humble-rtabmap-examples-0.22.1 -fdebug
+ │ │ -prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +CXX_FOR_BUILD=x86_64-conda-linux-gnu-c++
+ │ │ +DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -W
+ │ │ all -Wextra -fvar-tracking-assignments -ffunction-sections -pipe -fno-merge-constants -isystem $PREFIX/include -fdebug-prefix-map=$SRC_DIR=/usr/local/src/c
+ │ │ onda/ros-humble-rtabmap-examples-0.22.1 -fdebug-prefix-map=$PREFIX=/usr/local/src/conda-prefix
+ │ │ +GXX=x86_64-conda-linux-gnu-g++
+ │ │ + /home/ubuntu/work/ros-humble/recipes/ros-humble-rtabmap-examples/build_ament_cmake.sh
+ │ │ USING PYTHON_EXECUTABLE=$PREFIX/bin/python
+ │ │ USING PKG_CONFIG_EXECUTABLE=$PREFIX/bin/pkg-config
+ │ │ Using Python 3.12
+ │ │ Using PYTHON_INSTALL_DIR: lib/python3.12/site-packages
+ │ │ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+ │ │ Ignoring COMPILE_WARNING_AS_ERROR target property and CMAKE_COMPILE_WARNING_AS_ERROR variable.
+ │ │   Compatibility with CMake < 3.10 will be removed from a future version of
+ │ │   CMake.
+ │ │   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+ │ │   to tell CMake that the project requires at least <min> but has been updated
+ │ │   to work with policies introduced by <max> or earlier.
+ │ │ -- The C compiler identification is GNU 14.4.0
+ │ │ -- The CXX compiler identification is GNU 14.4.0
+ │ │ -- Detecting C compiler ABI info
+ │ │ -- Detecting C compiler ABI info - done
+ │ │ -- Check for working C compiler: $BUILD_PREFIX/bin/x86_64-conda-linux-gnu-cc - skipped
+ │ │ -- Detecting C compile features
+ │ │ -- Detecting C compile features - done
+ │ │ -- Detecting CXX compiler ABI info
+ │ │ -- Detecting CXX compiler ABI info - done
+ │ │ -- Check for working CXX compiler: $BUILD_PREFIX/bin/x86_64-conda-linux-gnu-c++ - skipped
+ │ │ -- Detecting CXX compile features
+ │ │ -- Detecting CXX compile features - done
+ │ │ -- Found ament_cmake: 1.3.13 ($PREFIX/share/ament_cmake/cmake)
+ │ │ -- Found Python3: $PREFIX/bin/python (found version "3.12.14") found components: Interpreter
+ │ │ -- Configuring done (0.6s)
+ │ │ -- Generating done (0.0s)
+ │ │ CMake Warning:
+ │ │   Manually-specified variables were not used by the project:
+ │ │ -- Build files have been written to: $SRC_DIR/build
+ │ │     AMENT_PREFIX_PATH
+ │ │     BUILD_SHARED_LIBS
+ │ │     CATKIN_SKIP_TESTING
+ │ │     CMAKE_INSTALL_LIBDIR
+ │ │     CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS_SKIP
+ │ │     PKG_CONFIG_EXECUTABLE
+ │ │     PYTHON_EXECUTABLE
+ │ │     PYTHON_INSTALL_DIR
+ │ │     Python_EXECUTABLE
+ │ │     SETUPTOOLS_DEB_LAYOUT
+ │ │ [0/1] Install the project...
+ │ │ -- Install configuration: "Release"
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/depthai.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/realsense_d435i_infra.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/rtabmap_D405x2.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/rgbdslam_datasets.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/kinect_xbox_360.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/lidar3d_assemble.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/rtabmap_D405x3.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/lidar3d.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/realsense_d435i_color.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/lidar3d_assemble_x2.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/vlp16_zed.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/realsense_d400.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/zed.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/k4a.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/realsense_d435i_stereo.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/launch/euroc_datasets.launch.py
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/config
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/config/euroc_right.yaml
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/config/slam_D405x3_config.rviz
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/config/slam_D405x2_config.rviz
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/config/euroc_left.yaml
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/package_run_dependencies/rtabmap_examples
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/parent_prefix_path/rtabmap_examples
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/environment/ament_prefix_path.sh
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/environment/ament_prefix_path.dsv
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/environment/path.sh
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/environment/path.dsv
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/local_setup.bash
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/local_setup.sh
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/local_setup.zsh
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/local_setup.dsv
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/package.dsv
+ │ │ -- Installing: $PREFIX/share/ament_index/resource_index/packages/rtabmap_examples
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/cmake/rtabmap_examplesConfig.cmake
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/cmake/rtabmap_examplesConfig-version.cmake
+ │ │ -- Installing: $PREFIX/share/rtabmap_examples/package.xml
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ │ ╭─ Packaging new files
+ │ │ Copying done!
+ │ │ Compiling 16 .py files to .pyc
+ │ │ Post-processing done!
+ │ │ Writing test files
+ │ │ Writing metadata for package
+ │ │ Copying license files
+ │ │ Copying recipe files
+ │ │ 
+ │ │ Files in package:
+ │ │   ├─ share/ament_index/resource_index/package_run_dependencies/rtabmap_examples (126 B)
+ │ │   ├─ share/ament_index/resource_index/packages/rtabmap_examples (0 B)
+ │ │   ├─ share/ament_index/resource_index/parent_prefix_path/rtabmap_examples (8 B)
+ │ │   ├─ share/rtabmap_examples/cmake/rtabmap_examplesConfig-version.cmake (433 B)
+ │ │   ├─ share/rtabmap_examples/cmake/rtabmap_examplesConfig.cmake (1.30 KiB)
+ │ │   ├─ share/rtabmap_examples/config/euroc_left.yaml (940 B)
+ │ │   ├─ share/rtabmap_examples/config/euroc_right.yaml (964 B)
+ │ │   ├─ share/rtabmap_examples/config/slam_D405x2_config.rviz (12.62 KiB)
+ │ │   ├─ share/rtabmap_examples/config/slam_D405x3_config.rviz (15.48 KiB)
+ │ │   ├─ share/rtabmap_examples/environment/ament_prefix_path.dsv (41 B)
+ │ │   ├─ share/rtabmap_examples/environment/ament_prefix_path.sh (160 B)
+ │ │   ├─ share/rtabmap_examples/environment/path.dsv (41 B)
+ │ │   ├─ share/rtabmap_examples/environment/path.sh (185 B)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/depthai.launch.cpython-312.pyc (1.97 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/euroc_datasets.launch.cpython-312.pyc (4.09 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/k4a.launch.cpython-312.pyc (1.60 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/kinect_xbox_360.launch.cpython-312.pyc (1.54 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/lidar3d.launch.cpython-312.pyc (7.31 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/lidar3d_assemble.launch.cpython-312.pyc (7.88 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/lidar3d_assemble_x2.launch.cpython-312.pyc (8.55 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/realsense_d400.launch.cpython-312.pyc (1.79 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/realsense_d435i_color.launch.cpython-312.pyc (2.45 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/realsense_d435i_infra.launch.cpython-312.pyc (2.44 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/realsense_d435i_stereo.launch.cpython-312.pyc (2.49 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/rgbdslam_datasets.launch.cpython-312.pyc (1.90 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/rtabmap_D405x2.launch.cpython-312.pyc (3.17 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/rtabmap_D405x3.launch.cpython-312.pyc (3.76 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/vlp16_zed.launch.cpython-312.pyc (4.55 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/__pycache__/zed.launch.cpython-312.pyc (3.47 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/depthai.launch.py (2.49 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/euroc_datasets.launch.py (6.04 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/k4a.launch.py (2.75 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/kinect_xbox_360.launch.py (1.77 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/lidar3d.launch.py (9.58 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/lidar3d_assemble.launch.py (10.63 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/lidar3d_assemble_x2.launch.py (11.83 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/realsense_d400.launch.py (1.97 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/realsense_d435i_color.launch.py (2.93 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/realsense_d435i_infra.launch.py (2.97 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/realsense_d435i_stereo.launch.py (3.02 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/rgbdslam_datasets.launch.py (4.16 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/rtabmap_D405x2.launch.py (5.30 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/rtabmap_D405x3.launch.py (6.61 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/vlp16_zed.launch.py (4.97 KiB)
+ │ │   ├─ share/rtabmap_examples/launch/zed.launch.py (3.80 KiB)
+ │ │   ├─ share/rtabmap_examples/local_setup.bash (1.56 KiB)
+ │ │   ├─ share/rtabmap_examples/local_setup.dsv (113 B)
+ │ │   ├─ share/rtabmap_examples/local_setup.sh (5.11 KiB) [prefix:text]
+ │ │   ├─ share/rtabmap_examples/local_setup.zsh (1.91 KiB)
+ │ │   ├─ share/rtabmap_examples/package.dsv (184 B)
+ │ │   ├─ share/rtabmap_examples/package.xml (1.14 KiB)
+ │ │   ├─ info/about.json (358 B)
+ │ │   ├─ info/hash_input.json (274 B)
+ │ │   ├─ info/index.json (811 B)
+ │ │   ├─ info/paths.json (12.02 KiB)
+ │ │   ├─ info/recipe/bld_ament_cmake.bat (2.31 KiB)
+ │ │   ├─ info/recipe/build_ament_cmake.sh (6.76 KiB)
+ │ │   ├─ info/recipe/recipe.yaml (2.22 KiB)
+ │ │   ├─ info/recipe/rendered_recipe.yaml (107.38 KiB)
+ │ │   ├─ info/recipe/variant_config.yaml (227 B)
+ │ │   └─ info/tests/tests.yaml (3 B)
+ │ │ 
+ │ │ Package statistics: 61 files (51 content, 10 metadata), total size: 314.37 KiB
+ │ │ Largest files:
+ │ │   15.48 KiB - share/rtabmap_examples/config/slam_D405x3_config.rviz
+ │ │   12.62 KiB - share/rtabmap_examples/config/slam_D405x2_config.rviz
+ │ │   11.83 KiB - share/rtabmap_examples/launch/lidar3d_assemble_x2.launch.py
+ │ │   10.63 KiB - share/rtabmap_examples/launch/lidar3d_assemble.launch.py
+ │ │   9.58 KiB - share/rtabmap_examples/launch/lidar3d.launch.py
+ │ │ Creating target folder '/home/ubuntu/work/output/linux-64'
+ │ │ Compressing archive...
+ │ │ Archive written to '/home/ubuntu/work/output/linux-64/ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18.conda'
+ │ │
+ │ ╰─────────────────── (took 1 second)
+ │
+ ╰─────────────────── (took 4 seconds)
+ Collecting tests from '/tmp/.tmpgmlvvM/ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18'
+ ✔ all tests passed!
+
+ ╭─ Build summary
+ │
+ │ ╭─ Build summary for recipe: ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18
+ │ │ Variant configuration (hash: np2py312h2ed9cc7_18):
+ │ │ ╭──────────────────────┬────────────────────╮
+ │ │ │ build_platform       ┆ "linux-64"         │
+ │ │ │ c_compiler           ┆ "gcc"              │
+ │ │ │ c_compiler_version   ┆ "14"               │
+ │ │ │ c_stdlib             ┆ "sysroot"          │
+ │ │ │ c_stdlib_version     ┆ "2.17"             │
+ │ │ │ cmake                ┆ "3.*"              │
+ │ │ │ cxx_compiler         ┆ "gxx"              │
+ │ │ │ cxx_compiler_version ┆ "14"               │
+ │ │ │ numpy                ┆ "2"                │
+ │ │ │ python               ┆ "3.12.* *_cpython" │
+ │ │ │ target_platform      ┆ "linux-64"         │
+ │ │ ╰──────────────────────┴────────────────────╯
+ │ │ 
+ │ │ Build dependencies:
+ │ │ ╭──────────────────────────┬─────────────────────────────┬──────────────┬──────────────────────┬─────────────┬────────────╮
+ │ │ │ Package                  ┆ Spec                        ┆ Version      ┆ Build                ┆ Channel     ┆       Size │
+ │ │ ╞══════════════════════════╪═════════════════════════════╪══════════════╪══════════════════════╪═════════════╪════════════╡
+ │ │ │ cmake                    ┆ cmake 3.* (V)               ┆ 3.31.8       ┆ hc85cc9f_0           ┆ conda-forge ┆  20.02 MiB │
+ │ │ │ coreutils                ┆ coreutils                   ┆ 9.11         ┆ h280c20c_0           ┆ conda-forge ┆   3.27 MiB │
+ │ │ │ cython                   ┆ cython                      ┆ 3.3.0        ┆ py312h03570ca_0      ┆ conda-forge ┆   3.83 MiB │
+ │ │ │ gcc_linux-64             ┆ gcc_linux-64 14.*           ┆ 14.4.0       ┆ hc469d41_1           ┆ conda-forge ┆  29.09 KiB │
+ │ │ │ git                      ┆ git                         ┆ 2.55.0       ┆ pl5321h3795e67_2     ┆ conda-forge ┆  11.23 MiB │
+ │ │ │ git-lfs                  ┆ git-lfs                     ┆ 3.8.0        ┆ h2c09266_0           ┆ conda-forge ┆   4.83 MiB │
+ │ │ │ gxx_linux-64             ┆ gxx_linux-64 14.*           ┆ 14.4.0       ┆ he93183a_1           ┆ conda-forge ┆  27.50 KiB │
+ │ │ │ make                     ┆ make                        ┆ 4.4.1        ┆ hb03c661_3           ┆ conda-forge ┆ 498.73 KiB │
+ │ │ │ ninja                    ┆ ninja                       ┆ 1.13.2       ┆ h171cf75_1           ┆ conda-forge ┆ 182.39 KiB │
+ │ │ │ patch                    ┆ patch                       ┆ 2.8          ┆ h280c20c_1003        ┆ conda-forge ┆ 107.65 KiB │
+ │ │ │ python                   ┆ python 3.12.* *_cpython (V) ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge ┆  21.98 MiB │
+ │ │ │ setuptools               ┆ setuptools                  ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge ┆ 512.20 KiB │
+ │ │ │ sysroot_linux-64         ┆ sysroot_linux-64 2.17.*     ┆ 2.17         ┆ h0157908_18          ┆ conda-forge ┆  14.46 MiB │
+ │ │ │ _openmp_mutex            ┆                             ┆ 4.5          ┆ 20_gnu               ┆ conda-forge ┆  28.27 KiB │
+ │ │ │ binutils_impl_linux-64   ┆                             ┆ 2.46.1       ┆ default_hfdba357_102 ┆ conda-forge ┆   3.54 MiB │
+ │ │ │ binutils_linux-64        ┆                             ┆ 2.46.1       ┆ default_h4852527_102 ┆ conda-forge ┆  35.49 KiB │
+ │ │ │ bzip2                    ┆                             ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge ┆ 251.77 KiB │
+ │ │ │ c-ares                   ┆                             ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge ┆ 223.34 KiB │
+ │ │ │ ca-certificates          ┆                             ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge ┆ 128.69 KiB │
+ │ │ │ gcc_impl_linux-64        ┆                             ┆ 14.4.0       ┆ heaf7ae8_4           ┆ conda-forge ┆  73.68 MiB │
+ │ │ │ gxx_impl_linux-64        ┆                             ┆ 14.4.0       ┆ hc436dd5_4           ┆ conda-forge ┆  15.13 MiB │
+ │ │ │ icu                      ┆                             ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge ┆  13.79 MiB │
+ │ │ │ kernel-headers_linux-64  ┆                             ┆ 3.10.0       ┆ he073ed8_18          ┆ conda-forge ┆ 921.37 KiB │
+ │ │ │ keyutils                 ┆                             ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge ┆ 132.12 KiB │
+ │ │ │ krb5                     ┆                             ┆ 1.22.2       ┆ hbc21106_2           ┆ conda-forge ┆   1.33 MiB │
+ │ │ │ ld_impl_linux-64         ┆                             ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge ┆ 727.83 KiB │
+ │ │ │ libcurl                  ┆                             ┆ 8.22.0       ┆ ha042cf0_0           ┆ conda-forge ┆ 487.94 KiB │
+ │ │ │ libedit                  ┆                             ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge ┆ 131.93 KiB │
+ │ │ │ libev                    ┆                             ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge ┆  42.21 KiB │
+ │ │ │ libexpat                 ┆                             ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge ┆  76.03 KiB │
+ │ │ │ libffi                   ┆                             ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge ┆  66.41 KiB │
+ │ │ │ libgcc                   ┆                             ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge ┆   1.01 MiB │
+ │ │ │ libgcc-devel_linux-64    ┆                             ┆ 14.4.0       ┆ hd9a9cd0_104         ┆ conda-forge ┆   2.95 MiB │
+ │ │ │ libgomp                  ┆                             ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge ┆ 624.97 KiB │
+ │ │ │ libiconv                 ┆                             ┆ 1.18         ┆ h0cb94f2_3           ┆ conda-forge ┆ 770.97 KiB │
+ │ │ │ liblzma                  ┆                             ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge ┆ 110.35 KiB │
+ │ │ │ libnghttp2               ┆                             ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge ┆ 634.74 KiB │
+ │ │ │ libnsl                   ┆                             ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge ┆  32.94 KiB │
+ │ │ │ libpsl                   ┆                             ┆ 0.23.1       ┆ hd9e3e90_1           ┆ conda-forge ┆  70.82 KiB │
+ │ │ │ libpython                ┆                             ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge ┆   8.36 MiB │
+ │ │ │ libsanitizer             ┆                             ┆ 14.4.0       ┆ hf39dbba_4           ┆ conda-forge ┆   7.15 MiB │
+ │ │ │ libsqlite                ┆                             ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge ┆ 951.51 KiB │
+ │ │ │ libssh2                  ┆                             ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge ┆ 298.87 KiB │
+ │ │ │ libstdcxx                ┆                             ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge ┆   6.31 MiB │
+ │ │ │ libstdcxx-devel_linux-64 ┆                             ┆ 14.4.0       ┆ ha5b54cb_104         ┆ conda-forge ┆  19.47 MiB │
+ │ │ │ libuuid                  ┆                             ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge ┆  39.06 KiB │
+ │ │ │ libuv                    ┆                             ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge ┆ 410.20 KiB │
+ │ │ │ libxcrypt                ┆                             ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge ┆  99.57 KiB │
+ │ │ │ libzlib                  ┆                             ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge ┆  62.22 KiB │
+ │ │ │ ncurses                  ┆                             ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge ┆ 889.84 KiB │
+ │ │ │ openssl                  ┆                             ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge ┆   3.05 MiB │
+ │ │ │ pcre2                    ┆                             ┆ 10.47        ┆ h8b3dc9c_1           ┆ conda-forge ┆   1.16 MiB │
+ │ │ │ perl                     ┆                             ┆ 5.32.1       ┆ 9_h7cc23a3_perl5     ┆ conda-forge ┆  12.76 MiB │
+ │ │ │ python_abi               ┆                             ┆ 3.12         ┆ 9_cp312              ┆ conda-forge ┆   6.59 KiB │
+ │ │ │ readline                 ┆                             ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge ┆ 340.72 KiB │
+ │ │ │ rhash                    ┆                             ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge ┆ 190.42 KiB │
+ │ │ │ tk                       ┆                             ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge ┆   3.40 MiB │
+ │ │ │ tzdata                   ┆                             ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge ┆ 116.06 KiB │
+ │ │ │ zstd                     ┆                             ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge ┆ 587.21 KiB │
+ │ │ ╰──────────────────────────┴─────────────────────────────┴──────────────┴──────────────────────┴─────────────┴────────────╯
+ │ │ 
+ │ │ Host dependencies:
+ │ │ ╭───────────────────────────────────────────────────┬──────────────────────────────────────────────┬──────────────┬──────────────────────┬─────────────────
+ │ │ ──┬────────────╮
+ │ │ │ Package                                           ┆ Spec                                         ┆ Version      ┆ Build                ┆ Channel         
+ │ │   ┆       Size │
+ │ │ ╞═══════════════════════════════════════════════════╪══════════════════════════════════════════════╪══════════════╪══════════════════════╪═════════════════
+ │ │ ══╪════════════╡
+ │ │ │ libgcc                                            ┆ libgcc >=14 (RE of [build: gxx_linux-64])    ┆ 16.2.0       ┆ ha9f2e26_4           ┆ conda-forge     
+ │ │   ┆   1.01 MiB │
+ │ │ │ libstdcxx                                         ┆ libstdcxx >=14 (RE of [build: gxx_linux-64]) ┆ 16.2.0       ┆ h934c35e_4           ┆ conda-forge     
+ │ │   ┆   6.31 MiB │
+ │ │ │ numpy                                             ┆ numpy 2.* (V)                                ┆ 2.5.3        ┆ py312he827f4e_0      ┆ conda-forge     
+ │ │   ┆   8.80 MiB │
+ │ │ │ pip                                               ┆ pip                                          ┆ 26.2.1       ┆ pyh8b19718_0         ┆ conda-forge     
+ │ │   ┆   1.14 MiB │
+ │ │ │ pkg-config                                        ┆ pkg-config                                   ┆ 0.29.2       ┆ h1114479_1013        ┆ conda-forge     
+ │ │   ┆ 138.06 KiB │
+ │ │ │ python                                            ┆ python 3.12.* *_cpython (V)                  ┆ 3.12.14      ┆ h5f976f7_3_cpython   ┆ conda-forge     
+ │ │   ┆  21.98 MiB │
+ │ │ │ ros-humble-ament-cmake                            ┆ ros-humble-ament-cmake                       ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.07 KiB │
+ │ │ │ ros-humble-ros-environment                        ┆ ros-humble-ros-environment                   ┆ 3.2.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.12 KiB │
+ │ │ │ ros-humble-ros-workspace                          ┆ ros-humble-ros-workspace                     ┆ 1.0.2        ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  34.75 KiB │
+ │ │ │ ros2-distro-mutex                                 ┆ ros2-distro-mutex 0.8.* humble_*             ┆ 0.8.0        ┆ humble_15            ┆ robostack-stagin
+ │ │ g ┆   2.32 KiB │
+ │ │ │ _openmp_mutex                                     ┆                                              ┆ 4.5          ┆ 20_gnu               ┆ conda-forge     
+ │ │   ┆  28.27 KiB │
+ │ │ │ bzip2                                             ┆                                              ┆ 1.0.8        ┆ hda65f42_10          ┆ conda-forge     
+ │ │   ┆ 251.77 KiB │
+ │ │ │ c-ares                                            ┆                                              ┆ 1.34.8       ┆ hebe6cf0_2           ┆ conda-forge     
+ │ │   ┆ 223.34 KiB │
+ │ │ │ ca-certificates                                   ┆                                              ┆ 2026.7.22    ┆ hbd8a1cb_0           ┆ conda-forge     
+ │ │   ┆ 128.69 KiB │
+ │ │ │ catkin_pkg                                        ┆                                              ┆ 1.1.1        ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  53.61 KiB │
+ │ │ │ cmake                                             ┆                                              ┆ 4.2.3        ┆ hc85cc9f_1           ┆ conda-forge     
+ │ │   ┆  21.30 MiB │
+ │ │ │ docutils                                          ┆                                              ┆ 0.23         ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆ 448.77 KiB │
+ │ │ │ icu                                               ┆                                              ┆ 78.3         ┆ py310h44b86e0_2      ┆ conda-forge     
+ │ │   ┆  13.79 MiB │
+ │ │ │ importlib-metadata                                ┆                                              ┆ 9.0.1        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  34.10 KiB │
+ │ │ │ importlib_resources                               ┆                                              ┆ 7.1.0        ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  33.99 KiB │
+ │ │ │ keyutils                                          ┆                                              ┆ 1.6.3        ┆ h7cc23a3_1           ┆ conda-forge     
+ │ │   ┆ 132.12 KiB │
+ │ │ │ krb5                                              ┆                                              ┆ 1.21.3       ┆ h659f571_0           ┆ conda-forge     
+ │ │   ┆   1.31 MiB │
+ │ │ │ ld_impl_linux-64                                  ┆                                              ┆ 2.46.1       ┆ default_hbd61a6d_102 ┆ conda-forge     
+ │ │   ┆ 727.83 KiB │
+ │ │ │ libblas                                           ┆                                              ┆ 3.11.0       ┆ 11_h4a7cf45_openblas ┆ conda-forge     
+ │ │   ┆  17.82 KiB │
+ │ │ │ libcblas                                          ┆                                              ┆ 3.11.0       ┆ 11_h0358290_openblas ┆ conda-forge     
+ │ │   ┆  17.77 KiB │
+ │ │ │ libcurl                                           ┆                                              ┆ 8.18.0       ┆ h4e3cde8_0           ┆ conda-forge     
+ │ │   ┆ 452.09 KiB │
+ │ │ │ libedit                                           ┆                                              ┆ 3.1.20250104 ┆ pl5321h373387f_1     ┆ conda-forge     
+ │ │   ┆ 131.93 KiB │
+ │ │ │ libev                                             ┆                                              ┆ 4.33         ┆ h280c20c_3           ┆ conda-forge     
+ │ │   ┆  42.21 KiB │
+ │ │ │ libexpat                                          ┆                                              ┆ 2.8.1        ┆ hecca717_1           ┆ conda-forge     
+ │ │   ┆  76.03 KiB │
+ │ │ │ libffi                                            ┆                                              ┆ 3.7.0        ┆ h81df57d_1           ┆ conda-forge     
+ │ │   ┆  66.41 KiB │
+ │ │ │ libgcc-ng                                         ┆                                              ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge     
+ │ │   ┆  27.74 KiB │
+ │ │ │ libgfortran                                       ┆                                              ┆ 16.2.0       ┆ h69a702a_4           ┆ conda-forge     
+ │ │   ┆  27.71 KiB │
+ │ │ │ libgfortran5                                      ┆                                              ┆ 16.2.0       ┆ h6b99dfc_4           ┆ conda-forge     
+ │ │   ┆   2.41 MiB │
+ │ │ │ libgomp                                           ┆                                              ┆ 16.2.0       ┆ he0feb66_4           ┆ conda-forge     
+ │ │   ┆ 624.97 KiB │
+ │ │ │ liblapack                                         ┆                                              ┆ 3.11.0       ┆ 11_h47877c9_openblas ┆ conda-forge     
+ │ │   ┆  17.80 KiB │
+ │ │ │ liblzma                                           ┆                                              ┆ 5.8.3        ┆ hb03c661_1           ┆ conda-forge     
+ │ │   ┆ 110.35 KiB │
+ │ │ │ libnghttp2                                        ┆                                              ┆ 1.68.1       ┆ h74cf4be_1           ┆ conda-forge     
+ │ │   ┆ 634.74 KiB │
+ │ │ │ libnsl                                            ┆                                              ┆ 2.0.1        ┆ hb9d3cd8_1           ┆ conda-forge     
+ │ │   ┆  32.94 KiB │
+ │ │ │ libopenblas                                       ┆                                              ┆ 0.3.34       ┆ pthreads_hf13c14d_2  ┆ conda-forge     
+ │ │   ┆   6.53 MiB │
+ │ │ │ libpython                                         ┆                                              ┆ 3.12.14      ┆ h0c77377_3_cpython   ┆ conda-forge     
+ │ │   ┆   8.36 MiB │
+ │ │ │ libsqlite                                         ┆                                              ┆ 3.53.4       ┆ h13e7031_1           ┆ conda-forge     
+ │ │   ┆ 951.51 KiB │
+ │ │ │ libssh2                                           ┆                                              ┆ 1.11.1       ┆ h6154650_1           ┆ conda-forge     
+ │ │   ┆ 298.87 KiB │
+ │ │ │ libstdcxx-ng                                      ┆                                              ┆ 16.2.0       ┆ hdf11a46_4           ┆ conda-forge     
+ │ │   ┆  27.79 KiB │
+ │ │ │ libuuid                                           ┆                                              ┆ 2.42.3       ┆ hcfc3c73_0           ┆ conda-forge     
+ │ │   ┆  39.06 KiB │
+ │ │ │ libuv                                             ┆                                              ┆ 1.52.1       ┆ h280c20c_1           ┆ conda-forge     
+ │ │   ┆ 410.20 KiB │
+ │ │ │ libxcrypt                                         ┆                                              ┆ 4.4.38       ┆ h280c20c_0           ┆ conda-forge     
+ │ │   ┆  99.57 KiB │
+ │ │ │ libzlib                                           ┆                                              ┆ 1.3.2        ┆ h25fd6f3_3           ┆ conda-forge     
+ │ │   ┆  62.22 KiB │
+ │ │ │ ncurses                                           ┆                                              ┆ 6.6          ┆ hdb14827_1           ┆ conda-forge     
+ │ │   ┆ 889.84 KiB │
+ │ │ │ openssl                                           ┆                                              ┆ 3.6.4        ┆ h781a0a9_0           ┆ conda-forge     
+ │ │   ┆   3.05 MiB │
+ │ │ │ packaging                                         ┆                                              ┆ 26.3         ┆ pyhc364b38_0         ┆ conda-forge     
+ │ │   ┆ 113.64 KiB │
+ │ │ │ pyparsing                                         ┆                                              ┆ 3.3.2        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆ 108.29 KiB │
+ │ │ │ python-dateutil                                   ┆                                              ┆ 2.9.0.post0  ┆ pyhe01879c_2         ┆ conda-forge     
+ │ │   ┆ 227.84 KiB │
+ │ │ │ python_abi                                        ┆                                              ┆ 3.12         ┆ 9_cp312              ┆ conda-forge     
+ │ │   ┆   6.59 KiB │
+ │ │ │ readline                                          ┆                                              ┆ 8.3          ┆ hd6e31c0_1           ┆ conda-forge     
+ │ │   ┆ 340.72 KiB │
+ │ │ │ rhash                                             ┆                                              ┆ 1.4.6        ┆ hb03c661_2           ┆ conda-forge     
+ │ │   ┆ 190.42 KiB │
+ │ │ │ ros-humble-ament-cmake-core                       ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  43.48 KiB │
+ │ │ │ ros-humble-ament-cmake-export-definitions         ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.83 KiB │
+ │ │ │ ros-humble-ament-cmake-export-dependencies        ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.00 KiB │
+ │ │ │ ros-humble-ament-cmake-export-include-directories ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.26 KiB │
+ │ │ │ ros-humble-ament-cmake-export-interfaces          ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.44 KiB │
+ │ │ │ ros-humble-ament-cmake-export-libraries           ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.73 KiB │
+ │ │ │ ros-humble-ament-cmake-export-link-flags          ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.77 KiB │
+ │ │ │ ros-humble-ament-cmake-export-targets             ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  22.59 KiB │
+ │ │ │ ros-humble-ament-cmake-gen-version-h              ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  24.53 KiB │
+ │ │ │ ros-humble-ament-cmake-include-directories        ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.71 KiB │
+ │ │ │ ros-humble-ament-cmake-libraries                  ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.44 KiB │
+ │ │ │ ros-humble-ament-cmake-python                     ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.92 KiB │
+ │ │ │ ros-humble-ament-cmake-target-dependencies        ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  23.40 KiB │
+ │ │ │ ros-humble-ament-cmake-test                       ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  34.96 KiB │
+ │ │ │ ros-humble-ament-cmake-version                    ┆                                              ┆ 1.3.13       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  21.61 KiB │
+ │ │ │ ros-humble-ament-package                          ┆                                              ┆ 0.14.2       ┆ np2py312h2ed9cc7_15  ┆ robostack-stagin
+ │ │ g ┆  45.33 KiB │
+ │ │ │ setuptools                                        ┆                                              ┆ 84.0.0       ┆ pyh332efcf_0         ┆ conda-forge     
+ │ │   ┆ 512.20 KiB │
+ │ │ │ six                                               ┆                                              ┆ 1.17.0       ┆ pyhe01879c_1         ┆ conda-forge     
+ │ │   ┆  18.02 KiB │
+ │ │ │ tk                                                ┆                                              ┆ 8.6.13       ┆ noxft_h1df4ec4_4     ┆ conda-forge     
+ │ │   ┆   3.40 MiB │
+ │ │ │ tzdata                                            ┆                                              ┆ 2026c        ┆ h151e31d_0           ┆ conda-forge     
+ │ │   ┆ 116.06 KiB │
+ │ │ │ wheel                                             ┆                                              ┆ 0.48.0       ┆ pyhd8ed1ab_0         ┆ conda-forge     
+ │ │   ┆  33.72 KiB │
+ │ │ │ zipp                                              ┆                                              ┆ 4.1.0        ┆ pyhcf101f3_0         ┆ conda-forge     
+ │ │   ┆  23.62 KiB │
+ │ │ │ zstd                                              ┆                                              ┆ 1.5.7        ┆ hb78ec9c_7           ┆ conda-forge     
+ │ │   ┆ 587.21 KiB │
+ │ │ ╰───────────────────────────────────────────────────┴──────────────────────────────────────────────┴──────────────┴──────────────────────┴─────────────────
+ │ │ ──┴────────────╯
+ │ │ 
+ │ │ Run dependencies:
+ │ │ ╭─────────────────────────────────┬────────────────────────────────────────────────────╮
+ │ │ │ Name                            ┆ Spec                                               │
+ │ │ ╞═════════════════════════════════╪════════════════════════════════════════════════════╡
+ │ │ │ Run dependencies                ┆                                                    │
+ │ │ │ __glibc                         ┆ >=2.17,<3.0.a0 (RE of [build: sysroot_linux-64])   │
+ │ │ │ libgcc                          ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ │                                 ┆ >=14 (RE of [build: gcc_linux-64])                 │
+ │ │ │ libstdcxx                       ┆ >=14 (RE of [build: gxx_linux-64])                 │
+ │ │ │ numpy                           ┆ >=1.25,<3 (RE of [host: numpy])                    │
+ │ │ │ python                          ┆ *                                                  │
+ │ │ │ python_abi                      ┆ 3.12.* *_cp312 (RE of [host: python])              │
+ │ │ │ ros-humble-imu-filter-madgwick  ┆ *                                                  │
+ │ │ │ ros-humble-realsense2-camera    ┆ *                                                  │
+ │ │ │ ros-humble-ros-workspace        ┆ *                                                  │
+ │ │ │ ros-humble-rtabmap-odom         ┆ *                                                  │
+ │ │ │ ros-humble-rtabmap-rviz-plugins ┆ *                                                  │
+ │ │ │ ros-humble-rtabmap-slam         ┆ *                                                  │
+ │ │ │ ros-humble-rtabmap-util         ┆ *                                                  │
+ │ │ │ ros-humble-rtabmap-viz          ┆ *                                                  │
+ │ │ │ ros-humble-tf2-ros              ┆ *                                                  │
+ │ │ │ ros-humble-velodyne             ┆ *                                                  │
+ │ │ │ ros2-distro-mutex               ┆ 0.8.* humble_*                                     │
+ │ │ │                                 ┆ >=0.8.0,<0.9.0a0 (RE of [host: ros2-distro-mutex]) │
+ │ │ ╰─────────────────────────────────┴────────────────────────────────────────────────────╯
+ │ │ 
+ │ │ Artifact: /home/ubuntu/work/output/linux-64/ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18.conda (51.11 KiB)
+ │ │
+ │ ╰─────────────────── (took 0 seconds)
+ │
+ ╰─────────────────── (took 0 seconds)

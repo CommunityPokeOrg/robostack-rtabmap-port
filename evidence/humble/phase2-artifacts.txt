@@ -1,0 +1,20 @@
+total 13916
+drwxr-xr-x 2 ubuntu ubuntu    4096 Sep 14 01:43 .
+drwxr-xr-x 8 ubuntu ubuntu    4096 Sep 14 01:27 ..
+-rw-r--r-- 1 ubuntu ubuntu   14274 Sep 14 01:43 repodata.json
+-rw------- 1 ubuntu ubuntu   90049 Sep 14 01:30 ros-humble-aruco-msgs-5.0.5-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu   98718 Sep 14 01:30 ros-humble-aruco-opencv-msgs-2.4.2-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu 6350764 Sep 14 01:27 ros-humble-rtabmap-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu  231058 Sep 14 01:31 ros-humble-rtabmap-conversions-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu  160811 Sep 14 01:38 ros-humble-rtabmap-demos-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu   52341 Sep 14 01:38 ros-humble-rtabmap-examples-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu   39856 Sep 14 01:37 ros-humble-rtabmap-launch-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu  745632 Sep 14 01:31 ros-humble-rtabmap-msgs-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu  947294 Sep 14 01:35 ros-humble-rtabmap-odom-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu   18720 Sep 14 01:37 ros-humble-rtabmap-python-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu   23099 Sep 14 01:38 ros-humble-rtabmap-ros-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu  408900 Sep 14 01:43 ros-humble-rtabmap-rviz-plugins-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu 1048259 Sep 14 01:36 ros-humble-rtabmap-slam-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu 2366503 Sep 14 01:33 ros-humble-rtabmap-sync-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu 1160284 Sep 14 01:34 ros-humble-rtabmap-util-0.22.1-np2py312h2ed9cc7_18.conda
+-rw------- 1 ubuntu ubuntu  452214 Sep 14 01:37 ros-humble-rtabmap-viz-0.22.1-np2py312h2ed9cc7_18.conda
