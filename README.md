@@ -6,12 +6,27 @@ RoboStack / conda-forge packaging of [RTAB-Map](https://github.com/introlab/rtab
 
 Requested by Hermano (@dotio). Maintained under CommunityPokeOrg.
 
+> **This project is currently a feasibility pass, not a committed port.** Gate 0 is
+> [#12 — feasibility analysis](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/12):
+> research how comparable C++/ROS packages reach osx-arm64 via RoboStack/conda-forge, document
+> macOS toolchain/linking/runtime quirks, and record an explicit **go / conditional-go / no-go**
+> for `rtabmap` and for `rtabmap_ros`, with unknowns listed separately from findings
+> (`docs/feasibility.md`, TODO). Milestones #1–#11 are gated by that decision; the linux-64
+> builds below are evidence *for* the feasibility pass, not a commitment.
+>
+> **Feasibility decision: PENDING** (no osx-arm64 build has been attempted yet).
+
 > Status legend: **BUILT** = a `.conda` artifact was produced and the log is committed under `evidence/`;
 > **FAILED** = attempted, log committed; **TODO** = not attempted. Nothing here is claimed
 > without a log.
 
 ## Scope
 
+0. **Feasibility first (#12):** inspect representative conda-forge recipes, RoboStack patches,
+   bot-generated PRs and build metadata (RoboStack/ros-humble, robostack-staging) for complex
+   C++/Qt/PCL/OpenCV/GTSAM packages on osx-arm64; document compiler/linking quirks, platform
+   selectors, patching strategy, CMake/toolchain behaviour, runtime library paths and CI
+   requirements; derive prerequisites and reusable patterns for RTAB-Map; decide go/no-go.
 1. Package the RTAB-Map core library (`rtabmap`: `librtabmap_core`, `librtabmap_gui`,
    `librtabmap_utilite`, `rtabmap` GUI binary) as a RoboStack ROS package
    (`ros-<distro>-rtabmap`), reusing RoboStack's `vinca` generator and `rattler-build`.
@@ -24,7 +39,7 @@ Requested by Hermano (@dotio). Maintained under CommunityPokeOrg.
 4. Upstream the result to `RoboStack/ros-humble` (then `ros-jazzy`) and document what is
    implemented vs. deferred.
 
-Out of scope for the MVP: Windows (`win-64`) — see [Platform status](#platform-status).
+Out of scope for the MVP: Windows (`win-64`) — see [Current status](#current-status).
 
 ## Package targets
 
@@ -115,7 +130,7 @@ robostack/humble/            IMPLEMENTED — RoboStack/ros-humble overlay (base 
   patch/                     empty so far — one patch per package (patch/ros-humble-<pkg>.patch) as failures demand
 evidence/humble/             IMPLEMENTED — full build logs, generated recipe, diffs vs upstream
 investigation/               IMPLEMENTED — repodata query script + per-distro dependency availability tables
-docs/                        TODO — dependency-matrix.md (#1, #5), humble-vs-rolling.md (#10), how-to-build.md, limitations.md (#11)
+docs/                        TODO — feasibility.md (#12, first deliverable), dependency-matrix.md (#1, #5), humble-vs-rolling.md (#10), how-to-build.md, limitations.md (#11)
 conda-forge/                 TODO — only if a non-ROS variant is needed; otherwise defer to staged-recipes#34714
 .github/workflows/           TODO — linux-64 + macos-14 (arm64) matrix (#9)
 ```
@@ -136,24 +151,26 @@ in the channel list so already-built local packages are picked up.
 
 ## Milestones and issue tracking
 
-Work is tracked as GitHub issues, one per milestone, all labelled `milestone`. Extra labels:
+Work is tracked as GitHub issues, one per milestone, all labelled `milestone`. **#12 is the
+entry gate**; #2 and #10 feed it, everything else waits for its decision. Extra labels:
 `dependency`, `recipe`, `ci`, `documentation`, `blocked`, `humble`, `rolling`,
 `platform:osx-arm64`. Each issue has acceptance criteria and lists its dependencies; an
 issue is only closed with a link to committed evidence.
 
 | # | milestone | depends on |
 |---|---|---|
-| [#1](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/1) | osx-arm64 dependency matrix audit | #2 #3 #4 #5 |
+| [#12](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/12) | **Gate 0 — feasibility analysis**: RoboStack osx-arm64 patterns, macOS quirks, go/no-go for `rtabmap` and `rtabmap_ros` | — (inputs: #2, #10) |
+| [#1](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/1) | osx-arm64 dependency matrix audit | #12, #2 #3 #4 #5 |
 | [#2](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/2) | GTSAM feedstock/package status (mutex 0.9 / Boost 1.90 blocker) | — |
-| [#3](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/3) | PCL feedstock/package status | — |
-| [#4](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/4) | libpointmatcher feedstock/package status | — |
-| [#5](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/5) | OpenCV and remaining native dependency audit | — |
-| [#6](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/6) | conda recipe for `rtabmap` (`ros-humble-rtabmap`) | #2 |
-| [#7](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/7) | conda recipes for the `rtabmap_ros` family | #6 |
-| [#8](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/8) | local macOS Apple Silicon (osx-arm64) build verification | #1 #2 #5 #6 |
-| [#9](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/9) | packaging and CI integration (+ upstream PRs to RoboStack) | #6 #7 |
+| [#3](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/3) | PCL feedstock/package status | #12 |
+| [#4](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/4) | libpointmatcher feedstock/package status | #12 |
+| [#5](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/5) | OpenCV and remaining native dependency audit | #12 |
+| [#6](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/6) | conda recipe for `rtabmap` (`ros-humble-rtabmap`) | #12, #2 |
+| [#7](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/7) | conda recipes for the `rtabmap_ros` family | #12, #6 |
+| [#8](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/8) | local macOS Apple Silicon (osx-arm64) build verification | #12, #1 #2 #5 #6 |
+| [#9](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/9) | packaging and CI integration (+ upstream PRs to RoboStack) | #12, #6 #7 |
 | [#10](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/10) | Humble vs Rolling package/version strategy and documentation | — |
-| [#11](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/11) | final validation, documentation, and handoff | #6–#10 |
+| [#11](https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues/11) | final validation, documentation, and handoff | #12, #6–#10 |
 
 Full list: https://github.com/CommunityPokeOrg/robostack-rtabmap-port/issues?q=label%3Amilestone
 
